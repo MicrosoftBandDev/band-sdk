@@ -12,98 +12,98 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public interface IWebTile
-  {
-    Guid TileId { get; set; }
+    public interface IWebTile
+    {
+        Guid TileId { get; set; }
 
-    string Name { get; }
+        string Name { get; }
 
-    string Description { get; }
+        string Description { get; }
 
-    uint ManifestVersion { get; }
+        uint ManifestVersion { get; }
 
-    uint Version { get; }
+        uint Version { get; }
 
-    string VersionString { get; }
+        string VersionString { get; }
 
-    string Author { get; }
+        string Author { get; }
 
-    string Organization { get; }
+        string Organization { get; }
 
-    string ContactEmail { get; }
+        string ContactEmail { get; }
 
-    Dictionary<int, string> TileIcons { get; }
+        Dictionary<int, string> TileIcons { get; }
 
-    Dictionary<int, string> BadgeIcons { get; }
+        Dictionary<int, string> BadgeIcons { get; }
 
-    Dictionary<string, string> AdditionalIcons { get; }
+        Dictionary<string, string> AdditionalIcons { get; }
 
-    BandIcon TileBandIcon { get; }
+        BandIcon TileBandIcon { get; }
 
-    BandIcon BadgeBandIcon { get; }
+        BandIcon BadgeBandIcon { get; }
 
-    BandIcon[] AdditionalBandIcons { get; }
+        BandIcon[] AdditionalBandIcons { get; }
 
-    WebTileTheme TileTheme { get; }
+        WebTileTheme TileTheme { get; }
 
-    uint RefreshIntervalMinutes { get; }
+        uint RefreshIntervalMinutes { get; }
 
-    IWebTileResource[] Resources { get; }
+        IWebTileResource[] Resources { get; }
 
-    WebTilePage[] Pages { get; }
+        WebTilePage[] Pages { get; }
 
-    IImageProvider ImageProvider { get; set; }
+        IImageProvider ImageProvider { get; set; }
 
-    string PackageFolderPath { get; set; }
+        string PackageFolderPath { get; set; }
 
-    Task LoadIconsAsync();
+        Task LoadIconsAsync();
 
-    Task<TileLayout[]> GetLayoutsAsync(BandClass bandClass);
+        Task<TileLayout[]> GetLayoutsAsync(BandClass bandClass);
 
-    Task<bool> ResolveContentMappingsAsync();
+        Task<bool> ResolveContentMappingsAsync();
 
-    string DataFolderPath { get; set; }
+        string DataFolderPath { get; set; }
 
-    IStorageProvider StorageProvider { get; set; }
+        IStorageProvider StorageProvider { get; set; }
 
-    HeaderNameValuePair[] RequestHeaders { get; set; }
+        HeaderNameValuePair[] RequestHeaders { get; set; }
 
-    bool HasRefreshIntervalElapsed(DateTimeOffset time);
+        bool HasRefreshIntervalElapsed(DateTimeOffset time);
 
-    void SaveLastSync(DateTimeOffset time);
+        void SaveLastSync(DateTimeOffset time);
 
-    bool HasNotifications { get; }
+        bool HasNotifications { get; }
 
-    bool NotificationEnabled { get; set; }
+        bool NotificationEnabled { get; set; }
 
-    Task SetNotificationEnabledAsync(bool enabled);
+        Task SetNotificationEnabledAsync(bool enabled);
 
-    Task SaveUserSettingsAsync();
+        Task SaveUserSettingsAsync();
 
-    void SaveUserSettings();
+        void SaveUserSettings();
 
-    void LoadUserSettings();
+        void LoadUserSettings();
 
-    List<PageData> Refresh(
-      out bool clearPages,
-      out bool sendAsMessage,
-      out NotificationDialog notificationDialog);
+        List<PageData> Refresh(
+          out bool clearPages,
+          out bool sendAsMessage,
+          out NotificationDialog notificationDialog);
 
-    void Validate();
+        void Validate();
 
-    void SetAuthenticationHeader(IWebTileResource resource, string userName, string password);
+        void SetAuthenticationHeader(IWebTileResource resource, string userName, string password);
 
-    Task SetAuthenticationHeaderAsync(
-      IWebTileResource resource,
-      string userName,
-      string password);
+        Task SetAuthenticationHeaderAsync(
+          IWebTileResource resource,
+          string userName,
+          string password);
 
-    Task<bool> AuthenticateResourceAsync(IWebTileResource resource);
+        Task<bool> AuthenticateResourceAsync(IWebTileResource resource);
 
-    void SaveResourceAuthentication();
+        void SaveResourceAuthentication();
 
-    void LoadResourceAuthentication();
+        void LoadResourceAuthentication();
 
-    void DeleteStoredResourceCredentials();
-  }
+        void DeleteStoredResourceCredentials();
+    }
 }

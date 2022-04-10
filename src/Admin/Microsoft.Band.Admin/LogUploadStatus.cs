@@ -6,14 +6,14 @@
 
 namespace Microsoft.Band.Admin
 {
-  internal enum LogUploadStatus
-  {
-    Unknown,
-    UploadPathSent,
-    UploadDone,
-    QueuedForETL,
-    ActivitiesProcessingDone,
-    EventsProcessingDone,
-    EventsProcessingBlocked,
-  }
+    internal enum LogUploadStatus
+    {
+        Unknown,
+        UploadPathSent,
+        UploadDone,
+        QueuedForETL,
+        ActivitiesProcessingDone,
+        EventsProcessingDone,
+        EventsProcessingBlocked,
+    }
 }

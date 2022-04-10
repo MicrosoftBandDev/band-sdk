@@ -8,29 +8,29 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  internal static class ProviderLogLevelExtensions
-  {
-    internal static LogLevel ToLogLevel(this ProviderLogLevel level)
+    internal static class ProviderLogLevelExtensions
     {
-      switch (level)
-      {
-        case ProviderLogLevel.Off:
-          return LogLevel.Off;
-        case ProviderLogLevel.Fatal:
-          return LogLevel.Fatal;
-        case ProviderLogLevel.Error:
-          return LogLevel.Error;
-        case ProviderLogLevel.Warning:
-          return LogLevel.Warning;
-        case ProviderLogLevel.Info:
-          return LogLevel.Info;
-        case ProviderLogLevel.Performance:
-          return LogLevel.Performance;
-        case ProviderLogLevel.Verbose:
-          return LogLevel.Verbose;
-        default:
-          throw new ArgumentException("Unknown LogLevel value.");
-      }
+        internal static LogLevel ToLogLevel(this ProviderLogLevel level)
+        {
+            switch (level)
+            {
+                case ProviderLogLevel.Off:
+                    return LogLevel.Off;
+                case ProviderLogLevel.Fatal:
+                    return LogLevel.Fatal;
+                case ProviderLogLevel.Error:
+                    return LogLevel.Error;
+                case ProviderLogLevel.Warning:
+                    return LogLevel.Warning;
+                case ProviderLogLevel.Info:
+                    return LogLevel.Info;
+                case ProviderLogLevel.Performance:
+                    return LogLevel.Performance;
+                case ProviderLogLevel.Verbose:
+                    return LogLevel.Verbose;
+                default:
+                    throw new ArgumentException("Unknown LogLevel value.");
+            }
+        }
     }
-  }
 }

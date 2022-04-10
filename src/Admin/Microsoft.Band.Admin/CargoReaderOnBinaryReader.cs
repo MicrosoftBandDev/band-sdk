@@ -10,119 +10,119 @@ using System.Text;
 
 namespace Microsoft.Band.Admin
 {
-  public sealed class CargoReaderOnBinaryReader : ICargoReader, IDisposable
-  {
-    private BinaryReader reader;
-
-    public CargoReaderOnBinaryReader(BinaryReader reader) => this.reader = reader;
-
-    public int Read(byte[] destination) => this.Read(destination, 0, destination.Length);
-
-    public int Read(byte[] destination, int offset, int count)
+    public sealed class CargoReaderOnBinaryReader : ICargoReader, IDisposable
     {
-      this.CheckIfDisposed();
-      return this.reader.Read(destination, offset, count);
-    }
+        private BinaryReader reader;
 
-    public void ReadExact(byte[] destination, int offset, int count)
-    {
-      this.CheckIfDisposed();
-      int num;
-      for (int index = 0; index < count; index += num)
-      {
-        num = this.Read(destination, offset + index, count - index);
-        if (num == 0)
-          throw new EndOfStreamException();
-      }
-    }
+        public CargoReaderOnBinaryReader(BinaryReader reader) => this.reader = reader;
 
-    public byte[] ReadExact(int count)
-    {
-      this.CheckIfDisposed();
-      byte[] destination = new byte[count];
-      this.ReadExact(destination, 0, count);
-      return destination;
-    }
+        public int Read(byte[] destination) => this.Read(destination, 0, destination.Length);
 
-    public void ReadExactAndDiscard(int count) => this.ReadExact(count);
+        public int Read(byte[] destination, int offset, int count)
+        {
+            this.CheckIfDisposed();
+            return this.reader.Read(destination, offset, count);
+        }
 
-    public byte ReadByte()
-    {
-      this.CheckIfDisposed();
-      return this.reader.ReadByte();
-    }
+        public void ReadExact(byte[] destination, int offset, int count)
+        {
+            this.CheckIfDisposed();
+            int num;
+            for (int index = 0; index < count; index += num)
+            {
+                num = this.Read(destination, offset + index, count - index);
+                if (num == 0)
+                    throw new EndOfStreamException();
+            }
+        }
 
-    public short ReadInt16()
-    {
-      this.CheckIfDisposed();
-      return this.reader.ReadInt16();
-    }
+        public byte[] ReadExact(int count)
+        {
+            this.CheckIfDisposed();
+            byte[] destination = new byte[count];
+            this.ReadExact(destination, 0, count);
+            return destination;
+        }
 
-    public ushort ReadUInt16()
-    {
-      this.CheckIfDisposed();
-      return this.reader.ReadUInt16();
-    }
+        public void ReadExactAndDiscard(int count) => this.ReadExact(count);
 
-    public int ReadInt32()
-    {
-      this.CheckIfDisposed();
-      return this.reader.ReadInt32();
-    }
+        public byte ReadByte()
+        {
+            this.CheckIfDisposed();
+            return this.reader.ReadByte();
+        }
 
-    public uint ReadUInt32()
-    {
-      this.CheckIfDisposed();
-      return this.reader.ReadUInt32();
-    }
+        public short ReadInt16()
+        {
+            this.CheckIfDisposed();
+            return this.reader.ReadInt16();
+        }
 
-    public long ReadInt64()
-    {
-      this.CheckIfDisposed();
-      return this.reader.ReadInt64();
-    }
+        public ushort ReadUInt16()
+        {
+            this.CheckIfDisposed();
+            return this.reader.ReadUInt16();
+        }
 
-    public ulong ReadUInt64()
-    {
-      this.CheckIfDisposed();
-      return this.reader.ReadUInt64();
-    }
+        public int ReadInt32()
+        {
+            this.CheckIfDisposed();
+            return this.reader.ReadInt32();
+        }
 
-    public bool ReadBool32()
-    {
-      this.CheckIfDisposed();
-      return (uint) this.reader.ReadInt32() > 0U;
-    }
+        public uint ReadUInt32()
+        {
+            this.CheckIfDisposed();
+            return this.reader.ReadUInt32();
+        }
 
-    public Guid ReadGuid()
-    {
-      this.CheckIfDisposed();
-      return new Guid(this.reader.ReadBytes(16));
-    }
+        public long ReadInt64()
+        {
+            this.CheckIfDisposed();
+            return this.reader.ReadInt64();
+        }
 
-    public string ReadString(int length)
-    {
-      this.CheckIfDisposed();
-      int count = length * 2;
-      byte[] bytes = this.ReadExact(count);
-      int index = 0;
-      while (index < count && bytes[index] != (byte) 0)
-        index += 2;
-      return Encoding.Unicode.GetString(bytes, 0, count);
-    }
+        public ulong ReadUInt64()
+        {
+            this.CheckIfDisposed();
+            return this.reader.ReadUInt64();
+        }
 
-    private void CheckIfDisposed()
-    {
-      if (this.reader == null)
-        throw new ObjectDisposedException(nameof (CargoReaderOnBinaryReader));
-    }
+        public bool ReadBool32()
+        {
+            this.CheckIfDisposed();
+            return (uint)this.reader.ReadInt32() > 0U;
+        }
 
-    public void Dispose()
-    {
-      if (this.reader == null)
-        return;
-      this.reader.Dispose();
-      this.reader = (BinaryReader) null;
+        public Guid ReadGuid()
+        {
+            this.CheckIfDisposed();
+            return new Guid(this.reader.ReadBytes(16));
+        }
+
+        public string ReadString(int length)
+        {
+            this.CheckIfDisposed();
+            int count = length * 2;
+            byte[] bytes = this.ReadExact(count);
+            int index = 0;
+            while (index < count && bytes[index] != (byte)0)
+                index += 2;
+            return Encoding.Unicode.GetString(bytes, 0, count);
+        }
+
+        private void CheckIfDisposed()
+        {
+            if (this.reader == null)
+                throw new ObjectDisposedException(nameof(CargoReaderOnBinaryReader));
+        }
+
+        public void Dispose()
+        {
+            if (this.reader == null)
+                return;
+            this.reader.Dispose();
+            this.reader = (BinaryReader)null;
+        }
     }
-  }
 }

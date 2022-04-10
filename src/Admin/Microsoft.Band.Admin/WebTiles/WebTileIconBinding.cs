@@ -9,35 +9,35 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  [DataContract]
-  public class WebTileIconBinding
-  {
-    private short elementId;
-    private WebTileIconCondition[] conditions;
-    private WebTilePropertyValidator validator = new WebTilePropertyValidator();
-
-    public WebTilePropertyValidator Validator => this.validator;
-
-    public bool AllowInvalidValues
+    [DataContract]
+    public class WebTileIconBinding
     {
-      get => this.validator.AllowInvalidValues;
-      set => this.validator.AllowInvalidValues = value;
-    }
+        private short elementId;
+        private WebTileIconCondition[] conditions;
+        private WebTilePropertyValidator validator = new WebTilePropertyValidator();
 
-    public Dictionary<string, string> PropertyErrors => this.validator.PropertyErrors;
+        public WebTilePropertyValidator Validator => this.validator;
 
-    [DataMember(IsRequired = true, Name = "elementId")]
-    public short ElementId
-    {
-      get => this.elementId;
-      set => this.elementId = value;
-    }
+        public bool AllowInvalidValues
+        {
+            get => this.validator.AllowInvalidValues;
+            set => this.validator.AllowInvalidValues = value;
+        }
 
-    [DataMember(IsRequired = true, Name = "conditions")]
-    public WebTileIconCondition[] Conditions
-    {
-      get => this.conditions;
-      set => this.conditions = value;
+        public Dictionary<string, string> PropertyErrors => this.validator.PropertyErrors;
+
+        [DataMember(IsRequired = true, Name = "elementId")]
+        public short ElementId
+        {
+            get => this.elementId;
+            set => this.elementId = value;
+        }
+
+        [DataMember(IsRequired = true, Name = "conditions")]
+        public WebTileIconCondition[] Conditions
+        {
+            get => this.conditions;
+            set => this.conditions = value;
+        }
     }
-  }
 }

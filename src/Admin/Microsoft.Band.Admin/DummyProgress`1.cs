@@ -8,10 +8,10 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  internal class DummyProgress<T> : IProgress<T>
-  {
-    public void Report(T dummy)
+    internal class DummyProgress<T> : IProgress<T>
     {
+        public void Report(T dummy)
+        {
+        }
     }
-  }
 }

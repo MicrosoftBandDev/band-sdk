@@ -15,673 +15,673 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Band.Admin
 {
-  public interface ICargoClient : IBandClient, IDisposable
-  {
-    IDynamicBandConstants ConnectedBandConstants { get; }
+    public interface ICargoClient : IBandClient, IDisposable
+    {
+        IDynamicBandConstants ConnectedBandConstants { get; }
 
-    string UserAgent { get; set; }
+        string UserAgent { get; set; }
 
-    RunningAppType DeviceTransportApp { get; }
+        RunningAppType DeviceTransportApp { get; }
 
-    Guid DeviceUniqueId { get; }
+        Guid DeviceUniqueId { get; }
 
-    string SerialNumber { get; }
+        string SerialNumber { get; }
 
-    FirmwareVersions FirmwareVersions { get; }
+        FirmwareVersions FirmwareVersions { get; }
 
-    event EventHandler Disconnected;
+        event EventHandler Disconnected;
 
-    event EventHandler<BatteryGaugeUpdatedEventArgs> BatteryGaugeUpdated;
+        event EventHandler<BatteryGaugeUpdatedEventArgs> BatteryGaugeUpdated;
 
-    event EventHandler<LogEntryUpdatedEventArgs> LogEntryUpdated;
+        event EventHandler<LogEntryUpdatedEventArgs> LogEntryUpdated;
 
-    Task<SyncResult> ObsoleteSyncDeviceToCloudAsync(
-      CancellationToken cancellationToken,
-      IProgress<SyncProgress> progress = null,
-      bool logsOnly = false);
+        Task<SyncResult> ObsoleteSyncDeviceToCloudAsync(
+          CancellationToken cancellationToken,
+          IProgress<SyncProgress> progress = null,
+          bool logsOnly = false);
 
-    Task<SyncResult> SyncRequiredBandInfoAsync(
-      CancellationToken cancellationToken,
-      IProgress<SyncProgress> progress = null);
+        Task<SyncResult> SyncRequiredBandInfoAsync(
+          CancellationToken cancellationToken,
+          IProgress<SyncProgress> progress = null);
 
-    Task<SyncResult> SyncAuxiliaryBandInfoAsync(CancellationToken cancellationToken);
+        Task<SyncResult> SyncAuxiliaryBandInfoAsync(CancellationToken cancellationToken);
 
-    Task<SyncResult> SyncAllBandInfoAsync(CancellationToken cancellationToken);
+        Task<SyncResult> SyncAllBandInfoAsync(CancellationToken cancellationToken);
 
-    Task<long> GetPendingLocalDataBytesAsync();
+        Task<long> GetPendingLocalDataBytesAsync();
 
-    long GetPendingLocalDataBytes();
+        long GetPendingLocalDataBytes();
 
-    Task<long> GetPendingDeviceDataBytesAsync();
+        Task<long> GetPendingDeviceDataBytesAsync();
 
-    long GetPendingDeviceDataBytes();
+        long GetPendingDeviceDataBytes();
 
-    Task<IUserProfile> GetUserProfileFromDeviceAsync();
+        Task<IUserProfile> GetUserProfileFromDeviceAsync();
 
-    IUserProfile GetUserProfileFromDevice();
+        IUserProfile GetUserProfileFromDevice();
 
-    Task<IUserProfile> GetUserProfileAsync();
+        Task<IUserProfile> GetUserProfileAsync();
 
-    IUserProfile GetUserProfile();
+        IUserProfile GetUserProfile();
 
-    Task<IUserProfile> GetUserProfileAsync(CancellationToken cancellationToken);
+        Task<IUserProfile> GetUserProfileAsync(CancellationToken cancellationToken);
 
-    IUserProfile GetUserProfile(CancellationToken cancellationToken);
+        IUserProfile GetUserProfile(CancellationToken cancellationToken);
 
-    Task SaveUserProfileAsync(IUserProfile profile, DateTimeOffset? updateTime = null);
+        Task SaveUserProfileAsync(IUserProfile profile, DateTimeOffset? updateTime = null);
 
-    void SaveUserProfile(IUserProfile profile, DateTimeOffset? updateTime = null);
+        void SaveUserProfile(IUserProfile profile, DateTimeOffset? updateTime = null);
 
-    Task SaveUserProfileAsync(
-      IUserProfile profile,
-      CancellationToken cancellationToken,
-      DateTimeOffset? updateTime = null);
+        Task SaveUserProfileAsync(
+          IUserProfile profile,
+          CancellationToken cancellationToken,
+          DateTimeOffset? updateTime = null);
 
-    void SaveUserProfile(
-      IUserProfile profile,
-      CancellationToken cancellationToken,
-      DateTimeOffset? updateTimeN = null);
+        void SaveUserProfile(
+          IUserProfile profile,
+          CancellationToken cancellationToken,
+          DateTimeOffset? updateTimeN = null);
 
-    void SaveUserProfileToBandOnly(IUserProfile profile, DateTimeOffset? updateTime = null);
+        void SaveUserProfileToBandOnly(IUserProfile profile, DateTimeOffset? updateTime = null);
 
-    Task SaveUserProfileToBandOnlyAsync(IUserProfile profile, DateTimeOffset? updateTimeN = null);
+        Task SaveUserProfileToBandOnlyAsync(IUserProfile profile, DateTimeOffset? updateTimeN = null);
 
-    Task SaveUserProfileFirmwareBytesAsync(CancellationToken cancellationToken);
+        Task SaveUserProfileFirmwareBytesAsync(CancellationToken cancellationToken);
 
-    void SaveUserProfileFirmwareBytes(CancellationToken cancellationToken);
+        void SaveUserProfileFirmwareBytes(CancellationToken cancellationToken);
 
-    Task ImportUserProfileAsync(CancellationToken cancellationToken);
+        Task ImportUserProfileAsync(CancellationToken cancellationToken);
 
-    Task ImportUserProfileAsync(IUserProfile userProfile, CancellationToken cancellationToken);
+        Task ImportUserProfileAsync(IUserProfile userProfile, CancellationToken cancellationToken);
 
-    void ImportUserProfile(IUserProfile userProfile, CancellationToken cancellationToken);
+        void ImportUserProfile(IUserProfile userProfile, CancellationToken cancellationToken);
 
-    DeviceProfileStatus GetDeviceAndProfileLinkStatus(IUserProfile userProfile = null);
+        DeviceProfileStatus GetDeviceAndProfileLinkStatus(IUserProfile userProfile = null);
 
-    Task<DeviceProfileStatus> GetDeviceAndProfileLinkStatusAsync(
-      IUserProfile userProfile = null);
+        Task<DeviceProfileStatus> GetDeviceAndProfileLinkStatusAsync(
+          IUserProfile userProfile = null);
 
-    Task<DeviceProfileStatus> GetDeviceAndProfileLinkStatusAsync(
-      CancellationToken cancellationToken,
-      IUserProfile userProfile = null);
+        Task<DeviceProfileStatus> GetDeviceAndProfileLinkStatusAsync(
+          CancellationToken cancellationToken,
+          IUserProfile userProfile = null);
 
-    DeviceProfileStatus GetDeviceAndProfileLinkStatus(
-      CancellationToken cancellationToken,
-      IUserProfile userProfile = null);
+        DeviceProfileStatus GetDeviceAndProfileLinkStatus(
+          CancellationToken cancellationToken,
+          IUserProfile userProfile = null);
 
-    Task<DeviceProfileStatus> GetDeviceAndProfileLinkStatusAsync(
-      CancellationToken cancellationToken,
-      Guid cloudUserId,
-      Guid cloudDeviceId);
+        Task<DeviceProfileStatus> GetDeviceAndProfileLinkStatusAsync(
+          CancellationToken cancellationToken,
+          Guid cloudUserId,
+          Guid cloudDeviceId);
 
-    Task LinkDeviceToProfileAsync(IUserProfile userProfile = null, bool importUserProfile = false);
+        Task LinkDeviceToProfileAsync(IUserProfile userProfile = null, bool importUserProfile = false);
 
-    void LinkDeviceToProfile(IUserProfile userProfile = null, bool importUserProfile = false);
+        void LinkDeviceToProfile(IUserProfile userProfile = null, bool importUserProfile = false);
 
-    Task LinkDeviceToProfileAsync(
-      CancellationToken cancellationToken,
-      IUserProfile userProfile = null,
-      bool importUserProfile = false);
+        Task LinkDeviceToProfileAsync(
+          CancellationToken cancellationToken,
+          IUserProfile userProfile = null,
+          bool importUserProfile = false);
 
-    void LinkDeviceToProfile(
-      CancellationToken cancellationToken,
-      IUserProfile userProfile = null,
-      bool importUserProfile = false);
+        void LinkDeviceToProfile(
+          CancellationToken cancellationToken,
+          IUserProfile userProfile = null,
+          bool importUserProfile = false);
 
-    Task UnlinkDeviceFromProfileAsync(IUserProfile userProfile = null);
+        Task UnlinkDeviceFromProfileAsync(IUserProfile userProfile = null);
 
-    void UnlinkDeviceFromProfile(IUserProfile userProfile = null);
+        void UnlinkDeviceFromProfile(IUserProfile userProfile = null);
 
-    Task UnlinkDeviceFromProfileAsync(
-      CancellationToken cancellationToken,
-      IUserProfile userProfile = null);
+        Task UnlinkDeviceFromProfileAsync(
+          CancellationToken cancellationToken,
+          IUserProfile userProfile = null);
 
-    void UnlinkDeviceFromProfile(CancellationToken cancellationToken, IUserProfile userProfile = null);
+        void UnlinkDeviceFromProfile(CancellationToken cancellationToken, IUserProfile userProfile = null);
 
-    Task SyncUserProfileAsync(CancellationToken cancellationToken);
+        Task SyncUserProfileAsync(CancellationToken cancellationToken);
 
-    void SyncUserProfile(CancellationToken cancellationToken);
+        void SyncUserProfile(CancellationToken cancellationToken);
 
-    Task<DateTime> GetDeviceUtcTimeAsync();
+        Task<DateTime> GetDeviceUtcTimeAsync();
 
-    DateTime GetDeviceUtcTime();
+        DateTime GetDeviceUtcTime();
 
-    Task<DateTime> GetDeviceLocalTimeAsync();
+        Task<DateTime> GetDeviceLocalTimeAsync();
 
-    DateTime GetDeviceLocalTime();
+        DateTime GetDeviceLocalTime();
 
-    Task SetDeviceUtcTimeAsync();
+        Task SetDeviceUtcTimeAsync();
 
-    void SetDeviceUtcTime();
+        void SetDeviceUtcTime();
 
-    Task SetDeviceUtcTimeAsync(DateTime utc);
+        Task SetDeviceUtcTimeAsync(DateTime utc);
 
-    void SetDeviceUtcTime(DateTime utc);
+        void SetDeviceUtcTime(DateTime utc);
 
-    Task<CargoTimeZoneInfo> GetDeviceTimeZoneAsync();
+        Task<CargoTimeZoneInfo> GetDeviceTimeZoneAsync();
 
-    CargoTimeZoneInfo GetDeviceTimeZone();
+        CargoTimeZoneInfo GetDeviceTimeZone();
 
-    Task SetDeviceTimeZoneAsync(CargoTimeZoneInfo timeZone);
+        Task SetDeviceTimeZoneAsync(CargoTimeZoneInfo timeZone);
 
-    void SetDeviceTimeZone(CargoTimeZoneInfo timeZone);
+        void SetDeviceTimeZone(CargoTimeZoneInfo timeZone);
 
-    Task SetCurrentTimeAndTimeZoneAsync();
+        Task SetCurrentTimeAndTimeZoneAsync();
 
-    void SetCurrentTimeAndTimeZone();
+        void SetCurrentTimeAndTimeZone();
 
-    Task SetCurrentTimeAndTimeZoneAsync(CancellationToken cancellationToken);
+        Task SetCurrentTimeAndTimeZoneAsync(CancellationToken cancellationToken);
 
-    void SetCurrentTimeAndTimeZone(CancellationToken cancellationToken);
+        void SetCurrentTimeAndTimeZone(CancellationToken cancellationToken);
 
-    Task<bool> GetFirmwareBinariesValidationStatusAsync();
+        Task<bool> GetFirmwareBinariesValidationStatusAsync();
 
-    bool GetFirmwareBinariesValidationStatus();
+        bool GetFirmwareBinariesValidationStatus();
 
-    Task<bool> GetDeviceOobeCompletedAsync();
+        Task<bool> GetDeviceOobeCompletedAsync();
 
-    bool GetDeviceOobeCompleted();
+        bool GetDeviceOobeCompleted();
 
-    Task<EphemerisCoverageDates> GetGpsEphemerisCoverageDatesFromDeviceAsync();
+        Task<EphemerisCoverageDates> GetGpsEphemerisCoverageDatesFromDeviceAsync();
 
-    EphemerisCoverageDates GetGpsEphemerisCoverageDatesFromDevice();
+        EphemerisCoverageDates GetGpsEphemerisCoverageDatesFromDevice();
 
-    Task<bool> UpdateGpsEphemerisDataAsync();
+        Task<bool> UpdateGpsEphemerisDataAsync();
 
-    bool UpdateGpsEphemerisData();
+        bool UpdateGpsEphemerisData();
 
-    Task<bool> UpdateGpsEphemerisDataAsync(
-      CancellationToken cancellationToken,
-      bool forceUpdate = false);
+        Task<bool> UpdateGpsEphemerisDataAsync(
+          CancellationToken cancellationToken,
+          bool forceUpdate = false);
 
-    bool UpdateGpsEphemerisData(CancellationToken cancellationToken, bool forceUpdate = false);
+        bool UpdateGpsEphemerisData(CancellationToken cancellationToken, bool forceUpdate = false);
 
-    Task<uint> GetTimeZonesDataVersionFromDeviceAsync();
+        Task<uint> GetTimeZonesDataVersionFromDeviceAsync();
 
-    uint GetTimeZonesDataVersionFromDevice();
+        uint GetTimeZonesDataVersionFromDevice();
 
-    Task<bool> UpdateTimeZoneListAsync(IUserProfile profile = null);
+        Task<bool> UpdateTimeZoneListAsync(IUserProfile profile = null);
 
-    bool UpdateTimeZoneList(IUserProfile profile = null);
+        bool UpdateTimeZoneList(IUserProfile profile = null);
 
-    Task<bool> UpdateTimeZoneListAsync(
-      CancellationToken cancellationToken,
-      bool forceUpdate = false,
-      IUserProfile profile = null);
+        Task<bool> UpdateTimeZoneListAsync(
+          CancellationToken cancellationToken,
+          bool forceUpdate = false,
+          IUserProfile profile = null);
 
-    bool UpdateTimeZoneList(
-      CancellationToken cancellationToken,
-      bool forceUpdate = false,
-      IUserProfile profile = null);
+        bool UpdateTimeZoneList(
+          CancellationToken cancellationToken,
+          bool forceUpdate = false,
+          IUserProfile profile = null);
 
-    Task<IFirmwareUpdateInfo> GetLatestAvailableFirmwareVersionAsync(
-      List<KeyValuePair<string, string>> queryParams = null);
+        Task<IFirmwareUpdateInfo> GetLatestAvailableFirmwareVersionAsync(
+          List<KeyValuePair<string, string>> queryParams = null);
 
-    IFirmwareUpdateInfo GetLatestAvailableFirmwareVersion(
-      List<KeyValuePair<string, string>> queryParams = null);
+        IFirmwareUpdateInfo GetLatestAvailableFirmwareVersion(
+          List<KeyValuePair<string, string>> queryParams = null);
 
-    Task<IFirmwareUpdateInfo> GetLatestAvailableFirmwareVersionAsync(
-      CancellationToken cancellationToken,
-      List<KeyValuePair<string, string>> queryParams = null);
+        Task<IFirmwareUpdateInfo> GetLatestAvailableFirmwareVersionAsync(
+          CancellationToken cancellationToken,
+          List<KeyValuePair<string, string>> queryParams = null);
 
-    IFirmwareUpdateInfo GetLatestAvailableFirmwareVersion(
-      CancellationToken cancellationToken,
-      List<KeyValuePair<string, string>> queryParams = null);
+        IFirmwareUpdateInfo GetLatestAvailableFirmwareVersion(
+          CancellationToken cancellationToken,
+          List<KeyValuePair<string, string>> queryParams = null);
 
-    Task<bool> UpdateFirmwareAsync(
-      IFirmwareUpdateInfo updateInfo,
-      IProgress<FirmwareUpdateProgress> progress = null);
+        Task<bool> UpdateFirmwareAsync(
+          IFirmwareUpdateInfo updateInfo,
+          IProgress<FirmwareUpdateProgress> progress = null);
 
-    Task<bool> UpdateFirmwareAsync(
-      IFirmwareUpdateInfo updateInfo,
-      CancellationToken cancellationToken,
-      IProgress<FirmwareUpdateProgress> progress = null);
+        Task<bool> UpdateFirmwareAsync(
+          IFirmwareUpdateInfo updateInfo,
+          CancellationToken cancellationToken,
+          IProgress<FirmwareUpdateProgress> progress = null);
 
-    bool UpdateFirmware(IFirmwareUpdateInfo updateInfo, IProgress<FirmwareUpdateProgress> progress = null);
+        bool UpdateFirmware(IFirmwareUpdateInfo updateInfo, IProgress<FirmwareUpdateProgress> progress = null);
 
-    bool UpdateFirmware(
-      IFirmwareUpdateInfo updateInfo,
-      CancellationToken cancellationToken,
-      IProgress<FirmwareUpdateProgress> progress = null);
+        bool UpdateFirmware(
+          IFirmwareUpdateInfo updateInfo,
+          CancellationToken cancellationToken,
+          IProgress<FirmwareUpdateProgress> progress = null);
 
-    Task DownloadFirmwareUpdateAsync(IFirmwareUpdateInfo updateInfo);
+        Task DownloadFirmwareUpdateAsync(IFirmwareUpdateInfo updateInfo);
 
-    void DownloadFirmwareUpdate(IFirmwareUpdateInfo updateInfo);
+        void DownloadFirmwareUpdate(IFirmwareUpdateInfo updateInfo);
 
-    Task DownloadFirmwareUpdateAsync(
-      IFirmwareUpdateInfo updateInfo,
-      CancellationToken cancellationToken,
-      IProgress<FirmwareUpdateProgress> progress = null);
+        Task DownloadFirmwareUpdateAsync(
+          IFirmwareUpdateInfo updateInfo,
+          CancellationToken cancellationToken,
+          IProgress<FirmwareUpdateProgress> progress = null);
 
-    void DownloadFirmwareUpdate(
-      IFirmwareUpdateInfo updateInfo,
-      CancellationToken cancellationToken,
-      IProgress<FirmwareUpdateProgress> progress = null);
+        void DownloadFirmwareUpdate(
+          IFirmwareUpdateInfo updateInfo,
+          CancellationToken cancellationToken,
+          IProgress<FirmwareUpdateProgress> progress = null);
 
-    Task<bool> PushFirmwareUpdateToDeviceAsync(IFirmwareUpdateInfo updateInfo);
+        Task<bool> PushFirmwareUpdateToDeviceAsync(IFirmwareUpdateInfo updateInfo);
 
-    Task<bool> PushFirmwareUpdateToDeviceAsync(
-      IFirmwareUpdateInfo updateInfo,
-      CancellationToken cancellationToken,
-      IProgress<FirmwareUpdateProgress> progress = null);
+        Task<bool> PushFirmwareUpdateToDeviceAsync(
+          IFirmwareUpdateInfo updateInfo,
+          CancellationToken cancellationToken,
+          IProgress<FirmwareUpdateProgress> progress = null);
 
-    bool PushFirmwareUpdateToDevice(IFirmwareUpdateInfo updateInfo);
+        bool PushFirmwareUpdateToDevice(IFirmwareUpdateInfo updateInfo);
 
-    bool PushFirmwareUpdateToDevice(
-      IFirmwareUpdateInfo updateInfo,
-      CancellationToken cancellationToken,
-      IProgress<FirmwareUpdateProgress> progress = null);
+        bool PushFirmwareUpdateToDevice(
+          IFirmwareUpdateInfo updateInfo,
+          CancellationToken cancellationToken,
+          IProgress<FirmwareUpdateProgress> progress = null);
 
-    Task UpdateLogProcessingAsync(
-      List<LogProcessingStatus> fileInfoList,
-      EventHandler<LogProcessingUpdatedEventArgs> notificationHandler,
-      bool singleCallback,
-      CancellationToken cancellationToken);
+        Task UpdateLogProcessingAsync(
+          List<LogProcessingStatus> fileInfoList,
+          EventHandler<LogProcessingUpdatedEventArgs> notificationHandler,
+          bool singleCallback,
+          CancellationToken cancellationToken);
 
-    void UpdateLogProcessing(
-      List<LogProcessingStatus> filesProcessing,
-      EventHandler<LogProcessingUpdatedEventArgs> notificationHandler,
-      bool singleCallback,
-      CancellationToken cancellationToken);
+        void UpdateLogProcessing(
+          List<LogProcessingStatus> filesProcessing,
+          EventHandler<LogProcessingUpdatedEventArgs> notificationHandler,
+          bool singleCallback,
+          CancellationToken cancellationToken);
 
-    Task SetGoalsAsync(Goals goals);
+        Task SetGoalsAsync(Goals goals);
 
-    void SetGoals(Goals goals);
+        void SetGoals(Goals goals);
 
-    Task SetWorkoutPlanAsync(Stream workoutPlansStream);
+        Task SetWorkoutPlanAsync(Stream workoutPlansStream);
 
-    void SetWorkoutPlan(Stream workoutPlansStream);
+        void SetWorkoutPlan(Stream workoutPlansStream);
 
-    Task SetWorkoutPlanAsync(byte[] workoutPlansData);
+        Task SetWorkoutPlanAsync(byte[] workoutPlansData);
 
-    void SetWorkoutPlan(byte[] workoutPlanData);
+        void SetWorkoutPlan(byte[] workoutPlanData);
 
-    Task<int> GetGolfCourseMaxSizeAsync();
+        Task<int> GetGolfCourseMaxSizeAsync();
 
-    int GetGolfCourseMaxSize();
+        int GetGolfCourseMaxSize();
 
-    Task SetGolfCourseAsync(Stream golfCourseStream, int length = -1);
+        Task SetGolfCourseAsync(Stream golfCourseStream, int length = -1);
 
-    void SetGolfCourse(Stream golfCourseStream, int length = -1);
+        void SetGolfCourse(Stream golfCourseStream, int length = -1);
 
-    Task SetGolfCourseAsync(byte[] golfCourseData);
+        Task SetGolfCourseAsync(byte[] golfCourseData);
 
-    void SetGolfCourse(byte[] golfCourseData);
+        void SetGolfCourse(byte[] golfCourseData);
 
-    Task NavigateToScreenAsync(CargoScreen screen);
+        Task NavigateToScreenAsync(CargoScreen screen);
 
-    void NavigateToScreen(CargoScreen screen);
+        void NavigateToScreen(CargoScreen screen);
 
-    Task<OobeStage> GetOobeStageAsync();
+        Task<OobeStage> GetOobeStageAsync();
 
-    OobeStage GetOobeStage();
+        OobeStage GetOobeStage();
 
-    Task SetOobeStageAsync(OobeStage stage);
+        Task SetOobeStageAsync(OobeStage stage);
 
-    void SetOobeStage(OobeStage stage);
+        void SetOobeStage(OobeStage stage);
 
-    Task FinalizeOobeAsync();
+        Task FinalizeOobeAsync();
 
-    void FinalizeOobe();
+        void FinalizeOobe();
 
-    Task<string[]> GetPhoneCallResponsesAsync();
+        Task<string[]> GetPhoneCallResponsesAsync();
 
-    string[] GetPhoneCallResponses();
+        string[] GetPhoneCallResponses();
 
-    Task SetPhoneCallResponsesAsync(
-      string response1,
-      string response2,
-      string response3,
-      string response4);
+        Task SetPhoneCallResponsesAsync(
+          string response1,
+          string response2,
+          string response3,
+          string response4);
 
-    void SetPhoneCallResponses(
-      string response1,
-      string response2,
-      string response3,
-      string response4);
+        void SetPhoneCallResponses(
+          string response1,
+          string response2,
+          string response3,
+          string response4);
 
-    Task<string[]> GetSmsResponsesAsync();
+        Task<string[]> GetSmsResponsesAsync();
 
-    string[] GetSmsResponses();
+        string[] GetSmsResponses();
 
-    Task SetSmsResponsesAsync(
-      string response1,
-      string response2,
-      string response3,
-      string response4);
+        Task SetSmsResponsesAsync(
+          string response1,
+          string response2,
+          string response3,
+          string response4);
 
-    void SetSmsResponses(string response1, string response2, string response3, string response4);
+        void SetSmsResponses(string response1, string response2, string response3, string response4);
 
-    Task<CargoRunDisplayMetrics> GetRunDisplayMetricsAsync();
+        Task<CargoRunDisplayMetrics> GetRunDisplayMetricsAsync();
 
-    CargoRunDisplayMetrics GetRunDisplayMetrics();
+        CargoRunDisplayMetrics GetRunDisplayMetrics();
 
-    Task SetRunDisplayMetricsAsync(CargoRunDisplayMetrics cargoRunDisplayMetrics);
+        Task SetRunDisplayMetricsAsync(CargoRunDisplayMetrics cargoRunDisplayMetrics);
 
-    void SetRunDisplayMetrics(CargoRunDisplayMetrics cargoRunDisplayMetrics);
+        void SetRunDisplayMetrics(CargoRunDisplayMetrics cargoRunDisplayMetrics);
 
-    Task<CargoBikeDisplayMetrics> GetBikeDisplayMetricsAsync();
+        Task<CargoBikeDisplayMetrics> GetBikeDisplayMetricsAsync();
 
-    CargoBikeDisplayMetrics GetBikeDisplayMetrics();
+        CargoBikeDisplayMetrics GetBikeDisplayMetrics();
 
-    Task SetBikeDisplayMetricsAsync(CargoBikeDisplayMetrics cargoBikeDisplayMetrics);
+        Task SetBikeDisplayMetricsAsync(CargoBikeDisplayMetrics cargoBikeDisplayMetrics);
 
-    void SetBikeDisplayMetrics(CargoBikeDisplayMetrics cargoBikeDisplayMetrics);
+        void SetBikeDisplayMetrics(CargoBikeDisplayMetrics cargoBikeDisplayMetrics);
 
-    Task SetBikeSplitMultiplierAsync(int multiplier);
+        Task SetBikeSplitMultiplierAsync(int multiplier);
 
-    void SetBikeSplitMultiplier(int multiplier);
+        void SetBikeSplitMultiplier(int multiplier);
 
-    Task<int> GetBikeSplitMultiplierAsync();
+        Task<int> GetBikeSplitMultiplierAsync();
 
-    int GetBikeSplitMultiplier();
+        int GetBikeSplitMultiplier();
 
-    Task<CargoRunStatistics> GetLastRunStatisticsAsync();
+        Task<CargoRunStatistics> GetLastRunStatisticsAsync();
 
-    CargoRunStatistics GetLastRunStatistics();
+        CargoRunStatistics GetLastRunStatistics();
 
-    Task<CargoWorkoutStatistics> GetLastWorkoutStatisticsAsync();
+        Task<CargoWorkoutStatistics> GetLastWorkoutStatisticsAsync();
 
-    CargoWorkoutStatistics GetLastWorkoutStatistics();
+        CargoWorkoutStatistics GetLastWorkoutStatistics();
 
-    Task<CargoSleepStatistics> GetLastSleepStatisticsAsync();
+        Task<CargoSleepStatistics> GetLastSleepStatisticsAsync();
 
-    CargoSleepStatistics GetLastSleepStatistics();
+        CargoSleepStatistics GetLastSleepStatistics();
 
-    Task<CargoGuidedWorkoutStatistics> GetLastGuidedWorkoutStatisticsAsync();
+        Task<CargoGuidedWorkoutStatistics> GetLastGuidedWorkoutStatisticsAsync();
 
-    CargoGuidedWorkoutStatistics GetLastGuidedWorkoutStatistics();
+        CargoGuidedWorkoutStatistics GetLastGuidedWorkoutStatistics();
 
-    Task SensorSubscribeAsync(SensorType subscriptionType);
+        Task SensorSubscribeAsync(SensorType subscriptionType);
 
-    void SensorSubscribe(SensorType subscriptionType);
+        void SensorSubscribe(SensorType subscriptionType);
 
-    Task SensorUnsubscribeAsync(SensorType subscriptionType);
+        Task SensorUnsubscribeAsync(SensorType subscriptionType);
 
-    void SensorUnsubscribe(SensorType subscriptionType);
+        void SensorUnsubscribe(SensorType subscriptionType);
 
-    Task GenerateSensorLogAsync(TimeSpan duration);
+        Task GenerateSensorLogAsync(TimeSpan duration);
 
-    void GenerateSensorLog(TimeSpan duration);
+        void GenerateSensorLog(TimeSpan duration);
 
-    Task LoggerEnableAsync();
+        Task LoggerEnableAsync();
 
-    void LoggerEnable();
+        void LoggerEnable();
 
-    Task LoggerDisableAsync();
+        Task LoggerDisableAsync();
 
-    void LoggerDisable();
+        void LoggerDisable();
 
-    Task<ushort> GetLogVersionAsync();
+        Task<ushort> GetLogVersionAsync();
 
-    ushort GetLogVersion();
+        ushort GetLogVersion();
 
-    void DownloadSensorLog(Stream stream, int chunkRangeSize);
+        void DownloadSensorLog(Stream stream, int chunkRangeSize);
 
-    Task<string> GetProductSerialNumberAsync();
+        Task<string> GetProductSerialNumberAsync();
 
-    string GetProductSerialNumber();
+        string GetProductSerialNumber();
 
-    Task<bool> GpsIsEnabledAsync();
+        Task<bool> GpsIsEnabledAsync();
 
-    bool GpsIsEnabled();
+        bool GpsIsEnabled();
 
-    Task<bool> UploadFileToCloudAsync(
-      Stream fileStream,
-      LogFileTypes fileType,
-      string uploadId,
-      int logVersion,
-      LogCompressionAlgorithm compressionAlgorithm,
-      string compressedFileCRC,
-      CancellationToken cancellationToken);
+        Task<bool> UploadFileToCloudAsync(
+          Stream fileStream,
+          LogFileTypes fileType,
+          string uploadId,
+          int logVersion,
+          LogCompressionAlgorithm compressionAlgorithm,
+          string compressedFileCRC,
+          CancellationToken cancellationToken);
 
-    bool UploadFileToCloud(
-      Stream fileStream,
-      LogFileTypes fileType,
-      string uploadId,
-      int logVersion,
-      LogCompressionAlgorithm compressionAlgorithm,
-      string compressedFileCRC,
-      CancellationToken cancellationToken);
+        bool UploadFileToCloud(
+          Stream fileStream,
+          LogFileTypes fileType,
+          string uploadId,
+          int logVersion,
+          LogCompressionAlgorithm compressionAlgorithm,
+          string compressedFileCRC,
+          CancellationToken cancellationToken);
 
-    Task<StartStrip> GetStartStripAsync();
+        Task<StartStrip> GetStartStripAsync();
 
-    StartStrip GetStartStrip();
+        StartStrip GetStartStrip();
 
-    Task<IList<AdminBandTile>> GetDefaultTilesAsync();
+        Task<IList<AdminBandTile>> GetDefaultTilesAsync();
 
-    IList<AdminBandTile> GetDefaultTiles();
+        IList<AdminBandTile> GetDefaultTiles();
 
-    Task<AdminBandTile> GetTileAsync(Guid id);
+        Task<AdminBandTile> GetTileAsync(Guid id);
 
-    AdminBandTile GetTile(Guid id);
+        AdminBandTile GetTile(Guid id);
 
-    Task<StartStrip> GetStartStripNoImagesAsync();
+        Task<StartStrip> GetStartStripNoImagesAsync();
 
-    StartStrip GetStartStripNoImages();
+        StartStrip GetStartStripNoImages();
 
-    Task<IList<AdminBandTile>> GetDefaultTilesNoImagesAsync();
+        Task<IList<AdminBandTile>> GetDefaultTilesNoImagesAsync();
 
-    IList<AdminBandTile> GetDefaultTilesNoImages();
+        IList<AdminBandTile> GetDefaultTilesNoImages();
 
-    Task<AdminBandTile> GetTileNoImageAsync(Guid id);
+        Task<AdminBandTile> GetTileNoImageAsync(Guid id);
 
-    AdminBandTile GetTileNoImage(Guid id);
+        AdminBandTile GetTileNoImage(Guid id);
 
-    Task SetStartStripAsync(StartStrip tiles);
+        Task SetStartStripAsync(StartStrip tiles);
 
-    void SetStartStrip(StartStrip tiles);
+        void SetStartStrip(StartStrip tiles);
 
-    Task UpdateTileAsync(AdminBandTile tile);
+        Task UpdateTileAsync(AdminBandTile tile);
 
-    void UpdateTile(AdminBandTile tile);
+        void UpdateTile(AdminBandTile tile);
 
-    Task<uint> GetMaxTileCountAsync();
+        Task<uint> GetMaxTileCountAsync();
 
-    uint GetMaxTileCount();
+        uint GetMaxTileCount();
 
-    Task SetTileIconIndexAsync(Guid id, uint iconIndex);
+        Task SetTileIconIndexAsync(Guid id, uint iconIndex);
 
-    void SetTileIconIndex(Guid id, uint iconIndex);
+        void SetTileIconIndex(Guid id, uint iconIndex);
 
-    Task SetTileBadgeIconIndexAsync(Guid id, uint iconIndex);
+        Task SetTileBadgeIconIndexAsync(Guid id, uint iconIndex);
 
-    void SetTileBadgeIconIndex(Guid id, uint iconIndex);
+        void SetTileBadgeIconIndex(Guid id, uint iconIndex);
 
-    Task SetTileNotificationIconIndexAsync(Guid id, uint iconIndex);
+        Task SetTileNotificationIconIndexAsync(Guid id, uint iconIndex);
 
-    void SetTileNotificationIconIndex(Guid id, uint iconIndex);
+        void SetTileNotificationIconIndex(Guid id, uint iconIndex);
 
-    Task<AdminTileSettings> GetTileSettingsAsync(Guid id);
+        Task<AdminTileSettings> GetTileSettingsAsync(Guid id);
 
-    AdminTileSettings GetTileSettings(Guid id);
+        AdminTileSettings GetTileSettings(Guid id);
 
-    Task SetTileSettingsAsync(Guid id, AdminTileSettings settings);
+        Task SetTileSettingsAsync(Guid id, AdminTileSettings settings);
 
-    void SetTileSettings(Guid id, AdminTileSettings settings);
+        void SetTileSettings(Guid id, AdminTileSettings settings);
 
-    Task EnableTileSettingsAsync(Guid id, AdminTileSettings settings);
+        Task EnableTileSettingsAsync(Guid id, AdminTileSettings settings);
 
-    void EnableTileSettings(Guid id, AdminTileSettings settings);
+        void EnableTileSettings(Guid id, AdminTileSettings settings);
 
-    Task DisableTileSettingsAsync(Guid id, AdminTileSettings settings);
+        Task DisableTileSettingsAsync(Guid id, AdminTileSettings settings);
 
-    void DisableTileSettings(Guid id, AdminTileSettings settings);
+        void DisableTileSettings(Guid id, AdminTileSettings settings);
 
-    Task SetDeviceThemeAsync(BandTheme color);
+        Task SetDeviceThemeAsync(BandTheme color);
 
-    void SetDeviceTheme(BandTheme color);
+        void SetDeviceTheme(BandTheme color);
 
-    Task SetTileThemesAsync(Dictionary<Guid, BandTheme> customColors);
+        Task SetTileThemesAsync(Dictionary<Guid, BandTheme> customColors);
 
-    void SetTileThemes(Dictionary<Guid, BandTheme> customColors);
+        void SetTileThemes(Dictionary<Guid, BandTheme> customColors);
 
-    Task SetTileThemeAsync(BandTheme color, Guid id);
+        Task SetTileThemeAsync(BandTheme color, Guid id);
 
-    void SetTileTheme(BandTheme color, Guid id);
+        void SetTileTheme(BandTheme color, Guid id);
 
-    Task<BandTheme> GetDeviceThemeAsync();
+        Task<BandTheme> GetDeviceThemeAsync();
 
-    BandTheme GetDeviceTheme();
+        BandTheme GetDeviceTheme();
 
-    Task ResetThemeColorsAsync();
+        Task ResetThemeColorsAsync();
 
-    void ResetThemeColors();
+        void ResetThemeColors();
 
-    Task<RunningAppType> GetRunningAppAsync();
+        Task<RunningAppType> GetRunningAppAsync();
 
-    RunningAppType GetRunningApp();
+        RunningAppType GetRunningApp();
 
-    Task SetMeTileImageAsync(BandImage image, uint imageId = 4294967295);
+        Task SetMeTileImageAsync(BandImage image, uint imageId = 4294967295);
 
-    void SetMeTileImage(BandImage image, uint imageId = 4294967295);
+        void SetMeTileImage(BandImage image, uint imageId = 4294967295);
 
-    Task<BandImage> GetMeTileImageAsync();
+        Task<BandImage> GetMeTileImageAsync();
 
-    BandImage GetMeTileImage();
+        BandImage GetMeTileImage();
 
-    Task<uint> GetMeTileIdAsync();
+        Task<uint> GetMeTileIdAsync();
 
-    uint GetMeTileId();
+        uint GetMeTileId();
 
-    Task PersonalizeDeviceAsync(
-      StartStrip startStrip = null,
-      BandImage image = null,
-      BandTheme color = null,
-      uint imageId = 4294967295,
-      IDictionary<Guid, BandTheme> customColors = null);
+        Task PersonalizeDeviceAsync(
+          StartStrip startStrip = null,
+          BandImage image = null,
+          BandTheme color = null,
+          uint imageId = 4294967295,
+          IDictionary<Guid, BandTheme> customColors = null);
 
-    void PersonalizeDevice(
-      StartStrip startStrip = null,
-      BandImage image = null,
-      BandTheme color = null,
-      uint imageId = 4294967295,
-      IDictionary<Guid, BandTheme> customColors = null);
+        void PersonalizeDevice(
+          StartStrip startStrip = null,
+          BandImage image = null,
+          BandTheme color = null,
+          uint imageId = 4294967295,
+          IDictionary<Guid, BandTheme> customColors = null);
 
-    Task SendSmsNotificationAsync(uint callId, string name, string body, DateTime timestamp);
+        Task SendSmsNotificationAsync(uint callId, string name, string body, DateTime timestamp);
 
-    void SendSmsNotification(
-      uint callID,
-      string name,
-      string body,
-      DateTime timestamp,
-      NotificationFlags flagbits = NotificationFlags.UnmodifiedNotificationSettings);
+        void SendSmsNotification(
+          uint callID,
+          string name,
+          string body,
+          DateTime timestamp,
+          NotificationFlags flagbits = NotificationFlags.UnmodifiedNotificationSettings);
 
-    Task SendSmsNotificationAsync(CargoSms sms);
+        Task SendSmsNotificationAsync(CargoSms sms);
 
-    void SendSmsNotification(CargoSms sms);
+        void SendSmsNotification(CargoSms sms);
 
-    Task SendIncomingCallNotificationAsync(CargoCall incomingCall);
+        Task SendIncomingCallNotificationAsync(CargoCall incomingCall);
 
-    void SendIncomingCallNotification(CargoCall incomingCall);
+        void SendIncomingCallNotification(CargoCall incomingCall);
 
-    Task SendAnsweredCallNotificationAsync(CargoCall answeredCall);
+        Task SendAnsweredCallNotificationAsync(CargoCall answeredCall);
 
-    void SendAnsweredCallNotification(CargoCall answeredCall);
+        void SendAnsweredCallNotification(CargoCall answeredCall);
 
-    Task SendHangupCallNotificationAsync(CargoCall hangupCall);
+        Task SendHangupCallNotificationAsync(CargoCall hangupCall);
 
-    void SendHangupCallNotification(CargoCall hangupCall);
+        void SendHangupCallNotification(CargoCall hangupCall);
 
-    Task SendMissedCallNotificationAsync(CargoCall missedCall);
+        Task SendMissedCallNotificationAsync(CargoCall missedCall);
 
-    void SendMissedCallNotification(CargoCall missedCall);
+        void SendMissedCallNotification(CargoCall missedCall);
 
-    Task SendVoiceMailCallNotificationAsync(CargoCall voiceMail);
+        Task SendVoiceMailCallNotificationAsync(CargoCall voiceMail);
 
-    void SendVoiceMailCallNotification(CargoCall voiceMail);
+        void SendVoiceMailCallNotification(CargoCall voiceMail);
 
-    Task SendEmailNotificationAsync(string name, string subject, DateTime timestamp);
+        Task SendEmailNotificationAsync(string name, string subject, DateTime timestamp);
 
-    void SendEmailNotification(string name, string subject, DateTime timestamp);
+        void SendEmailNotification(string name, string subject, DateTime timestamp);
 
-    Task SendTileDialogAsync(
-      Guid tileId,
-      string lineOne,
-      string lineTwo,
-      NotificationFlags flagbits = NotificationFlags.UnmodifiedNotificationSettings,
-      bool forceDialog = false,
-      bool throwErrorStatus = false);
+        Task SendTileDialogAsync(
+          Guid tileId,
+          string lineOne,
+          string lineTwo,
+          NotificationFlags flagbits = NotificationFlags.UnmodifiedNotificationSettings,
+          bool forceDialog = false,
+          bool throwErrorStatus = false);
 
-    void SendTileDialog(
-      Guid tileId,
-      string lineOne,
-      string lineTwo,
-      NotificationFlags flagbits = NotificationFlags.UnmodifiedNotificationSettings,
-      bool forceDialog = false,
-      bool throwErrorStatus = false);
+        void SendTileDialog(
+          Guid tileId,
+          string lineOne,
+          string lineTwo,
+          NotificationFlags flagbits = NotificationFlags.UnmodifiedNotificationSettings,
+          bool forceDialog = false,
+          bool throwErrorStatus = false);
 
-    Task SendTileMessageAsync(Guid tileId, TileMessage message, bool throwErrorStatus = false);
+        Task SendTileMessageAsync(Guid tileId, TileMessage message, bool throwErrorStatus = false);
 
-    void SendTileMessage(Guid tileId, TileMessage message, bool throwErrorStatus = false);
+        void SendTileMessage(Guid tileId, TileMessage message, bool throwErrorStatus = false);
 
-    Task SendPageUpdateAsync(
-      Guid tileId,
-      Guid pageId,
-      ushort pageLayoutIndex,
-      IList<ITilePageElement> textFields);
+        Task SendPageUpdateAsync(
+          Guid tileId,
+          Guid pageId,
+          ushort pageLayoutIndex,
+          IList<ITilePageElement> textFields);
 
-    void SendPageUpdate(
-      Guid tileId,
-      Guid pageId,
-      ushort pageLayoutIndex,
-      IList<ITilePageElement> textFields);
+        void SendPageUpdate(
+          Guid tileId,
+          Guid pageId,
+          ushort pageLayoutIndex,
+          IList<ITilePageElement> textFields);
 
-    Task ClearTileAsync(Guid tileId);
+        Task ClearTileAsync(Guid tileId);
 
-    void ClearTile(Guid tileId);
+        void ClearTile(Guid tileId);
 
-    Task ClearPageAsync(Guid tileId, Guid pageId);
+        Task ClearPageAsync(Guid tileId, Guid pageId);
 
-    void ClearPage(Guid tileId, Guid pageId);
+        void ClearPage(Guid tileId, Guid pageId);
 
-    Task SendCalendarEventsAsync(CalendarEvent[] events);
+        Task SendCalendarEventsAsync(CalendarEvent[] events);
 
-    void SendCalendarEvents(CalendarEvent[] events);
+        void SendCalendarEvents(CalendarEvent[] events);
 
-    Task VibrateAsync(AdminVibrationType vibrationType);
+        Task VibrateAsync(AdminVibrationType vibrationType);
 
-    void Vibrate(AdminVibrationType vibrationType);
+        void Vibrate(AdminVibrationType vibrationType);
 
-    bool UploadCrashDumpToCloud(
-      Stream fileStream,
-      FirmwareVersions deviceVersions,
-      string uploadId,
-      int logVersion,
-      CancellationToken cancellationToken);
+        bool UploadCrashDumpToCloud(
+          Stream fileStream,
+          FirmwareVersions deviceVersions,
+          string uploadId,
+          int logVersion,
+          CancellationToken cancellationToken);
 
-    Task SyncWebTilesAsync(bool forceSync, CancellationToken cancellationToken);
+        Task SyncWebTilesAsync(bool forceSync, CancellationToken cancellationToken);
 
-    Task SyncWebTileAsync(Guid tileId, CancellationToken cancellationToken);
+        Task SyncWebTileAsync(Guid tileId, CancellationToken cancellationToken);
 
-    void EnableRetailDemoMode();
+        void EnableRetailDemoMode();
 
-    Task EnableRetailDemoModeAsync();
+        Task EnableRetailDemoModeAsync();
 
-    void DisableRetailDemoMode();
+        void DisableRetailDemoMode();
 
-    Task DisableRetailDemoModeAsync();
+        Task DisableRetailDemoModeAsync();
 
-    void CargoSystemSettingsFactoryReset();
+        void CargoSystemSettingsFactoryReset();
 
-    Task CargoSystemSettingsFactoryResetAsync();
+        Task CargoSystemSettingsFactoryResetAsync();
 
-    Task<IList<WorkoutActivity>> GetWorkoutActivitiesAsync();
+        Task<IList<WorkoutActivity>> GetWorkoutActivitiesAsync();
 
-    Task SetWorkoutActivitiesAsync(IList<WorkoutActivity> activities);
+        Task SetWorkoutActivitiesAsync(IList<WorkoutActivity> activities);
 
-    Task<SleepNotification> GetSleepNotificationAsync();
+        Task<SleepNotification> GetSleepNotificationAsync();
 
-    Task SetSleepNotificationAsync(SleepNotification notification);
+        Task SetSleepNotificationAsync(SleepNotification notification);
 
-    Task DisableSleepNotificationAsync();
+        Task DisableSleepNotificationAsync();
 
-    Task<LightExposureNotification> GetLightExposureNotificationAsync();
+        Task<LightExposureNotification> GetLightExposureNotificationAsync();
 
-    Task SetLightExposureNotificationAsync(LightExposureNotification notification);
+        Task SetLightExposureNotificationAsync(LightExposureNotification notification);
 
-    Task DisableLightExposureNotificationAsync();
+        Task DisableLightExposureNotificationAsync();
 
-    void CloseSession();
-  }
+        void CloseSession();
+    }
 }

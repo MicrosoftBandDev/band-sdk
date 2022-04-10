@@ -6,19 +6,19 @@
 
 namespace Microsoft.Band.Admin
 {
-  public interface ITilePageElementFactory
-  {
-    ITileBarcode CreateTileBarcode(
-      ushort elementId,
-      BarcodeType codeType,
-      string barcodeValue);
+    public interface ITilePageElementFactory
+    {
+        ITileBarcode CreateTileBarcode(
+          ushort elementId,
+          BarcodeType codeType,
+          string barcodeValue);
 
-    ITileIconbox CreateTileIconbox(ushort elementId, ushort iconIndex);
+        ITileIconbox CreateTileIconbox(ushort elementId, ushort iconIndex);
 
-    ITileTextbox CreateTileTextbox(ushort elementId, string textboxValue);
+        ITileTextbox CreateTileTextbox(ushort elementId, string textboxValue);
 
-    ITileWrappableTextbox CreateTileWrappableTextbox(
-      ushort elementId,
-      string textboxValue);
-  }
+        ITileWrappableTextbox CreateTileWrappableTextbox(
+          ushort elementId,
+          string textboxValue);
+    }
 }

@@ -6,11 +6,11 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum FeelingType
-  {
-    Happy = 1,
-    Content = 2,
-    Bad = 3,
-    Injured = 4,
-  }
+    public enum FeelingType
+    {
+        Happy = 1,
+        Content = 2,
+        Bad = 3,
+        Injured = 4,
+    }
 }

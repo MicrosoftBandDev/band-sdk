@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public class NotificationDialog
-  {
-    public string Title { get; set; }
+    public class NotificationDialog
+    {
+        public string Title { get; set; }
 
-    public string Body { get; set; }
-  }
+        public string Body { get; set; }
+    }
 }

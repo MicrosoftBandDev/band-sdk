@@ -8,27 +8,27 @@ using System;
 
 namespace Microsoft.Band.Admin.Streaming
 {
-  public sealed class LogEntryUpdatedEventArgs : EventArgs
-  {
-    private LogEntryUpdatedEventArgs()
+    public sealed class LogEntryUpdatedEventArgs : EventArgs
     {
+        private LogEntryUpdatedEventArgs()
+        {
+        }
+
+        public byte EntryType { get; private set; }
+
+        public byte[] Data { get; private set; }
+
+        internal static LogEntryUpdatedEventArgs DeserializeFromBand(
+          ICargoReader reader)
+        {
+            byte num = reader.ReadByte();
+            byte count = reader.ReadByte();
+            byte[] numArray = reader.ReadExact((int)count);
+            return new LogEntryUpdatedEventArgs()
+            {
+                EntryType = num,
+                Data = numArray
+            };
+        }
     }
-
-    public byte EntryType { get; private set; }
-
-    public byte[] Data { get; private set; }
-
-    internal static LogEntryUpdatedEventArgs DeserializeFromBand(
-      ICargoReader reader)
-    {
-      byte num = reader.ReadByte();
-      byte count = reader.ReadByte();
-      byte[] numArray = reader.ReadExact((int) count);
-      return new LogEntryUpdatedEventArgs()
-      {
-        EntryType = num,
-        Data = numArray
-      };
-    }
-  }
 }

@@ -6,46 +6,46 @@
 
 namespace Microsoft.Band.Admin
 {
-  internal sealed class LogMetadataRange
-  {
-    private const int serializedByteCount = 12;
-
-    private LogMetadataRange()
+    internal sealed class LogMetadataRange
     {
+        private const int serializedByteCount = 12;
+
+        private LogMetadataRange()
+        {
+        }
+
+        public uint StartingSeqNumber { get; private set; }
+
+        public uint EndingSeqNumber { get; private set; }
+
+        public uint ByteCount { get; private set; }
+
+        internal static int GetSerializedByteCount() => 12;
+
+        internal static LogMetadataRange DeserializeFromBand(ICargoReader reader) => new LogMetadataRange()
+        {
+            StartingSeqNumber = reader.ReadUInt32(),
+            EndingSeqNumber = reader.ReadUInt32(),
+            ByteCount = reader.ReadUInt32()
+        };
+
+        internal void SerializeToBand(ICargoWriter writer)
+        {
+            writer.WriteUInt32(this.StartingSeqNumber);
+            writer.WriteUInt32(this.EndingSeqNumber);
+            writer.WriteUInt32(this.ByteCount);
+        }
+
+        internal byte[] SerializeToByteArray()
+        {
+            int offset1 = 0;
+            byte[] buffer = new byte[LogMetadataRange.GetSerializedByteCount()];
+            BandBitConverter.GetBytes(this.StartingSeqNumber, buffer, offset1);
+            int offset2 = offset1 + 4;
+            BandBitConverter.GetBytes(this.EndingSeqNumber, buffer, offset2);
+            int offset3 = offset2 + 4;
+            BandBitConverter.GetBytes(this.ByteCount, buffer, offset3);
+            return buffer;
+        }
     }
-
-    public uint StartingSeqNumber { get; private set; }
-
-    public uint EndingSeqNumber { get; private set; }
-
-    public uint ByteCount { get; private set; }
-
-    internal static int GetSerializedByteCount() => 12;
-
-    internal static LogMetadataRange DeserializeFromBand(ICargoReader reader) => new LogMetadataRange()
-    {
-      StartingSeqNumber = reader.ReadUInt32(),
-      EndingSeqNumber = reader.ReadUInt32(),
-      ByteCount = reader.ReadUInt32()
-    };
-
-    internal void SerializeToBand(ICargoWriter writer)
-    {
-      writer.WriteUInt32(this.StartingSeqNumber);
-      writer.WriteUInt32(this.EndingSeqNumber);
-      writer.WriteUInt32(this.ByteCount);
-    }
-
-    internal byte[] SerializeToByteArray()
-    {
-      int offset1 = 0;
-      byte[] buffer = new byte[LogMetadataRange.GetSerializedByteCount()];
-      BandBitConverter.GetBytes(this.StartingSeqNumber, buffer, offset1);
-      int offset2 = offset1 + 4;
-      BandBitConverter.GetBytes(this.EndingSeqNumber, buffer, offset2);
-      int offset3 = offset2 + 4;
-      BandBitConverter.GetBytes(this.ByteCount, buffer, offset3);
-      return buffer;
-    }
-  }
 }

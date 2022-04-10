@@ -6,20 +6,20 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  internal class GreaterThanOrEqualOperator : BinaryOperator
-  {
-    private GreaterThanOrEqualOperator(string tokenValue, int position)
-      : base(tokenValue, position)
+    internal class GreaterThanOrEqualOperator : BinaryOperator
     {
-    }
+        private GreaterThanOrEqualOperator(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
 
-    public static GreaterThanOrEqualOperator Create(
-      string tokenValue,
-      int position)
-    {
-      return new GreaterThanOrEqualOperator(tokenValue, position);
-    }
+        public static GreaterThanOrEqualOperator Create(
+          string tokenValue,
+          int position)
+        {
+            return new GreaterThanOrEqualOperator(tokenValue, position);
+        }
 
-    public override bool Compare(object leftOperand, object rightOperand) => this.Compare(leftOperand, rightOperand, (BinaryOperator.CompareOperation) (diff => diff >= 0));
-  }
+        public override bool Compare(object leftOperand, object rightOperand) => this.Compare(leftOperand, rightOperand, (BinaryOperator.CompareOperation)(diff => diff >= 0));
+    }
 }

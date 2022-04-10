@@ -8,15 +8,15 @@ using System.Collections.Generic;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public abstract class Operand : Token
-  {
-    protected Operand(string tokenValue, int position)
-      : base(tokenValue, position)
+    public abstract class Operand : Token
     {
+        protected Operand(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
+
+        public abstract object GetValue(Dictionary<string, string> variableValues, bool stringRequired);
+
+        public static double RoundDoubleTo16SignificantDigits(double value) => double.Parse(value.ToString("G16"));
     }
-
-    public abstract object GetValue(Dictionary<string, string> variableValues, bool stringRequired);
-
-    public static double RoundDoubleTo16SignificantDigits(double value) => double.Parse(value.ToString("G16"));
-  }
 }

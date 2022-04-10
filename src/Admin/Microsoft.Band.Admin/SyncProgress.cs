@@ -6,19 +6,19 @@
 
 namespace Microsoft.Band.Admin
 {
-  public class SyncProgress
-  {
-    private readonly double percentageCompletion;
-    private readonly SyncState state;
-
-    public SyncProgress(double percentageCompletion, SyncState state)
+    public class SyncProgress
     {
-      this.percentageCompletion = percentageCompletion;
-      this.state = state;
+        private readonly double percentageCompletion;
+        private readonly SyncState state;
+
+        public SyncProgress(double percentageCompletion, SyncState state)
+        {
+            this.percentageCompletion = percentageCompletion;
+            this.state = state;
+        }
+
+        public double PercentageCompletion => this.percentageCompletion;
+
+        public SyncState State => this.state;
     }
-
-    public double PercentageCompletion => this.percentageCompletion;
-
-    public SyncState State => this.state;
-  }
 }

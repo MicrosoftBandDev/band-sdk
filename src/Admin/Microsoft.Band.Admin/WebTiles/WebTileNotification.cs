@@ -10,54 +10,54 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  [DataContract]
-  public class WebTileNotification
-  {
-    private string condition;
-    private string title;
-    private string body;
-    private WebTilePropertyValidator validator = new WebTilePropertyValidator();
-
-    public bool AllowInvalidValues
+    [DataContract]
+    public class WebTileNotification
     {
-      get => this.validator.AllowInvalidValues;
-      set => this.validator.AllowInvalidValues = value;
-    }
+        private string condition;
+        private string title;
+        private string body;
+        private WebTilePropertyValidator validator = new WebTilePropertyValidator();
 
-    public Dictionary<string, string> PropertyErrors => this.validator.PropertyErrors;
-
-    [DataMember(IsRequired = true, Name = "condition")]
-    public string Condition
-    {
-      get => this.condition;
-      set
-      {
-        this.validator.ClearPropertyError(nameof (Condition));
-        WebTileCondition webTileCondition = new WebTileCondition((Dictionary<string, string>) null);
-        try
+        public bool AllowInvalidValues
         {
-          webTileCondition.ComputeValue(value);
+            get => this.validator.AllowInvalidValues;
+            set => this.validator.AllowInvalidValues = value;
         }
-        catch (InvalidDataException ex)
+
+        public Dictionary<string, string> PropertyErrors => this.validator.PropertyErrors;
+
+        [DataMember(IsRequired = true, Name = "condition")]
+        public string Condition
         {
-          this.validator.CheckProperty(nameof (Condition), false, ex.Message);
+            get => this.condition;
+            set
+            {
+                this.validator.ClearPropertyError(nameof(Condition));
+                WebTileCondition webTileCondition = new WebTileCondition((Dictionary<string, string>)null);
+                try
+                {
+                    webTileCondition.ComputeValue(value);
+                }
+                catch (InvalidDataException ex)
+                {
+                    this.validator.CheckProperty(nameof(Condition), false, ex.Message);
+                }
+                this.condition = value;
+            }
         }
-        this.condition = value;
-      }
-    }
 
-    [DataMember(IsRequired = true, Name = "title")]
-    public string Title
-    {
-      get => this.title;
-      set => this.title = value;
-    }
+        [DataMember(IsRequired = true, Name = "title")]
+        public string Title
+        {
+            get => this.title;
+            set => this.title = value;
+        }
 
-    [DataMember(Name = "body")]
-    public string Body
-    {
-      get => this.body;
-      set => this.body = value;
+        [DataMember(Name = "body")]
+        public string Body
+        {
+            get => this.body;
+            set => this.body = value;
+        }
     }
-  }
 }

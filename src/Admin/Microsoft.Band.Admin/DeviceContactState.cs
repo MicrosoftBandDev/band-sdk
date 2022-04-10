@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum DeviceContactState : byte
-  {
-    NotWorn,
-    Worn,
-  }
+    public enum DeviceContactState : byte
+    {
+        NotWorn,
+        Worn,
+    }
 }

@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum MeasurementUnitType
-  {
-    Imperial,
-    Metric,
-  }
+    public enum MeasurementUnitType
+    {
+        Imperial,
+        Metric,
+    }
 }

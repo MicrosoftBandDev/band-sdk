@@ -8,8 +8,8 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  public interface ICancellableTransaction : IDisposable
-  {
-    void End();
-  }
+    public interface ICancellableTransaction : IDisposable
+    {
+        void End();
+    }
 }

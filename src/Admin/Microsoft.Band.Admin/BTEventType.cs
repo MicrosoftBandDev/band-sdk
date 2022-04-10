@@ -6,18 +6,18 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum BTEventType : byte
-  {
-    NumericalComparisonPending,
-    Connected,
-    Disconnected,
-    EnteredInvisibleMode,
-    EnteredPairingMode,
-    EnteredNormalMode,
-    Enabled,
-    Disabled,
-    CargoServiceConnected,
-    CargoServiceDisconnected,
-    PairingComplete,
-  }
+    public enum BTEventType : byte
+    {
+        NumericalComparisonPending,
+        Connected,
+        Disconnected,
+        EnteredInvisibleMode,
+        EnteredPairingMode,
+        EnteredNormalMode,
+        Enabled,
+        Disabled,
+        CargoServiceConnected,
+        CargoServiceDisconnected,
+        PairingComplete,
+    }
 }

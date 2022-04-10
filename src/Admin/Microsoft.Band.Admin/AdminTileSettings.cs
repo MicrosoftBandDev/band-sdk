@@ -8,12 +8,12 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  [Flags]
-  public enum AdminTileSettings : ushort
-  {
-    None = 0,
-    EnableNotification = 1,
-    EnableBadging = 2,
-    UseCustomColorForTile = 4,
-  }
+    [Flags]
+    public enum AdminTileSettings : ushort
+    {
+        None = 0,
+        EnableNotification = 1,
+        EnableBadging = 2,
+        UseCustomColorForTile = 4,
+    }
 }

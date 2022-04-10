@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum GSRStatusType : byte
-  {
-    LowDrive,
-    HighDrive,
-  }
+    public enum GSRStatusType : byte
+    {
+        LowDrive,
+        HighDrive,
+    }
 }

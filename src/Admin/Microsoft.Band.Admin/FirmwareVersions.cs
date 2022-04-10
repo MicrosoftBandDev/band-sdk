@@ -6,14 +6,14 @@
 
 namespace Microsoft.Band.Admin
 {
-  public sealed class FirmwareVersions
-  {
-    public byte PcbId { get; set; }
+    public sealed class FirmwareVersions
+    {
+        public byte PcbId { get; set; }
 
-    public FirmwareVersion BootloaderVersion { get; set; }
+        public FirmwareVersion BootloaderVersion { get; set; }
 
-    public FirmwareVersion UpdaterVersion { get; set; }
+        public FirmwareVersion UpdaterVersion { get; set; }
 
-    public FirmwareVersion ApplicationVersion { get; set; }
-  }
+        public FirmwareVersion ApplicationVersion { get; set; }
+    }
 }

@@ -9,20 +9,20 @@ using System.Collections.Generic;
 
 namespace Microsoft.Band.Admin.LogProcessing
 {
-  public sealed class LogProcessingUpdatedEventArgs : EventArgs
-  {
-    public List<LogProcessingStatus> CompletedFiles;
-    public List<LogProcessingStatus> ProcessingFiles;
-    public List<LogProcessingStatus> NotRecognizedFiles;
-
-    public LogProcessingUpdatedEventArgs(
-      IEnumerable<LogProcessingStatus> Completed,
-      IEnumerable<LogProcessingStatus> Processing,
-      IEnumerable<LogProcessingStatus> NotRecognized)
+    public sealed class LogProcessingUpdatedEventArgs : EventArgs
     {
-      this.CompletedFiles = Completed == null ? new List<LogProcessingStatus>() : new List<LogProcessingStatus>(Completed);
-      this.ProcessingFiles = Processing == null ? new List<LogProcessingStatus>() : new List<LogProcessingStatus>(Processing);
-      this.NotRecognizedFiles = NotRecognized == null ? new List<LogProcessingStatus>() : new List<LogProcessingStatus>(NotRecognized);
+        public List<LogProcessingStatus> CompletedFiles;
+        public List<LogProcessingStatus> ProcessingFiles;
+        public List<LogProcessingStatus> NotRecognizedFiles;
+
+        public LogProcessingUpdatedEventArgs(
+          IEnumerable<LogProcessingStatus> Completed,
+          IEnumerable<LogProcessingStatus> Processing,
+          IEnumerable<LogProcessingStatus> NotRecognized)
+        {
+            this.CompletedFiles = Completed == null ? new List<LogProcessingStatus>() : new List<LogProcessingStatus>(Completed);
+            this.ProcessingFiles = Processing == null ? new List<LogProcessingStatus>() : new List<LogProcessingStatus>(Processing);
+            this.NotRecognizedFiles = NotRecognized == null ? new List<LogProcessingStatus>() : new List<LogProcessingStatus>(NotRecognized);
+        }
     }
-  }
 }

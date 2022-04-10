@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum MassUnitType
-  {
-    Imperial = 1,
-    Metric = 2,
-  }
+    public enum MassUnitType
+    {
+        Imperial = 1,
+        Metric = 2,
+    }
 }

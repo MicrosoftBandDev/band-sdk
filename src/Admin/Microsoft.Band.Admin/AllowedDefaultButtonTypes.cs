@@ -8,14 +8,14 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  [Flags]
-  internal enum AllowedDefaultButtonTypes
-  {
-    None = 0,
-    Reply = 1,
-    ReplyAll = 2,
-    Delete = 4,
-    Ignore = 8,
-    ReplyPanel = 16, // 0x00000010
-  }
+    [Flags]
+    internal enum AllowedDefaultButtonTypes
+    {
+        None = 0,
+        Reply = 1,
+        ReplyAll = 2,
+        Delete = 4,
+        Ignore = 8,
+        ReplyPanel = 16, // 0x00000010
+    }
 }

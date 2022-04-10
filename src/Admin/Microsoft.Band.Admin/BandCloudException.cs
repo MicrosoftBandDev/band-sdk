@@ -8,20 +8,20 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  public class BandCloudException : BandException
-  {
-    internal BandCloudException()
+    public class BandCloudException : BandException
     {
-    }
+        internal BandCloudException()
+        {
+        }
 
-    internal BandCloudException(string message)
-      : base(message)
-    {
-    }
+        internal BandCloudException(string message)
+          : base(message)
+        {
+        }
 
-    internal BandCloudException(string message, Exception innerException)
-      : base(message, innerException)
-    {
+        internal BandCloudException(string message, Exception innerException)
+          : base(message, innerException)
+        {
+        }
     }
-  }
 }

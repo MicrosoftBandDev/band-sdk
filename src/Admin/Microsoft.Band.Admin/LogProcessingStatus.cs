@@ -8,18 +8,18 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  public sealed class LogProcessingStatus
-  {
-    public LogProcessingStatus(string uploadId, DateTime knownStatus)
+    public sealed class LogProcessingStatus
     {
-      this.UploadId = uploadId;
-      this.KnownStatus = knownStatus;
+        public LogProcessingStatus(string uploadId, DateTime knownStatus)
+        {
+            this.UploadId = uploadId;
+            this.KnownStatus = knownStatus;
+        }
+
+        public LogFileTypes FileType => LogFileTypes.Sensor;
+
+        public string UploadId { get; private set; }
+
+        public DateTime KnownStatus { get; set; }
     }
-
-    public LogFileTypes FileType => LogFileTypes.Sensor;
-
-    public string UploadId { get; private set; }
-
-    public DateTime KnownStatus { get; set; }
-  }
 }

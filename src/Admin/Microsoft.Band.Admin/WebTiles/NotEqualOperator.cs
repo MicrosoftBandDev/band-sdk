@@ -6,15 +6,15 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  internal class NotEqualOperator : BinaryOperator
-  {
-    private NotEqualOperator(string tokenValue, int position)
-      : base(tokenValue, position)
+    internal class NotEqualOperator : BinaryOperator
     {
+        private NotEqualOperator(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
+
+        public static NotEqualOperator Create(string tokenValue, int position) => new NotEqualOperator(tokenValue, position);
+
+        public override bool Compare(object leftOperand, object rightOperand) => this.Compare(leftOperand, rightOperand, (BinaryOperator.CompareOperation)(diff => (uint)diff > 0U));
     }
-
-    public static NotEqualOperator Create(string tokenValue, int position) => new NotEqualOperator(tokenValue, position);
-
-    public override bool Compare(object leftOperand, object rightOperand) => this.Compare(leftOperand, rightOperand, (BinaryOperator.CompareOperation) (diff => (uint) diff > 0U));
-  }
 }

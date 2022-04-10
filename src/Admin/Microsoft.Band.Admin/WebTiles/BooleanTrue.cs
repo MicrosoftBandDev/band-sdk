@@ -6,13 +6,13 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  internal class BooleanTrue : Token
-  {
-    private BooleanTrue(string tokenValue, int position)
-      : base(tokenValue, position)
+    internal class BooleanTrue : Token
     {
-    }
+        private BooleanTrue(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
 
-    public static BooleanTrue Create(string tokenValue, int position) => new BooleanTrue(tokenValue, position);
-  }
+        public static BooleanTrue Create(string tokenValue, int position) => new BooleanTrue(tokenValue, position);
+    }
 }

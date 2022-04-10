@@ -8,15 +8,15 @@ using System.Collections.Generic;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public class StringOperand : Operand
-  {
-    private StringOperand(string tokenValue, int position)
-      : base(tokenValue, position)
+    public class StringOperand : Operand
     {
+        private StringOperand(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
+
+        public static StringOperand Create(string tokenValue, int position) => new StringOperand(tokenValue, position);
+
+        public override object GetValue(Dictionary<string, string> variableValues, bool stringRequired) => (object)StringTokenizer.RemoveEscapes(this.MatchedString.Substring(1, this.MatchedString.Length - 2));
     }
-
-    public static StringOperand Create(string tokenValue, int position) => new StringOperand(tokenValue, position);
-
-    public override object GetValue(Dictionary<string, string> variableValues, bool stringRequired) => (object) StringTokenizer.RemoveEscapes(this.MatchedString.Substring(1, this.MatchedString.Length - 2));
-  }
 }

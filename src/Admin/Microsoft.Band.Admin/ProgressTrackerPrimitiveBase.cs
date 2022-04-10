@@ -6,18 +6,18 @@
 
 namespace Microsoft.Band.Admin
 {
-  public class ProgressTrackerPrimitiveBase
-  {
-    public virtual void Complete()
+    public class ProgressTrackerPrimitiveBase
     {
-    }
+        public virtual void Complete()
+        {
+        }
 
-    public virtual void AddStepsTotal(int steps)
-    {
-    }
+        public virtual void AddStepsTotal(int steps)
+        {
+        }
 
-    public virtual void AddStepsCompleted(int steps)
-    {
+        public virtual void AddStepsCompleted(int steps)
+        {
+        }
     }
-  }
 }

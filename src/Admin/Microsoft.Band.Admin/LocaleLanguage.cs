@@ -6,28 +6,28 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum LocaleLanguage
-  {
-    Undefined,
-    English_US,
-    English_GB,
-    French_CA,
-    French_FR,
-    German_DE,
-    Italian_IT,
-    Spanish_MX,
-    Spanish_ES,
-    Spanish_US,
-    Danish_DK,
-    Finnish_FI,
-    NorwegianBokmal_NO,
-    Dutch_NL,
-    Portuguese_PT,
-    Swedish_SE,
-    Polish_PL,
-    SimplifiedChinese_CN,
-    TraditionalChinese_TW,
-    Japanese_JP,
-    Korean_KR,
-  }
+    public enum LocaleLanguage
+    {
+        Undefined,
+        English_US,
+        English_GB,
+        French_CA,
+        French_FR,
+        German_DE,
+        Italian_IT,
+        Spanish_MX,
+        Spanish_ES,
+        Spanish_US,
+        Danish_DK,
+        Finnish_FI,
+        NorwegianBokmal_NO,
+        Dutch_NL,
+        Portuguese_PT,
+        Swedish_SE,
+        Polish_PL,
+        SimplifiedChinese_CN,
+        TraditionalChinese_TW,
+        Japanese_JP,
+        Korean_KR,
+    }
 }

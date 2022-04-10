@@ -8,13 +8,13 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.Band.Admin
 {
-  [DataContract]
-  public enum LogFileTypes
-  {
-    [EnumMember] Unknown = 0,
-    [EnumMember] Sensor = 5,
-    CrashDump = 6,
-    [EnumMember] KAppLogs = 7,
-    Telemetry = 8,
-  }
+    [DataContract]
+    public enum LogFileTypes
+    {
+        [EnumMember] Unknown = 0,
+        [EnumMember] Sensor = 5,
+        CrashDump = 6,
+        [EnumMember] KAppLogs = 7,
+        Telemetry = 8,
+    }
 }

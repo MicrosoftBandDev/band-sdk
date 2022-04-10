@@ -6,22 +6,22 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  internal class ContainsOperator : BinaryOperator
-  {
-    private ContainsOperator(string tokenValue, int position)
-      : base(tokenValue, position)
+    internal class ContainsOperator : BinaryOperator
     {
-    }
+        private ContainsOperator(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
 
-    public static ContainsOperator Create(string tokenValue, int position) => new ContainsOperator(tokenValue, position);
+        public static ContainsOperator Create(string tokenValue, int position) => new ContainsOperator(tokenValue, position);
 
-    public override bool Compare(object leftOperand, object rightOperand)
-    {
-      if (!(leftOperand is string))
-        leftOperand = (object) leftOperand.ToString();
-      if (!(rightOperand is string))
-        rightOperand = (object) rightOperand.ToString();
-      return ((string) leftOperand).Contains((string) rightOperand);
+        public override bool Compare(object leftOperand, object rightOperand)
+        {
+            if (!(leftOperand is string))
+                leftOperand = (object)leftOperand.ToString();
+            if (!(rightOperand is string))
+                rightOperand = (object)rightOperand.ToString();
+            return ((string)leftOperand).Contains((string)rightOperand);
+        }
     }
-  }
 }

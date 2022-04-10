@@ -9,36 +9,36 @@ using System.Collections.Generic;
 
 namespace Microsoft.Band.Admin
 {
-  public sealed class DeviceSettings
-  {
-    public DeviceSettings()
+    public sealed class DeviceSettings
     {
-      this.LocaleSettings = CargoLocaleSettings.Default();
-      this.AdditionalSettings = new Dictionary<string, string>();
+        public DeviceSettings()
+        {
+            this.LocaleSettings = CargoLocaleSettings.Default();
+            this.AdditionalSettings = new Dictionary<string, string>();
+        }
+
+        public Guid DeviceId { get; set; }
+
+        public string SerialNumber { get; set; }
+
+        public string DeviceName { get; set; }
+
+        public int ProfileDeviceVersion { get; set; }
+
+        public DateTime? LastReset { get; set; }
+
+        public DateTime? LastSuccessfulSync { get; set; }
+
+        public CargoLocaleSettings LocaleSettings { get; set; }
+
+        public RunMeasurementUnitType RunDisplayUnits { get; set; }
+
+        public bool TelemetryEnabled { get; set; }
+
+        public Dictionary<string, string> AdditionalSettings { get; set; }
+
+        public byte[] Reserved { get; set; }
+
+        public byte[] FirmwareByteArray { get; set; }
     }
-
-    public Guid DeviceId { get; set; }
-
-    public string SerialNumber { get; set; }
-
-    public string DeviceName { get; set; }
-
-    public int ProfileDeviceVersion { get; set; }
-
-    public DateTime? LastReset { get; set; }
-
-    public DateTime? LastSuccessfulSync { get; set; }
-
-    public CargoLocaleSettings LocaleSettings { get; set; }
-
-    public RunMeasurementUnitType RunDisplayUnits { get; set; }
-
-    public bool TelemetryEnabled { get; set; }
-
-    public Dictionary<string, string> AdditionalSettings { get; set; }
-
-    public byte[] Reserved { get; set; }
-
-    public byte[] FirmwareByteArray { get; set; }
-  }
 }

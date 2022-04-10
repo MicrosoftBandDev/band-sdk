@@ -9,20 +9,20 @@ using System.IO;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public class NumberOperand : Operand
-  {
-    private NumberOperand(string tokenValue, int position)
-      : base(tokenValue, position)
+    public class NumberOperand : Operand
     {
-    }
+        private NumberOperand(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
 
-    public static NumberOperand Create(string tokenValue, int position) => new NumberOperand(tokenValue, position);
+        public static NumberOperand Create(string tokenValue, int position) => new NumberOperand(tokenValue, position);
 
-    public override object GetValue(Dictionary<string, string> variableValues, bool stringRequired)
-    {
-      if (stringRequired)
-        throw new InvalidDataException(CommonSR.WTContainsOperatorOnNumeric);
-      return (object) Operand.RoundDoubleTo16SignificantDigits(double.Parse(this.MatchedString));
+        public override object GetValue(Dictionary<string, string> variableValues, bool stringRequired)
+        {
+            if (stringRequired)
+                throw new InvalidDataException(CommonSR.WTContainsOperatorOnNumeric);
+            return (object)Operand.RoundDoubleTo16SignificantDigits(double.Parse(this.MatchedString));
+        }
     }
-  }
 }

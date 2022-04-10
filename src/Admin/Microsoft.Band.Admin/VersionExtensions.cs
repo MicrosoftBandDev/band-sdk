@@ -6,14 +6,14 @@
 
 namespace Microsoft.Band.Admin
 {
-  internal static class VersionExtensions
-  {
-    public static FirmwareVersions ToFirmwareVersions(this CargoVersions versions) => new FirmwareVersions()
+    internal static class VersionExtensions
     {
-      BootloaderVersion = new FirmwareVersion(versions.BootloaderVersion),
-      UpdaterVersion = new FirmwareVersion(versions.UpdaterVersion),
-      ApplicationVersion = new FirmwareVersion(versions.ApplicationVersion),
-      PcbId = versions.ApplicationVersion.PCBId
-    };
-  }
+        public static FirmwareVersions ToFirmwareVersions(this CargoVersions versions) => new FirmwareVersions()
+        {
+            BootloaderVersion = new FirmwareVersion(versions.BootloaderVersion),
+            UpdaterVersion = new FirmwareVersion(versions.UpdaterVersion),
+            ApplicationVersion = new FirmwareVersion(versions.ApplicationVersion),
+            PcbId = versions.ApplicationVersion.PCBId
+        };
+    }
 }

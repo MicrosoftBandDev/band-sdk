@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum FirmwareUpdateOperation : uint
-  {
-    DownloadOnly,
-    UpdateOnly,
-    DownloadAndUpdate,
-  }
+    public enum FirmwareUpdateOperation : uint
+    {
+        DownloadOnly,
+        UpdateOnly,
+        DownloadAndUpdate,
+    }
 }

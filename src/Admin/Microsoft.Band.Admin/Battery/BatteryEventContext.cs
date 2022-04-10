@@ -6,8 +6,8 @@
 
 namespace Microsoft.Band.Admin.Battery
 {
-  internal enum BatteryEventContext
-  {
-    BatteryFull = 1,
-  }
+    internal enum BatteryEventContext
+    {
+        BatteryFull = 1,
+    }
 }

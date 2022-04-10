@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum BandClass
-  {
-    Unknown,
-    Cargo,
-    Envoy,
-  }
+    public enum BandClass
+    {
+        Unknown,
+        Cargo,
+        Envoy,
+    }
 }

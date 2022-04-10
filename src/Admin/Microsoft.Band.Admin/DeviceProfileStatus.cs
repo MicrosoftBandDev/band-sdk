@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public sealed class DeviceProfileStatus
-  {
-    public LinkStatus DeviceLinkStatus { get; set; }
+    public sealed class DeviceProfileStatus
+    {
+        public LinkStatus DeviceLinkStatus { get; set; }
 
-    public LinkStatus UserLinkStatus { get; set; }
-  }
+        public LinkStatus UserLinkStatus { get; set; }
+    }
 }

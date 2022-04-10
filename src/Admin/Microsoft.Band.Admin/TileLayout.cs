@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public sealed class TileLayout
-  {
-    public TileLayout(byte[] layoutBlob) => this.layoutBlob = layoutBlob;
+    public sealed class TileLayout
+    {
+        public TileLayout(byte[] layoutBlob) => this.layoutBlob = layoutBlob;
 
-    public byte[] layoutBlob { get; set; }
-  }
+        public byte[] layoutBlob { get; set; }
+    }
 }

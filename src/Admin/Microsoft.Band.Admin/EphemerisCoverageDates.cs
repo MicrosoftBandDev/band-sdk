@@ -8,10 +8,10 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  public sealed class EphemerisCoverageDates
-  {
-    public DateTime? StartDate { get; set; }
+    public sealed class EphemerisCoverageDates
+    {
+        public DateTime? StartDate { get; set; }
 
-    public DateTime? EndDate { get; set; }
-  }
+        public DateTime? EndDate { get; set; }
+    }
 }

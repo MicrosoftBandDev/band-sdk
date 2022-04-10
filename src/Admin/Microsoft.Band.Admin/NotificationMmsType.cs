@@ -8,12 +8,12 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  [Flags]
-  public enum NotificationMmsType
-  {
-    None = 0,
-    Image = 1,
-    Video = 2,
-    Unknown = 4,
-  }
+    [Flags]
+    public enum NotificationMmsType
+    {
+        None = 0,
+        Image = 1,
+        Video = 2,
+        Unknown = 4,
+    }
 }

@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum LinkStatus
-  {
-    Empty,
-    Matching,
-    NonMatching,
-  }
+    public enum LinkStatus
+    {
+        Empty,
+        Matching,
+        NonMatching,
+    }
 }

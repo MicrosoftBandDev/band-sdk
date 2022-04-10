@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public interface ITileBarcode : ITilePageElement
-  {
-    BarcodeType CodeType { get; set; }
+    public interface ITileBarcode : ITilePageElement
+    {
+        BarcodeType CodeType { get; set; }
 
-    string BarcodeValue { get; set; }
-  }
+        string BarcodeValue { get; set; }
+    }
 }

@@ -8,16 +8,16 @@ using System.Text.RegularExpressions;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public class TokenDefinition
-  {
-    public RegexMatcher Matcher { get; private set; }
-
-    public CreateTokenDelegate CreateToken { get; private set; }
-
-    public TokenDefinition(string regex, CreateTokenDelegate createToken = null, RegexOptions options = RegexOptions.None)
+    public class TokenDefinition
     {
-      this.Matcher = new RegexMatcher(regex, options);
-      this.CreateToken = createToken;
+        public RegexMatcher Matcher { get; private set; }
+
+        public CreateTokenDelegate CreateToken { get; private set; }
+
+        public TokenDefinition(string regex, CreateTokenDelegate createToken = null, RegexOptions options = RegexOptions.None)
+        {
+            this.Matcher = new RegexMatcher(regex, options);
+            this.CreateToken = createToken;
+        }
     }
-  }
 }

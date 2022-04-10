@@ -6,16 +6,16 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum CortanaStatus : ushort
-  {
-    Invalid,
-    FinalMessage,
-    Error,
-    TurnByTurn,
-    Timeout,
-    NonFinalMessage,
-    ConfirmationTurnByTurn,
-    FinalMessageGoToPhone,
-    TextDictation,
-  }
+    public enum CortanaStatus : ushort
+    {
+        Invalid,
+        FinalMessage,
+        Error,
+        TurnByTurn,
+        Timeout,
+        NonFinalMessage,
+        ConfirmationTurnByTurn,
+        FinalMessageGoToPhone,
+        TextDictation,
+    }
 }

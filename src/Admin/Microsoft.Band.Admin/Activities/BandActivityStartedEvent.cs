@@ -6,7 +6,7 @@
 
 namespace Microsoft.Band.Admin.Activities
 {
-  internal sealed class BandActivityStartedEvent : BandActivityEventBase
-  {
-  }
+    internal sealed class BandActivityStartedEvent : BandActivityEventBase
+    {
+    }
 }

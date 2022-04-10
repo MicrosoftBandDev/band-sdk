@@ -11,105 +11,105 @@ using System.Net;
 
 namespace Microsoft.Band.Admin
 {
-  public class Logger
-  {
-    private static TraceListenerBase traceListenerInternal;
-
-    private Logger()
+    public class Logger
     {
-    }
+        private static TraceListenerBase traceListenerInternal;
 
-    public static void SetInstance(TraceListenerBase traceListenerPassed) => Logger.traceListenerInternal = traceListenerPassed;
-
-    public static void Log(LogLevel level, string message, params object[] args)
-    {
-      if (Logger.traceListenerInternal != null)
-      {
-        Logger.traceListenerInternal.Log(level, message, args);
-      }
-      else
-      {
-        if (level == LogLevel.Verbose)
-          return;
-        int length = args.Length;
-      }
-    }
-
-    public static void LogException(LogLevel level, Exception e)
-    {
-      if (Logger.traceListenerInternal != null)
-        Logger.traceListenerInternal.LogException(level, e, string.Empty);
-    }
-
-    public static void LogWebException(LogLevel level, WebException e)
-    {
-      if (Logger.traceListenerInternal != null)
-      {
-        string message = (string) null;
-        try
+        private Logger()
         {
-          using (StreamReader streamReader = new StreamReader(e.Response.GetResponseStream()))
-            message = streamReader.ReadToEnd();
         }
-        catch (Exception ex)
+
+        public static void SetInstance(TraceListenerBase traceListenerPassed) => Logger.traceListenerInternal = traceListenerPassed;
+
+        public static void Log(LogLevel level, string message, params object[] args)
         {
-          Logger.traceListenerInternal.LogException(LogLevel.Warning, ex, "Unable to obtain WebException stream details. Only logging WebException.");
+            if (Logger.traceListenerInternal != null)
+            {
+                Logger.traceListenerInternal.Log(level, message, args);
+            }
+            else
+            {
+                if (level == LogLevel.Verbose)
+                    return;
+                int length = args.Length;
+            }
         }
-        finally
+
+        public static void LogException(LogLevel level, Exception e)
         {
-          Logger.traceListenerInternal.LogException(level, (Exception) e, message);
+            if (Logger.traceListenerInternal != null)
+                Logger.traceListenerInternal.LogException(level, e, string.Empty);
         }
-      }
-    }
 
-    public static void LogException(
-      LogLevel level,
-      Exception e,
-      string message,
-      params object[] args)
-    {
-      if (Logger.traceListenerInternal != null)
-      {
-        Logger.traceListenerInternal.LogException(level, e, message, args);
-      }
-      else
-      {
-        if (level == LogLevel.Verbose)
-          return;
-        int length = args.Length;
-      }
-    }
+        public static void LogWebException(LogLevel level, WebException e)
+        {
+            if (Logger.traceListenerInternal != null)
+            {
+                string message = (string)null;
+                try
+                {
+                    using (StreamReader streamReader = new StreamReader(e.Response.GetResponseStream()))
+                        message = streamReader.ReadToEnd();
+                }
+                catch (Exception ex)
+                {
+                    Logger.traceListenerInternal.LogException(LogLevel.Warning, ex, "Unable to obtain WebException stream details. Only logging WebException.");
+                }
+                finally
+                {
+                    Logger.traceListenerInternal.LogException(level, (Exception)e, message);
+                }
+            }
+        }
 
-    public static void PerfStart(string eventName)
-    {
-      if (Logger.traceListenerInternal == null)
-        return;
-      Logger.traceListenerInternal.PerfStart(eventName);
-    }
+        public static void LogException(
+          LogLevel level,
+          Exception e,
+          string message,
+          params object[] args)
+        {
+            if (Logger.traceListenerInternal != null)
+            {
+                Logger.traceListenerInternal.LogException(level, e, message, args);
+            }
+            else
+            {
+                if (level == LogLevel.Verbose)
+                    return;
+                int length = args.Length;
+            }
+        }
 
-    public static void PerfEnd(string eventName)
-    {
-      if (Logger.traceListenerInternal == null)
-        return;
-      Logger.traceListenerInternal.PerfEnd(eventName);
-    }
+        public static void PerfStart(string eventName)
+        {
+            if (Logger.traceListenerInternal == null)
+                return;
+            Logger.traceListenerInternal.PerfStart(eventName);
+        }
 
-    public static void TelemetryEvent(
-      string eventName,
-      IDictionary<string, string> properties,
-      IDictionary<string, double> metrics)
-    {
-      if (Logger.traceListenerInternal == null)
-        return;
-      Logger.traceListenerInternal.TelemetryEvent(eventName, properties, metrics);
-    }
+        public static void PerfEnd(string eventName)
+        {
+            if (Logger.traceListenerInternal == null)
+                return;
+            Logger.traceListenerInternal.PerfEnd(eventName);
+        }
 
-    public static ICancellableTransaction TelemetryTimedEvent(
-      string eventName,
-      IDictionary<string, string> properties,
-      IDictionary<string, double> metrics)
-    {
-      return Logger.traceListenerInternal != null ? Logger.traceListenerInternal.TelemetryTimedEvent(eventName, properties, metrics) : (ICancellableTransaction) null;
+        public static void TelemetryEvent(
+          string eventName,
+          IDictionary<string, string> properties,
+          IDictionary<string, double> metrics)
+        {
+            if (Logger.traceListenerInternal == null)
+                return;
+            Logger.traceListenerInternal.TelemetryEvent(eventName, properties, metrics);
+        }
+
+        public static ICancellableTransaction TelemetryTimedEvent(
+          string eventName,
+          IDictionary<string, string> properties,
+          IDictionary<string, double> metrics)
+        {
+            return Logger.traceListenerInternal != null ? Logger.traceListenerInternal.TelemetryTimedEvent(eventName, properties, metrics) : (ICancellableTransaction)null;
+        }
     }
-  }
 }

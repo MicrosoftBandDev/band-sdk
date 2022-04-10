@@ -8,10 +8,10 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  [DataContract]
-  public class WebTileUserSettings
-  {
-    [DataMember]
-    public bool NotificationEnabled { get; set; }
-  }
+    [DataContract]
+    public class WebTileUserSettings
+    {
+        [DataMember]
+        public bool NotificationEnabled { get; set; }
+    }
 }

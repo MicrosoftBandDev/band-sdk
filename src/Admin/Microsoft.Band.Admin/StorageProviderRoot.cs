@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum StorageProviderRoot
-  {
-    App,
-    Device,
-  }
+    public enum StorageProviderRoot
+    {
+        App,
+        Device,
+    }
 }

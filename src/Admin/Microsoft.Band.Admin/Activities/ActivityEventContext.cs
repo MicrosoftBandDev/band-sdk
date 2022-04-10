@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin.Activities
 {
-  internal enum ActivityEventContext
-  {
-    ActivityStart,
-    ActivityEnd,
-  }
+    internal enum ActivityEventContext
+    {
+        ActivityStart,
+        ActivityEnd,
+    }
 }

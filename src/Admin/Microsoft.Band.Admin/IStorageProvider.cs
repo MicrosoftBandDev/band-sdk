@@ -9,70 +9,70 @@ using System.IO;
 
 namespace Microsoft.Band.Admin
 {
-  public interface IStorageProvider
-  {
-    Stream OpenFileForWrite(string relativePath, bool append, int bufferSize = 0);
+    public interface IStorageProvider
+    {
+        Stream OpenFileForWrite(string relativePath, bool append, int bufferSize = 0);
 
-    Stream OpenFileForWrite(
-      StorageProviderRoot root,
-      string relativePath,
-      bool append,
-      int bufferSize = 0);
+        Stream OpenFileForWrite(
+          StorageProviderRoot root,
+          string relativePath,
+          bool append,
+          int bufferSize = 0);
 
-    Stream OpenFileForRead(string relativePath, int bufferSize = 0);
+        Stream OpenFileForRead(string relativePath, int bufferSize = 0);
 
-    Stream OpenFileForRead(StorageProviderRoot root, string relativePath, int bufferSize = 0);
+        Stream OpenFileForRead(StorageProviderRoot root, string relativePath, int bufferSize = 0);
 
-    void DeleteFile(string relativePath);
+        void DeleteFile(string relativePath);
 
-    void DeleteFile(StorageProviderRoot root, string relativePath);
+        void DeleteFile(StorageProviderRoot root, string relativePath);
 
-    void RenameFile(string relativeSourcePath, string relativeDestFolder, string destFileName);
+        void RenameFile(string relativeSourcePath, string relativeDestFolder, string destFileName);
 
-    void RenameFile(
-      StorageProviderRoot sourceRoot,
-      string relativeSourcePath,
-      StorageProviderRoot destRoot,
-      string relativeDestFolder,
-      string destFileName);
+        void RenameFile(
+          StorageProviderRoot sourceRoot,
+          string relativeSourcePath,
+          StorageProviderRoot destRoot,
+          string relativeDestFolder,
+          string destFileName);
 
-    long GetFileSize(string relativePath);
+        long GetFileSize(string relativePath);
 
-    long GetFileSize(StorageProviderRoot root, string relativePath);
+        long GetFileSize(StorageProviderRoot root, string relativePath);
 
-    string[] GetFiles(string folderRelativePath);
+        string[] GetFiles(string folderRelativePath);
 
-    string[] GetFiles(StorageProviderRoot root, string folderRelativePath);
+        string[] GetFiles(StorageProviderRoot root, string folderRelativePath);
 
-    string[] GetFolders(string folderRelativePath);
+        string[] GetFolders(string folderRelativePath);
 
-    string[] GetFolders(StorageProviderRoot root, string folderRelativePath);
+        string[] GetFolders(StorageProviderRoot root, string folderRelativePath);
 
-    void CreateFolder(string folderRelativePath);
+        void CreateFolder(string folderRelativePath);
 
-    void CreateFolder(StorageProviderRoot root, string folderRelativePath);
+        void CreateFolder(StorageProviderRoot root, string folderRelativePath);
 
-    void DeleteFolder(string folderRelativePath);
+        void DeleteFolder(string folderRelativePath);
 
-    void DeleteFolder(StorageProviderRoot root, string folderRelativePath);
+        void DeleteFolder(StorageProviderRoot root, string folderRelativePath);
 
-    DateTime GetFileCreationTimeUtc(string relativePath);
+        DateTime GetFileCreationTimeUtc(string relativePath);
 
-    DateTime GetFileCreationTimeUtc(StorageProviderRoot root, string relativePath);
+        DateTime GetFileCreationTimeUtc(StorageProviderRoot root, string relativePath);
 
-    bool FileExists(string relativePath);
+        bool FileExists(string relativePath);
 
-    bool FileExists(StorageProviderRoot root, string relativePath);
+        bool FileExists(StorageProviderRoot root, string relativePath);
 
-    bool DirectoryExists(string relativePath);
+        bool DirectoryExists(string relativePath);
 
-    bool DirectoryExists(StorageProviderRoot root, string relativePath);
+        bool DirectoryExists(StorageProviderRoot root, string relativePath);
 
-    void MoveFolder(
-      StorageProviderRoot sourceRoot,
-      string relativeSourceFolder,
-      StorageProviderRoot destRoot,
-      string relativeDestFolder,
-      bool overwrite = false);
-  }
+        void MoveFolder(
+          StorageProviderRoot sourceRoot,
+          string relativeSourceFolder,
+          StorageProviderRoot destRoot,
+          string relativeDestFolder,
+          bool overwrite = false);
+    }
 }

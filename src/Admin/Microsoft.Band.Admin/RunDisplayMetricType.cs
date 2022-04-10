@@ -6,16 +6,16 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum RunDisplayMetricType : ushort
-  {
-    Duration,
-    HeartRate,
-    Calories,
-    Distance,
-    Pace,
-    None,
-    ElevationGain,
-    AveragePace,
-    Time,
-  }
+    public enum RunDisplayMetricType : ushort
+    {
+        Duration,
+        HeartRate,
+        Calories,
+        Distance,
+        Pace,
+        None,
+        ElevationGain,
+        AveragePace,
+        Time,
+    }
 }

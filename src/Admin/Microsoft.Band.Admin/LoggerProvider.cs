@@ -11,34 +11,34 @@ using System.Runtime.CompilerServices;
 
 namespace Microsoft.Band.Admin
 {
-  internal class LoggerProvider : ILoggerProvider
-  {
-    public void Log(ProviderLogLevel level, string message, object[] args, [CallerMemberName] string callerName = null) => Logger.Log(level.ToLogLevel(), message, args);
-
-    public void LogException(ProviderLogLevel level, Exception e, [CallerMemberName] string callerName = null) => Logger.LogException(level.ToLogLevel(), e);
-
-    public void LogWebException(ProviderLogLevel level, WebException e, [CallerMemberName] string callerName = null) => Logger.LogWebException(level.ToLogLevel(), e);
-
-    public void LogException(
-      ProviderLogLevel level,
-      Exception e,
-      string message,
-      object[] args,
-      [CallerMemberName] string callerName = null)
+    internal class LoggerProvider : ILoggerProvider
     {
-      Logger.LogException(level.ToLogLevel(), e, message, args);
+        public void Log(ProviderLogLevel level, string message, object[] args, [CallerMemberName] string callerName = null) => Logger.Log(level.ToLogLevel(), message, args);
+
+        public void LogException(ProviderLogLevel level, Exception e, [CallerMemberName] string callerName = null) => Logger.LogException(level.ToLogLevel(), e);
+
+        public void LogWebException(ProviderLogLevel level, WebException e, [CallerMemberName] string callerName = null) => Logger.LogWebException(level.ToLogLevel(), e);
+
+        public void LogException(
+          ProviderLogLevel level,
+          Exception e,
+          string message,
+          object[] args,
+          [CallerMemberName] string callerName = null)
+        {
+            Logger.LogException(level.ToLogLevel(), e, message, args);
+        }
+
+        public void PerfStart(string eventName) => Logger.PerfStart(eventName);
+
+        public void PerfEnd(string eventName) => Logger.PerfEnd(eventName);
+
+        public void TelemetryEvent(
+          string eventName,
+          IDictionary<string, string> properties,
+          IDictionary<string, double> metrics)
+        {
+            Logger.TelemetryEvent(eventName, properties, metrics);
+        }
     }
-
-    public void PerfStart(string eventName) => Logger.PerfStart(eventName);
-
-    public void PerfEnd(string eventName) => Logger.PerfEnd(eventName);
-
-    public void TelemetryEvent(
-      string eventName,
-      IDictionary<string, string> properties,
-      IDictionary<string, double> metrics)
-    {
-      Logger.TelemetryEvent(eventName, properties, metrics);
-    }
-  }
 }

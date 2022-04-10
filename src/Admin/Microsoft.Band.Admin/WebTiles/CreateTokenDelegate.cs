@@ -6,5 +6,5 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public delegate Token CreateTokenDelegate(string matchedTokenString, int position);
+    public delegate Token CreateTokenDelegate(string matchedTokenString, int position);
 }

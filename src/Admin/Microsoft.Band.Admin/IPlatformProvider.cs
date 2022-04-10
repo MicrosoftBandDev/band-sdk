@@ -9,22 +9,22 @@ using System.IO;
 
 namespace Microsoft.Band.Admin
 {
-  internal interface IPlatformProvider
-  {
-    void Sleep(int milliseconds);
+    internal interface IPlatformProvider
+    {
+        void Sleep(int milliseconds);
 
-    string GetAssemblyVersion();
+        string GetAssemblyVersion();
 
-    Version GetHostOSVersion();
+        Version GetHostOSVersion();
 
-    string GetHostOS();
+        string GetHostOS();
 
-    string GetDefaultUserAgent(FirmwareVersions firmwareVersions);
+        string GetDefaultUserAgent(FirmwareVersions firmwareVersions);
 
-    int MaxChunkRange { get; }
+        int MaxChunkRange { get; }
 
-    byte[] ComputeHashMd5(byte[] data);
+        byte[] ComputeHashMd5(byte[] data);
 
-    byte[] ComputeHashMd5(Stream data);
-  }
+        byte[] ComputeHashMd5(Stream data);
+    }
 }

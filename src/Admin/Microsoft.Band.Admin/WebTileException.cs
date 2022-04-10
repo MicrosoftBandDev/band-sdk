@@ -8,20 +8,20 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  public class WebTileException : Exception
-  {
-    internal WebTileException()
+    public class WebTileException : Exception
     {
-    }
+        internal WebTileException()
+        {
+        }
 
-    internal WebTileException(string message)
-      : base(message)
-    {
-    }
+        internal WebTileException(string message)
+          : base(message)
+        {
+        }
 
-    internal WebTileException(string message, Exception innerException)
-      : base(message, innerException)
-    {
+        internal WebTileException(string message, Exception innerException)
+          : base(message, innerException)
+        {
+        }
     }
-  }
 }

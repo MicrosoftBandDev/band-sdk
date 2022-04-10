@@ -9,28 +9,28 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public interface IWebTileResource
-  {
-    bool AllowInvalidValues { get; set; }
+    public interface IWebTileResource
+    {
+        bool AllowInvalidValues { get; set; }
 
-    Dictionary<string, string> PropertyErrors { get; }
+        Dictionary<string, string> PropertyErrors { get; }
 
-    string Url { get; set; }
+        string Url { get; set; }
 
-    ResourceStyle Style { get; set; }
+        ResourceStyle Style { get; set; }
 
-    Dictionary<string, string> Content { get; set; }
+        Dictionary<string, string> Content { get; set; }
 
-    Task<List<Dictionary<string, string>>> ResolveFeedContentMappingsAsync();
+        Task<List<Dictionary<string, string>>> ResolveFeedContentMappingsAsync();
 
-    string Username { get; set; }
+        string Username { get; set; }
 
-    string Password { get; set; }
+        string Password { get; set; }
 
-    Task<bool> AuthenticateAsync();
+        Task<bool> AuthenticateAsync();
 
-    IWebTileResourceCacheInfo CacheInfo { get; set; }
+        IWebTileResourceCacheInfo CacheInfo { get; set; }
 
-    HeaderNameValuePair[] RequestHeaders { get; set; }
-  }
+        HeaderNameValuePair[] RequestHeaders { get; set; }
+    }
 }

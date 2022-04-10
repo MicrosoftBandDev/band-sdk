@@ -6,15 +6,15 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  internal class LessThanOperator : BinaryOperator
-  {
-    private LessThanOperator(string tokenValue, int position)
-      : base(tokenValue, position)
+    internal class LessThanOperator : BinaryOperator
     {
+        private LessThanOperator(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
+
+        public static LessThanOperator Create(string tokenValue, int position) => new LessThanOperator(tokenValue, position);
+
+        public override bool Compare(object leftOperand, object rightOperand) => this.Compare(leftOperand, rightOperand, (BinaryOperator.CompareOperation)(diff => diff < 0));
     }
-
-    public static LessThanOperator Create(string tokenValue, int position) => new LessThanOperator(tokenValue, position);
-
-    public override bool Compare(object leftOperand, object rightOperand) => this.Compare(leftOperand, rightOperand, (BinaryOperator.CompareOperation) (diff => diff < 0));
-  }
 }

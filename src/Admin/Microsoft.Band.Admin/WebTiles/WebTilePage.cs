@@ -10,16 +10,16 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  [DataContract]
-  public class WebTilePage
-  {
-    private string layoutName;
-    private string condition;
-    private WebTileTextBinding[] textBindings;
-    private WebTileIconBinding[] iconBindings;
-    private WebTilePropertyValidator validator = new WebTilePropertyValidator();
-    private static byte[] MSBandV1_MetricsWithIcons_LBLOB = new byte[388]
+    [DataContract]
+    public class WebTilePage
     {
+        private string layoutName;
+        private string condition;
+        private WebTileTextBinding[] textBindings;
+        private WebTileIconBinding[] iconBindings;
+        private WebTilePropertyValidator validator = new WebTilePropertyValidator();
+        private static byte[] MSBandV1_MetricsWithIcons_LBLOB = new byte[388]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -408,9 +408,9 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV1_NoScrollingText_LBLOB = new byte[280]
-    {
+        };
+        private static byte[] MSBandV1_NoScrollingText_LBLOB = new byte[280]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -691,9 +691,9 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV1_ScrollingText_LBLOB = new byte[170]
-    {
+        };
+        private static byte[] MSBandV1_ScrollingText_LBLOB = new byte[170]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -864,9 +864,9 @@ namespace Microsoft.Band.Admin.WebTiles
       byte.MaxValue,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV1_SingleMetric_LBLOB = new byte[204]
-    {
+        };
+        private static byte[] MSBandV1_SingleMetric_LBLOB = new byte[204]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -1071,9 +1071,9 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV1_SingleMetricWithIcon_LBLOB = new byte[240]
-    {
+        };
+        private static byte[] MSBandV1_SingleMetricWithIcon_LBLOB = new byte[240]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -1314,9 +1314,9 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV1_SingleMetricWithSecondary_LBLOB = new byte[320]
-    {
+        };
+        private static byte[] MSBandV1_SingleMetricWithSecondary_LBLOB = new byte[320]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -1637,10 +1637,10 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    public const short MSBand_SingleMetricWithSecondary_VerticalLine_TextElementId = 13;
-    private static byte[] MSBandV2_MetricsWithIcons_LBLOB = new byte[388]
-    {
+        };
+        public const short MSBand_SingleMetricWithSecondary_VerticalLine_TextElementId = 13;
+        private static byte[] MSBandV2_MetricsWithIcons_LBLOB = new byte[388]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -2029,9 +2029,9 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV2_NoScrollingText_LBLOB = new byte[280]
-    {
+        };
+        private static byte[] MSBandV2_NoScrollingText_LBLOB = new byte[280]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -2312,9 +2312,9 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV2_ScrollingText_LBLOB = new byte[170]
-    {
+        };
+        private static byte[] MSBandV2_ScrollingText_LBLOB = new byte[170]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -2485,9 +2485,9 @@ namespace Microsoft.Band.Admin.WebTiles
       byte.MaxValue,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV2_SingleMetric_LBLOB = new byte[204]
-    {
+        };
+        private static byte[] MSBandV2_SingleMetric_LBLOB = new byte[204]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -2692,9 +2692,9 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV2_SingleMetricWithIcon_LBLOB = new byte[240]
-    {
+        };
+        private static byte[] MSBandV2_SingleMetricWithIcon_LBLOB = new byte[240]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -2935,9 +2935,9 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static byte[] MSBandV2_SingleMetricWithSecondary_LBLOB = new byte[320]
-    {
+        };
+        private static byte[] MSBandV2_SingleMetricWithSecondary_LBLOB = new byte[320]
+        {
       (byte) 1,
       (byte) 0,
       (byte) 0,
@@ -3258,8 +3258,8 @@ namespace Microsoft.Band.Admin.WebTiles
       (byte) 0,
       (byte) 70,
       (byte) 244
-    };
-    private static Dictionary<string, WebTilePage.BandClassSpecificLblobs> predefinedLayoutDictionary = new Dictionary<string, WebTilePage.BandClassSpecificLblobs>()
+        };
+        private static Dictionary<string, WebTilePage.BandClassSpecificLblobs> predefinedLayoutDictionary = new Dictionary<string, WebTilePage.BandClassSpecificLblobs>()
     {
       {
         "MSBand_SingleMetric",
@@ -3287,82 +3287,82 @@ namespace Microsoft.Band.Admin.WebTiles
       }
     };
 
-    public WebTilePropertyValidator Validator => this.validator;
+        public WebTilePropertyValidator Validator => this.validator;
 
-    public bool AllowInvalidValues
-    {
-      get => this.validator.AllowInvalidValues;
-      set => this.validator.AllowInvalidValues = value;
-    }
-
-    public Dictionary<string, string> PropertyErrors => this.validator.PropertyErrors;
-
-    [DataMember(IsRequired = true, Name = "layout")]
-    public string LayoutName
-    {
-      get => this.layoutName;
-      set => this.validator.SetProperty<string>(ref this.layoutName, value, nameof (LayoutName), WebTilePage.IsPredefinedLayoutName(value), CommonSR.WTPropertyInvalidLayoutName);
-    }
-
-    public static bool IsPredefinedLayoutName(string layoutName) => layoutName != null && WebTilePage.predefinedLayoutDictionary.ContainsKey(layoutName);
-
-    internal static byte[] GetLayoutBlob(string layoutName, BandClass bandClass) => bandClass == BandClass.Envoy ? WebTilePage.predefinedLayoutDictionary[layoutName].lblobV2 : WebTilePage.predefinedLayoutDictionary[layoutName].lblobV1;
-
-    [DataMember(Name = "condition")]
-    public string Condition
-    {
-      get => this.condition;
-      set => this.validator.SetProperty<string>(ref this.condition, value, nameof (Condition), this.IsValidPageCondition(value), CommonSR.WTPropertyInvalidCondition);
-    }
-
-    public bool IsValidPageCondition(string condition)
-    {
-      bool flag = false;
-      if (condition == null)
-        flag = true;
-      else if (string.Compare(condition, "true", StringComparison.OrdinalIgnoreCase) == 0)
-        flag = true;
-      return flag;
-    }
-
-    [DataMember(Name = "textBindings")]
-    public WebTileTextBinding[] TextBindings
-    {
-      get => this.textBindings;
-      set => this.textBindings = value;
-    }
-
-    [DataMember(Name = "iconBindings")]
-    public WebTileIconBinding[] IconBindings
-    {
-      get => this.iconBindings;
-      set
-      {
-        this.validator.ClearPropertyError("IconBindings.Conditions.Length");
-        this.validator.ClearPropertyError("IconBindings.Conditions.Condition");
-        if (value != null)
+        public bool AllowInvalidValues
         {
-          foreach (WebTileIconBinding webTileIconBinding in value)
-          {
-            this.validator.CheckProperty("IconBindings.Conditions.Length", webTileIconBinding.Conditions.Length <= 1, CommonSR.WTPropertyTooManyIconBindings);
-            foreach (WebTileIconCondition condition in webTileIconBinding.Conditions)
-              this.validator.CheckProperty("IconBindings.Conditions.Condition", condition.Condition == null || string.Compare(condition.Condition, "true", StringComparison.OrdinalIgnoreCase) == 0, CommonSR.WTPropertyConditionMustBeTrue);
-          }
+            get => this.validator.AllowInvalidValues;
+            set => this.validator.AllowInvalidValues = value;
         }
-        this.iconBindings = value;
-      }
-    }
 
-    private struct BandClassSpecificLblobs
-    {
-      public byte[] lblobV1;
-      public byte[] lblobV2;
+        public Dictionary<string, string> PropertyErrors => this.validator.PropertyErrors;
 
-      public BandClassSpecificLblobs(byte[] v1, byte[] v2)
-      {
-        this.lblobV1 = v1;
-        this.lblobV2 = v2;
-      }
+        [DataMember(IsRequired = true, Name = "layout")]
+        public string LayoutName
+        {
+            get => this.layoutName;
+            set => this.validator.SetProperty<string>(ref this.layoutName, value, nameof(LayoutName), WebTilePage.IsPredefinedLayoutName(value), CommonSR.WTPropertyInvalidLayoutName);
+        }
+
+        public static bool IsPredefinedLayoutName(string layoutName) => layoutName != null && WebTilePage.predefinedLayoutDictionary.ContainsKey(layoutName);
+
+        internal static byte[] GetLayoutBlob(string layoutName, BandClass bandClass) => bandClass == BandClass.Envoy ? WebTilePage.predefinedLayoutDictionary[layoutName].lblobV2 : WebTilePage.predefinedLayoutDictionary[layoutName].lblobV1;
+
+        [DataMember(Name = "condition")]
+        public string Condition
+        {
+            get => this.condition;
+            set => this.validator.SetProperty<string>(ref this.condition, value, nameof(Condition), this.IsValidPageCondition(value), CommonSR.WTPropertyInvalidCondition);
+        }
+
+        public bool IsValidPageCondition(string condition)
+        {
+            bool flag = false;
+            if (condition == null)
+                flag = true;
+            else if (string.Compare(condition, "true", StringComparison.OrdinalIgnoreCase) == 0)
+                flag = true;
+            return flag;
+        }
+
+        [DataMember(Name = "textBindings")]
+        public WebTileTextBinding[] TextBindings
+        {
+            get => this.textBindings;
+            set => this.textBindings = value;
+        }
+
+        [DataMember(Name = "iconBindings")]
+        public WebTileIconBinding[] IconBindings
+        {
+            get => this.iconBindings;
+            set
+            {
+                this.validator.ClearPropertyError("IconBindings.Conditions.Length");
+                this.validator.ClearPropertyError("IconBindings.Conditions.Condition");
+                if (value != null)
+                {
+                    foreach (WebTileIconBinding webTileIconBinding in value)
+                    {
+                        this.validator.CheckProperty("IconBindings.Conditions.Length", webTileIconBinding.Conditions.Length <= 1, CommonSR.WTPropertyTooManyIconBindings);
+                        foreach (WebTileIconCondition condition in webTileIconBinding.Conditions)
+                            this.validator.CheckProperty("IconBindings.Conditions.Condition", condition.Condition == null || string.Compare(condition.Condition, "true", StringComparison.OrdinalIgnoreCase) == 0, CommonSR.WTPropertyConditionMustBeTrue);
+                    }
+                }
+                this.iconBindings = value;
+            }
+        }
+
+        private struct BandClassSpecificLblobs
+        {
+            public byte[] lblobV1;
+            public byte[] lblobV2;
+
+            public BandClassSpecificLblobs(byte[] v1, byte[] v2)
+            {
+                this.lblobV1 = v1;
+                this.lblobV2 = v2;
+            }
+        }
     }
-  }
 }

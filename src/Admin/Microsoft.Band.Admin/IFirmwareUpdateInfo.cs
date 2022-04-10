@@ -6,12 +6,12 @@
 
 namespace Microsoft.Band.Admin
 {
-  public interface IFirmwareUpdateInfo
-  {
-    string UniqueVersion { get; set; }
+    public interface IFirmwareUpdateInfo
+    {
+        string UniqueVersion { get; set; }
 
-    string FirmwareVersion { get; }
+        string FirmwareVersion { get; }
 
-    bool IsFirmwareUpdateAvailable { get; }
-  }
+        bool IsFirmwareUpdateAvailable { get; }
+    }
 }

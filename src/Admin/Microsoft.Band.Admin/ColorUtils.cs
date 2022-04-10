@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public static class ColorUtils
-  {
-    public static uint ToRgb(this BandColor color) => color.ToRgb();
+    public static class ColorUtils
+    {
+        public static uint ToRgb(this BandColor color) => color.ToRgb();
 
-    public static BandColor RgbToBandColor(this uint rgb) => new BandColor(rgb);
-  }
+        public static BandColor RgbToBandColor(this uint rgb) => new BandColor(rgb);
+    }
 }

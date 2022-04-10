@@ -6,7 +6,7 @@
 
 namespace Microsoft.Band.Admin.Battery
 {
-  internal sealed class BandBatteryFullEvent : BandBatteryEventBase
-  {
-  }
+    internal sealed class BandBatteryFullEvent : BandBatteryEventBase
+    {
+    }
 }

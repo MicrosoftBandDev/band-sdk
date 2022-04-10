@@ -9,11 +9,11 @@ using System.Collections.Generic;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public class WebTileAgentHelper
-  {
-    private const string OrganizationMicrosoft = "Microsoft";
-    private const string XWebTileAgentHeaderName = "X-WEBTILE-AGENT";
-    private static Dictionary<string, HeaderNameValuePair[]> MSUrlToHeadersTable = new Dictionary<string, HeaderNameValuePair[]>()
+    public class WebTileAgentHelper
+    {
+        private const string OrganizationMicrosoft = "Microsoft";
+        private const string XWebTileAgentHeaderName = "X-WEBTILE-AGENT";
+        private static Dictionary<string, HeaderNameValuePair[]> MSUrlToHeadersTable = new Dictionary<string, HeaderNameValuePair[]>()
     {
       {
         "prodcus0dep.blob.core.windows.net",
@@ -38,17 +38,17 @@ namespace Microsoft.Band.Admin.WebTiles
       }
     };
 
-    public static HeaderNameValuePair[] GetAgentHeadersForUrl(
-      string url,
-      string organization)
-    {
-      if (organization != null && string.Compare(organization, "Microsoft", StringComparison.OrdinalIgnoreCase) == 0)
-      {
-        string host = new Uri(url).Host;
-        if (host != null && WebTileAgentHelper.MSUrlToHeadersTable.ContainsKey(host))
-          return WebTileAgentHelper.MSUrlToHeadersTable[host];
-      }
-      return (HeaderNameValuePair[]) null;
+        public static HeaderNameValuePair[] GetAgentHeadersForUrl(
+          string url,
+          string organization)
+        {
+            if (organization != null && string.Compare(organization, "Microsoft", StringComparison.OrdinalIgnoreCase) == 0)
+            {
+                string host = new Uri(url).Host;
+                if (host != null && WebTileAgentHelper.MSUrlToHeadersTable.ContainsKey(host))
+                    return WebTileAgentHelper.MSUrlToHeadersTable[host];
+            }
+            return (HeaderNameValuePair[])null;
+        }
     }
-  }
 }

@@ -8,10 +8,10 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.Band.Admin
 {
-  [DataContract]
-  public enum LogCompressionAlgorithm
-  {
-    [EnumMember] winzip,
-    [EnumMember] uncompressed,
-  }
+    [DataContract]
+    public enum LogCompressionAlgorithm
+    {
+        [EnumMember] winzip,
+        [EnumMember] uncompressed,
+    }
 }

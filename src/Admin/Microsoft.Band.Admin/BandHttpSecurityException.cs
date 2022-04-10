@@ -8,14 +8,14 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  public class BandHttpSecurityException : BandHttpException
-  {
-    internal BandHttpSecurityException(
-      string responseContent,
-      string message,
-      Exception innerException)
-      : base(responseContent, message, innerException)
+    public class BandHttpSecurityException : BandHttpException
     {
+        internal BandHttpSecurityException(
+          string responseContent,
+          string message,
+          Exception innerException)
+          : base(responseContent, message, innerException)
+        {
+        }
     }
-  }
 }

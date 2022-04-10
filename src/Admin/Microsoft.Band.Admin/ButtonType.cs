@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum ButtonType : byte
-  {
-    Power,
-    Mode,
-    Spare,
-  }
+    public enum ButtonType : byte
+    {
+        Power,
+        Mode,
+        Spare,
+    }
 }

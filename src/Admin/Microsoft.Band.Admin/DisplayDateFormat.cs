@@ -6,13 +6,13 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum DisplayDateFormat
-  {
-    Undefined,
-    yyyyMMdd,
-    ddMMyyyy,
-    dMMyyyy,
-    MMddyyyy,
-    Mdyyyy,
-  }
+    public enum DisplayDateFormat
+    {
+        Undefined,
+        yyyyMMdd,
+        ddMMyyyy,
+        dMMyyyy,
+        MMddyyyy,
+        Mdyyyy,
+    }
 }

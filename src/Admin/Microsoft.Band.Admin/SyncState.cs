@@ -6,17 +6,17 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum SyncState : uint
-  {
-    NotStarted,
-    CurrentTimeAndTimeZone,
-    Ephemeris,
-    TimeZoneData,
-    DeviceInstrumentation,
-    DeviceCrashDump,
-    UserProfile,
-    SensorLog,
-    WebTiles,
-    Done,
-  }
+    public enum SyncState : uint
+    {
+        NotStarted,
+        CurrentTimeAndTimeZone,
+        Ephemeris,
+        TimeZoneData,
+        DeviceInstrumentation,
+        DeviceCrashDump,
+        UserProfile,
+        SensorLog,
+        WebTiles,
+        Done,
+    }
 }

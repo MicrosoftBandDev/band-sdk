@@ -6,12 +6,12 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum DayClassificationType : byte
-  {
-    Invalid,
-    Rest,
-    Walking,
-    Running,
-    Max,
-  }
+    public enum DayClassificationType : byte
+    {
+        Invalid,
+        Rest,
+        Walking,
+        Running,
+        Max,
+    }
 }

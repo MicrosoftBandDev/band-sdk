@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum RunMeasurementUnitType
-  {
-    UseLocaleSetting,
-    Metric,
-  }
+    public enum RunMeasurementUnitType
+    {
+        UseLocaleSetting,
+        Metric,
+    }
 }

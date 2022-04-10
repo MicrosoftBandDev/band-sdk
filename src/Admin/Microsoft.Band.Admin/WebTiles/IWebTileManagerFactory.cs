@@ -6,7 +6,7 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public interface IWebTileManagerFactory
-  {
-  }
+    public interface IWebTileManagerFactory
+    {
+    }
 }

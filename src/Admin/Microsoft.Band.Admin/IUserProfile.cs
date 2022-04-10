@@ -9,42 +9,42 @@ using System.Collections.Generic;
 
 namespace Microsoft.Band.Admin
 {
-  public interface IUserProfile
-  {
-    ushort Version { get; }
+    public interface IUserProfile
+    {
+        ushort Version { get; }
 
-    DateTimeOffset? CreatedOn { get; set; }
+        DateTimeOffset? CreatedOn { get; set; }
 
-    DateTimeOffset? LastKDKSyncUpdateOn { get; set; }
+        DateTimeOffset? LastKDKSyncUpdateOn { get; set; }
 
-    Guid UserID { get; set; }
+        Guid UserID { get; set; }
 
-    string FirstName { get; set; }
+        string FirstName { get; set; }
 
-    string LastName { get; set; }
+        string LastName { get; set; }
 
-    string EmailAddress { get; set; }
+        string EmailAddress { get; set; }
 
-    string ZipCode { get; set; }
+        string ZipCode { get; set; }
 
-    string SmsAddress { get; set; }
+        string SmsAddress { get; set; }
 
-    DateTime Birthdate { get; set; }
+        DateTime Birthdate { get; set; }
 
-    uint Weight { get; set; }
+        uint Weight { get; set; }
 
-    ushort Height { get; set; }
+        ushort Height { get; set; }
 
-    Gender Gender { get; set; }
+        Gender Gender { get; set; }
 
-    bool HasCompletedOOBE { get; set; }
+        bool HasCompletedOOBE { get; set; }
 
-    byte RestingHeartRate { get; set; }
+        byte RestingHeartRate { get; set; }
 
-    ApplicationSettings ApplicationSettings { get; set; }
+        ApplicationSettings ApplicationSettings { get; set; }
 
-    DeviceSettings DeviceSettings { get; set; }
+        DeviceSettings DeviceSettings { get; set; }
 
-    IDictionary<Guid, DeviceSettings> AllDeviceSettings { get; set; }
-  }
+        IDictionary<Guid, DeviceSettings> AllDeviceSettings { get; set; }
+    }
 }

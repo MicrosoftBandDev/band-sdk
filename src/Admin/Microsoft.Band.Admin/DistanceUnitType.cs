@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum DistanceUnitType
-  {
-    Imperial = 1,
-    Metric = 2,
-  }
+    public enum DistanceUnitType
+    {
+        Imperial = 1,
+        Metric = 2,
+    }
 }

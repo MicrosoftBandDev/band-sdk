@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum CalendarEventAcceptedState : ushort
-  {
-    Accepted,
-    Tentative,
-    Free,
-  }
+    public enum CalendarEventAcceptedState : ushort
+    {
+        Accepted,
+        Tentative,
+        Free,
+    }
 }

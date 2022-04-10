@@ -6,12 +6,12 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum DisplayTimeFormat
-  {
-    Undefined,
-    HHmmss,
-    Hmmss,
-    hhmmss,
-    hmmss,
-  }
+    public enum DisplayTimeFormat
+    {
+        Undefined,
+        HHmmss,
+        Hmmss,
+        hhmmss,
+        hmmss,
+    }
 }

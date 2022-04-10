@@ -11,26 +11,26 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public interface IWebTileManager
-  {
-    Task<IWebTile> GetWebTilePackageAsync(Uri uri);
+    public interface IWebTileManager
+    {
+        Task<IWebTile> GetWebTilePackageAsync(Uri uri);
 
-    Task<IWebTile> GetWebTilePackageAsync(Stream source, string sourceFileName);
+        Task<IWebTile> GetWebTilePackageAsync(Stream source, string sourceFileName);
 
-    Task InstallWebTileAsync(IWebTile webTile);
+        Task InstallWebTileAsync(IWebTile webTile);
 
-    Task UninstallWebTileAsync(Guid tileId);
+        Task UninstallWebTileAsync(Guid tileId);
 
-    Task<IList<IWebTile>> GetInstalledWebTilesAsync(bool loadTileDisplayIcons);
+        Task<IList<IWebTile>> GetInstalledWebTilesAsync(bool loadTileDisplayIcons);
 
-    Task<AdminBandTile> CreateAdminBandTileAsync(
-      IWebTile webTile,
-      BandClass bandClass);
+        Task<AdminBandTile> CreateAdminBandTileAsync(
+          IWebTile webTile,
+          BandClass bandClass);
 
-    IList<Guid> GetInstalledWebTileIds();
+        IList<Guid> GetInstalledWebTileIds();
 
-    IWebTile GetWebTile(Guid tileId);
+        IWebTile GetWebTile(Guid tileId);
 
-    Task DeleteAllStoredResourceCredentialsAsync();
-  }
+        Task DeleteAllStoredResourceCredentialsAsync();
+    }
 }

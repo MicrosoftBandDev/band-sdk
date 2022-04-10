@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum EnergyUnitType
-  {
-    Imperial = 1,
-    Metric = 2,
-  }
+    public enum EnergyUnitType
+    {
+        Imperial = 1,
+        Metric = 2,
+    }
 }

@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum BarcodeType
-  {
-    Code39,
-    Pdf417,
-  }
+    public enum BarcodeType
+    {
+        Code39,
+        Pdf417,
+    }
 }

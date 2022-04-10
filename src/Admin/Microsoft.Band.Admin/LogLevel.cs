@@ -6,14 +6,14 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum LogLevel
-  {
-    Off,
-    Fatal,
-    Error,
-    Warning,
-    Info,
-    Performance,
-    Verbose,
-  }
+    public enum LogLevel
+    {
+        Off,
+        Fatal,
+        Error,
+        Warning,
+        Info,
+        Performance,
+        Verbose,
+    }
 }

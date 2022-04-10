@@ -6,11 +6,11 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum SleepClassificationType : byte
-  {
-    Invalid,
-    Awake,
-    Asleep,
-    Max,
-  }
+    public enum SleepClassificationType : byte
+    {
+        Invalid,
+        Awake,
+        Asleep,
+        Max,
+    }
 }

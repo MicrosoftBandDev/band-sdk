@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum TouchObjectType : byte
-  {
-    Standard,
-    Large,
-    Stylus,
-  }
+    public enum TouchObjectType : byte
+    {
+        Standard,
+        Large,
+        Stylus,
+    }
 }

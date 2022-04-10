@@ -6,97 +6,97 @@
 
 namespace Microsoft.Band.Admin
 {
-  internal sealed class DynamicAdminBandConstants
-  {
-    internal static readonly DynamicAdminBandConstants Cargo = new DynamicAdminBandConstants(BandClass.Cargo);
-    internal static readonly DynamicAdminBandConstants Envoy = new DynamicAdminBandConstants(BandClass.Envoy);
-
-    private DynamicAdminBandConstants(BandClass bandClass) => this.BandClass = bandClass;
-
-    public BandClass BandClass { get; private set; }
-
-    public ushort BandProfileAppDataVersion
+    internal sealed class DynamicAdminBandConstants
     {
-      get
-      {
-        switch (this.BandClass)
-        {
-          case BandClass.Envoy:
-            return 2;
-          default:
-            return 1;
-        }
-      }
-    }
+        internal static readonly DynamicAdminBandConstants Cargo = new DynamicAdminBandConstants(BandClass.Cargo);
+        internal static readonly DynamicAdminBandConstants Envoy = new DynamicAdminBandConstants(BandClass.Envoy);
 
-    public ushort BandProfileAppDataByteCount
-    {
-      get
-      {
-        switch (this.BandClass)
-        {
-          case BandClass.Envoy:
-            return 397;
-          default:
-            return 128;
-        }
-      }
-    }
+        private DynamicAdminBandConstants(BandClass bandClass) => this.BandClass = bandClass;
 
-    internal int RunMetricsDisplaySlotCount
-    {
-      get
-      {
-        switch (this.BandClass)
-        {
-          case BandClass.Envoy:
-            return 7;
-          default:
-            return 5;
-        }
-      }
-    }
+        public BandClass BandClass { get; private set; }
 
-    internal int BikeMetricsDisplaySlotCount
-    {
-      get
-      {
-        switch (this.BandClass)
+        public ushort BandProfileAppDataVersion
         {
-          case BandClass.Envoy:
-            return 7;
-          default:
-            return 6;
+            get
+            {
+                switch (this.BandClass)
+                {
+                    case BandClass.Envoy:
+                        return 2;
+                    default:
+                        return 1;
+                }
+            }
         }
-      }
-    }
 
-    internal ushort BandProfileDeviceReservedBytes
-    {
-      get
-      {
-        switch (this.BandClass)
+        public ushort BandProfileAppDataByteCount
         {
-          case BandClass.Envoy:
-            return (ushort) byte.MaxValue;
-          default:
-            return 23;
+            get
+            {
+                switch (this.BandClass)
+                {
+                    case BandClass.Envoy:
+                        return 397;
+                    default:
+                        return 128;
+                }
+            }
         }
-      }
-    }
 
-    internal ushort BandGoalsSerializedVersion
-    {
-      get
-      {
-        switch (this.BandClass)
+        internal int RunMetricsDisplaySlotCount
         {
-          case BandClass.Envoy:
-            return 1;
-          default:
-            return 0;
+            get
+            {
+                switch (this.BandClass)
+                {
+                    case BandClass.Envoy:
+                        return 7;
+                    default:
+                        return 5;
+                }
+            }
         }
-      }
+
+        internal int BikeMetricsDisplaySlotCount
+        {
+            get
+            {
+                switch (this.BandClass)
+                {
+                    case BandClass.Envoy:
+                        return 7;
+                    default:
+                        return 6;
+                }
+            }
+        }
+
+        internal ushort BandProfileDeviceReservedBytes
+        {
+            get
+            {
+                switch (this.BandClass)
+                {
+                    case BandClass.Envoy:
+                        return (ushort)byte.MaxValue;
+                    default:
+                        return 23;
+                }
+            }
+        }
+
+        internal ushort BandGoalsSerializedVersion
+        {
+            get
+            {
+                switch (this.BandClass)
+                {
+                    case BandClass.Envoy:
+                        return 1;
+                    default:
+                        return 0;
+                }
+            }
+        }
     }
-  }
 }

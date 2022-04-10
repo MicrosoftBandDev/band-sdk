@@ -8,14 +8,14 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  public class BandHttpException : BandCloudException
-  {
-    internal BandHttpException(string responseContent, string message, Exception innerException)
-      : base(message, innerException)
+    public class BandHttpException : BandCloudException
     {
-      this.ResponseContent = responseContent;
-    }
+        internal BandHttpException(string responseContent, string message, Exception innerException)
+          : base(message, innerException)
+        {
+            this.ResponseContent = responseContent;
+        }
 
-    internal string ResponseContent { get; private set; }
-  }
+        internal string ResponseContent { get; private set; }
+    }
 }

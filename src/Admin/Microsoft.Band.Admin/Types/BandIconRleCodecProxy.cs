@@ -8,10 +8,10 @@ using Microsoft.Band.Tiles;
 
 namespace Microsoft.Band.Admin.Types
 {
-  public static class BandIconRleCodecProxy
-  {
-    public static byte[] EncodeTileIconRle(BandIcon icon) => BandIconRleCodec.EncodeTileIconRleToArray(icon);
+    public static class BandIconRleCodecProxy
+    {
+        public static byte[] EncodeTileIconRle(BandIcon icon) => BandIconRleCodec.EncodeTileIconRleToArray(icon);
 
-    public static BandIcon DecodeTileIconRle(byte[] rleArray) => BandIconRleCodec.DecodeTileIconRle(rleArray);
-  }
+        public static BandIcon DecodeTileIconRle(byte[] rleArray) => BandIconRleCodec.DecodeTileIconRle(rleArray);
+    }
 }

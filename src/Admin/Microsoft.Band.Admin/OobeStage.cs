@@ -6,21 +6,21 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum OobeStage : ushort
-  {
-    AskPhoneType = 0,
-    DownloadMessage = 1,
-    WaitingOnPhoneToEnterCode = 2,
-    WaitingOnPhoneToAcceptPairing = 3,
-    PairingSuccess = 4,
-    CheckingForUpdate = 5,
-    StartingUpdate = 6,
-    UpdateComplete = 7,
-    WaitingOnPhoneToCompleteOobe = 8,
-    PressActionButton = 9,
-    ErrorState = 10, // 0x000A
-    PairMessage = 11, // 0x000B
-    PreStateCharging = 100, // 0x0064
-    PreStateLanguageSelect = 101, // 0x0065
-  }
+    public enum OobeStage : ushort
+    {
+        AskPhoneType = 0,
+        DownloadMessage = 1,
+        WaitingOnPhoneToEnterCode = 2,
+        WaitingOnPhoneToAcceptPairing = 3,
+        PairingSuccess = 4,
+        CheckingForUpdate = 5,
+        StartingUpdate = 6,
+        UpdateComplete = 7,
+        WaitingOnPhoneToCompleteOobe = 8,
+        PressActionButton = 9,
+        ErrorState = 10, // 0x000A
+        PairMessage = 11, // 0x000B
+        PreStateCharging = 100, // 0x0064
+        PreStateLanguageSelect = 101, // 0x0065
+    }
 }

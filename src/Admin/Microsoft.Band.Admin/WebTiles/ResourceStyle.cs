@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public enum ResourceStyle
-  {
-    Simple,
-    Feed,
-  }
+    public enum ResourceStyle
+    {
+        Simple,
+        Feed,
+    }
 }

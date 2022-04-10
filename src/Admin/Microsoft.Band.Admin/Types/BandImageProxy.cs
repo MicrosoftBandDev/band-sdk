@@ -8,18 +8,18 @@ using Microsoft.Band.Personalization;
 
 namespace Microsoft.Band.Admin.Types
 {
-  public class BandImageProxy : BandImage
-  {
-    public BandImageProxy(int width, int height, byte[] pixelData)
-      : base(width, height, pixelData)
+    public class BandImageProxy : BandImage
     {
-    }
+        public BandImageProxy(int width, int height, byte[] pixelData)
+          : base(width, height, pixelData)
+        {
+        }
 
-    public BandImageProxy(BandImage bandImage)
-      : base(bandImage.Width, bandImage.Height, bandImage.PixelData)
-    {
-    }
+        public BandImageProxy(BandImage bandImage)
+          : base(bandImage.Width, bandImage.Height, bandImage.PixelData)
+        {
+        }
 
-    public new byte[] PixelData => base.PixelData;
-  }
+        public new byte[] PixelData => base.PixelData;
+    }
 }

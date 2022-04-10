@@ -8,21 +8,21 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  internal static class BandClassExtensions
-  {
-    internal static BandType ToBandType(this BandClass bandClass)
+    internal static class BandClassExtensions
     {
-      switch (bandClass)
-      {
-        case BandClass.Unknown:
-          return BandType.Unknown;
-        case BandClass.Cargo:
-          return BandType.Cargo;
-        case BandClass.Envoy:
-          return BandType.Envoy;
-        default:
-          throw new ArgumentException("Unknown BandClass value.");
-      }
+        internal static BandType ToBandType(this BandClass bandClass)
+        {
+            switch (bandClass)
+            {
+                case BandClass.Unknown:
+                    return BandType.Unknown;
+                case BandClass.Cargo:
+                    return BandType.Cargo;
+                case BandClass.Envoy:
+                    return BandType.Envoy;
+                default:
+                    throw new ArgumentException("Unknown BandClass value.");
+            }
+        }
     }
-  }
 }

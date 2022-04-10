@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin.Battery
 {
-  internal abstract class BandBatteryEventBase
-  {
-    internal static BandBatteryEventBase DeserializeFromBand(ICargoReader reader) => BandBatteryEventBase.GetEmptyBatteryEvent(reader);
+    internal abstract class BandBatteryEventBase
+    {
+        internal static BandBatteryEventBase DeserializeFromBand(ICargoReader reader) => BandBatteryEventBase.GetEmptyBatteryEvent(reader);
 
-    private static BandBatteryEventBase GetEmptyBatteryEvent(ICargoReader reader) => reader.ReadByte() == (byte) 1 ? (BandBatteryEventBase) new BandBatteryFullEvent() : (BandBatteryEventBase) null;
-  }
+        private static BandBatteryEventBase GetEmptyBatteryEvent(ICargoReader reader) => reader.ReadByte() == (byte)1 ? (BandBatteryEventBase)new BandBatteryFullEvent() : (BandBatteryEventBase)null;
+    }
 }

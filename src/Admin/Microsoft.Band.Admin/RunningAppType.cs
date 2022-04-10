@@ -6,12 +6,12 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum RunningAppType : byte
-  {
-    OneBL = 1,
-    TwoUp = 2,
-    App = 3,
-    UpApp = 4,
-    Invalid = 255, // 0xFF
-  }
+    public enum RunningAppType : byte
+    {
+        OneBL = 1,
+        TwoUp = 2,
+        App = 3,
+        UpApp = 4,
+        Invalid = 255, // 0xFF
+    }
 }

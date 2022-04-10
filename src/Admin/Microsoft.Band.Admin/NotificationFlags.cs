@@ -8,14 +8,14 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  [Flags]
-  public enum NotificationFlags : byte
-  {
-    UnmodifiedNotificationSettings = 0,
-    ForceNotificationDialog = 1,
-    SuppressNotificationDialog = 2,
-    SuppressSmsReply = 4,
-    AutoResponseAvailable = 8,
-    MaxValue = AutoResponseAvailable | SuppressSmsReply | SuppressNotificationDialog | ForceNotificationDialog, // 0x0F
-  }
+    [Flags]
+    public enum NotificationFlags : byte
+    {
+        UnmodifiedNotificationSettings = 0,
+        ForceNotificationDialog = 1,
+        SuppressNotificationDialog = 2,
+        SuppressSmsReply = 4,
+        AutoResponseAvailable = 8,
+        MaxValue = AutoResponseAvailable | SuppressSmsReply | SuppressNotificationDialog | ForceNotificationDialog, // 0x0F
+    }
 }

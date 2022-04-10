@@ -8,12 +8,12 @@ using System.Collections.Generic;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public interface IWebTileResourceCacheInfo
-  {
-    string ETag { get; set; }
+    public interface IWebTileResourceCacheInfo
+    {
+        string ETag { get; set; }
 
-    string LastModified { get; set; }
+        string LastModified { get; set; }
 
-    List<string> FeedItemIds { get; set; }
-  }
+        List<string> FeedItemIds { get; set; }
+    }
 }

@@ -6,8 +6,8 @@
 
 namespace Microsoft.Band.Admin
 {
-  public interface ITilePageElement
-  {
-    ushort ElementId { get; set; }
-  }
+    public interface ITilePageElement
+    {
+        ushort ElementId { get; set; }
+    }
 }

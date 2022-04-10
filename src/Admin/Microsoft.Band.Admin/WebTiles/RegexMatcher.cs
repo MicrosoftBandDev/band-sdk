@@ -8,21 +8,21 @@ using System.Text.RegularExpressions;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public class RegexMatcher
-  {
-    private readonly Regex regex;
-
-    public RegexMatcher(string regex, RegexOptions options) => this.regex = new Regex(string.Format("\\G{0}", new object[1]
+    public class RegexMatcher
     {
+        private readonly Regex regex;
+
+        public RegexMatcher(string regex, RegexOptions options) => this.regex = new Regex(string.Format("\\G{0}", new object[1]
+        {
       (object) regex
-    }), options);
+        }), options);
 
-    public int Match(string input, int startat = 0)
-    {
-      System.Text.RegularExpressions.Match match = this.regex.Match(input, startat);
-      return !match.Success ? 0 : match.Length;
+        public int Match(string input, int startat = 0)
+        {
+            System.Text.RegularExpressions.Match match = this.regex.Match(input, startat);
+            return !match.Success ? 0 : match.Length;
+        }
+
+        public override string ToString() => this.regex.ToString();
     }
-
-    public override string ToString() => this.regex.ToString();
-  }
 }

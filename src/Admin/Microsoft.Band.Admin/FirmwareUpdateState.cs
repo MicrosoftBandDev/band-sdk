@@ -6,14 +6,14 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum FirmwareUpdateState : uint
-  {
-    NotStarted,
-    DownloadingUpdate,
-    SyncingLog,
-    BootingToUpdateMode,
-    SendingUpdateToDevice,
-    WaitingtoConnectAfterUpdate,
-    Done,
-  }
+    public enum FirmwareUpdateState : uint
+    {
+        NotStarted,
+        DownloadingUpdate,
+        SyncingLog,
+        BootingToUpdateMode,
+        SendingUpdateToDevice,
+        WaitingtoConnectAfterUpdate,
+        Done,
+    }
 }

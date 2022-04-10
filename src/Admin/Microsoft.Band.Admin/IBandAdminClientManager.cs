@@ -8,30 +8,30 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Band.Admin
 {
-  public interface IBandAdminClientManager
-  {
-    Task<IBandInfo[]> GetBandsAsync();
+    public interface IBandAdminClientManager
+    {
+        Task<IBandInfo[]> GetBandsAsync();
 
-    IBandInfo[] GetBands();
+        IBandInfo[] GetBands();
 
-    Task<ICargoClient> ConnectAsync(IBandInfo bandInfo);
+        Task<ICargoClient> ConnectAsync(IBandInfo bandInfo);
 
-    ICargoClient Connect(IBandInfo bandInfo);
+        ICargoClient Connect(IBandInfo bandInfo);
 
-    Task<ICargoClient> ConnectAsync(ServiceInfo serviceInfo);
+        Task<ICargoClient> ConnectAsync(ServiceInfo serviceInfo);
 
-    ICargoClient Connect(ServiceInfo serviceInfo);
+        ICargoClient Connect(ServiceInfo serviceInfo);
 
-    Task<ICargoClient> ConnectAsync(IBandInfo bandInfo, string userId);
+        Task<ICargoClient> ConnectAsync(IBandInfo bandInfo, string userId);
 
-    ICargoClient Connect(IBandInfo bandInfo, string userId);
+        ICargoClient Connect(IBandInfo bandInfo, string userId);
 
-    Task<ICargoClient> ConnectAsync(string bandId, ServiceInfo serviceInfo);
+        Task<ICargoClient> ConnectAsync(string bandId, ServiceInfo serviceInfo);
 
-    ICargoClient Connect(string bandId, ServiceInfo serviceInfo);
+        ICargoClient Connect(string bandId, ServiceInfo serviceInfo);
 
-    Task<ICargoClient> ConnectAsync(IBandInfo bandInfo, ServiceInfo serviceInfo);
+        Task<ICargoClient> ConnectAsync(IBandInfo bandInfo, ServiceInfo serviceInfo);
 
-    ICargoClient Connect(IBandInfo bandInfo, ServiceInfo serviceInfo);
-  }
+        ICargoClient Connect(IBandInfo bandInfo, ServiceInfo serviceInfo);
+    }
 }

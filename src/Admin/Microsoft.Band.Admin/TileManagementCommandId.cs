@@ -6,9 +6,9 @@
 
 namespace Microsoft.Band.Admin
 {
-  internal enum TileManagementCommandId
-  {
-    None = 0,
-    ClearPage = 2,
-  }
+    internal enum TileManagementCommandId
+    {
+        None = 0,
+        ClearPage = 2,
+    }
 }

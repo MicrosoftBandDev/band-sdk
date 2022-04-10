@@ -9,18 +9,18 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  public abstract class NotificationBase
-  {
-    public NotificationBase(Guid tileId) => this.TileId = tileId;
+    public abstract class NotificationBase
+    {
+        public NotificationBase(Guid tileId) => this.TileId = tileId;
 
-    public Guid TileId { get; private set; }
+        public Guid TileId { get; private set; }
 
-    internal virtual int GetSerializedByteCount() => 16;
+        internal virtual int GetSerializedByteCount() => 16;
 
-    internal virtual void SerializeToBand(ICargoWriter writer) => writer.WriteGuid(this.TileId);
+        internal virtual void SerializeToBand(ICargoWriter writer) => writer.WriteGuid(this.TileId);
 
-    internal abstract int GetSerializedProtobufByteCount();
+        internal abstract int GetSerializedProtobufByteCount();
 
-    internal abstract void SerializeProtobufToBand(CodedOutputStream output);
-  }
+        internal abstract void SerializeProtobufToBand(CodedOutputStream output);
+    }
 }

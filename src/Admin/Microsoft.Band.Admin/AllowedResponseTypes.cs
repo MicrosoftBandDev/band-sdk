@@ -8,14 +8,14 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  [Flags]
-  internal enum AllowedResponseTypes
-  {
-    None = 0,
-    Keyboard = 1,
-    Dictation = 2,
-    Voice = 4,
-    Smart = 8,
-    Canned = 16, // 0x00000010
-  }
+    [Flags]
+    internal enum AllowedResponseTypes
+    {
+        None = 0,
+        Keyboard = 1,
+        Dictation = 2,
+        Voice = 4,
+        Smart = 8,
+        Canned = 16, // 0x00000010
+    }
 }

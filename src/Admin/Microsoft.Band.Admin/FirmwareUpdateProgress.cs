@@ -6,19 +6,19 @@
 
 namespace Microsoft.Band.Admin
 {
-  public class FirmwareUpdateProgress
-  {
-    private readonly double percentageCompletion;
-    private readonly FirmwareUpdateState state;
-
-    public FirmwareUpdateProgress(double percentageCompletion, FirmwareUpdateState state)
+    public class FirmwareUpdateProgress
     {
-      this.percentageCompletion = percentageCompletion;
-      this.state = state;
+        private readonly double percentageCompletion;
+        private readonly FirmwareUpdateState state;
+
+        public FirmwareUpdateProgress(double percentageCompletion, FirmwareUpdateState state)
+        {
+            this.percentageCompletion = percentageCompletion;
+            this.state = state;
+        }
+
+        public double PercentageCompletion => this.percentageCompletion;
+
+        public FirmwareUpdateState State => this.state;
     }
-
-    public double PercentageCompletion => this.percentageCompletion;
-
-    public FirmwareUpdateState State => this.state;
-  }
 }

@@ -6,8 +6,8 @@
 
 namespace Microsoft.Band.Admin
 {
-  public interface ITileTextbox : ITilePageElement
-  {
-    string TextboxValue { get; set; }
-  }
+    public interface ITileTextbox : ITilePageElement
+    {
+        string TextboxValue { get; set; }
+    }
 }

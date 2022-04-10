@@ -6,15 +6,15 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  internal class EqualOperator : BinaryOperator
-  {
-    private EqualOperator(string tokenValue, int position)
-      : base(tokenValue, position)
+    internal class EqualOperator : BinaryOperator
     {
+        private EqualOperator(string tokenValue, int position)
+          : base(tokenValue, position)
+        {
+        }
+
+        public static EqualOperator Create(string tokenValue, int position) => new EqualOperator(tokenValue, position);
+
+        public override bool Compare(object leftOperand, object rightOperand) => this.Compare(leftOperand, rightOperand, (BinaryOperator.CompareOperation)(diff => diff == 0));
     }
-
-    public static EqualOperator Create(string tokenValue, int position) => new EqualOperator(tokenValue, position);
-
-    public override bool Compare(object leftOperand, object rightOperand) => this.Compare(leftOperand, rightOperand, (BinaryOperator.CompareOperation) (diff => diff == 0));
-  }
 }

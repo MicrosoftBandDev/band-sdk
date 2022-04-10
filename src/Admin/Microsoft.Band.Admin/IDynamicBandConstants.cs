@@ -6,20 +6,20 @@
 
 namespace Microsoft.Band.Admin
 {
-  public interface IDynamicBandConstants
-  {
-    BandClass BandClass { get; }
+    public interface IDynamicBandConstants
+    {
+        BandClass BandClass { get; }
 
-    ushort MeTileWidth { get; }
+        ushort MeTileWidth { get; }
 
-    ushort MeTileHeight { get; }
+        ushort MeTileHeight { get; }
 
-    ushort TileIconPreferredSize { get; }
+        ushort TileIconPreferredSize { get; }
 
-    ushort BadgeIconPreferredSize { get; }
+        ushort BadgeIconPreferredSize { get; }
 
-    ushort NotificiationIconPreferredSize { get; }
+        ushort NotificiationIconPreferredSize { get; }
 
-    int MaxIconsPerTile { get; }
-  }
+        int MaxIconsPerTile { get; }
+    }
 }

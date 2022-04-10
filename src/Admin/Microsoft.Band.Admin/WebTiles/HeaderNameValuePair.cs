@@ -6,15 +6,15 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public struct HeaderNameValuePair
-  {
-    public string name;
-    public string value;
-
-    public HeaderNameValuePair(string name, string value)
+    public struct HeaderNameValuePair
     {
-      this.name = name;
-      this.value = value;
+        public string name;
+        public string value;
+
+        public HeaderNameValuePair(string name, string value)
+        {
+            this.name = name;
+            this.value = value;
+        }
     }
-  }
 }

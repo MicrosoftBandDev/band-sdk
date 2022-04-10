@@ -6,16 +6,16 @@
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public class Token
-  {
-    public string MatchedString { get; private set; }
-
-    public int Position { get; private set; }
-
-    public Token(string matchedString, int position)
+    public class Token
     {
-      this.MatchedString = matchedString;
-      this.Position = position;
+        public string MatchedString { get; private set; }
+
+        public int Position { get; private set; }
+
+        public Token(string matchedString, int position)
+        {
+            this.MatchedString = matchedString;
+            this.Position = position;
+        }
     }
-  }
 }

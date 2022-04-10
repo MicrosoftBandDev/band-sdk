@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Band.Admin.WebTiles
 {
-  public interface IImageProvider
-  {
-    Task<BandIcon> GetBandIconFromFileAsync(string path);
-  }
+    public interface IImageProvider
+    {
+        Task<BandIcon> GetBandIconFromFileAsync(string path);
+    }
 }

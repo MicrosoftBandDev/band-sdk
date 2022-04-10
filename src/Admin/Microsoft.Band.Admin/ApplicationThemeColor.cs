@@ -6,10 +6,10 @@
 
 namespace Microsoft.Band.Admin
 {
-  public enum ApplicationThemeColor
-  {
-    Blue,
-    Green,
-    Red,
-  }
+    public enum ApplicationThemeColor
+    {
+        Blue,
+        Green,
+        Red,
+    }
 }

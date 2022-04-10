@@ -8,23 +8,23 @@ using System;
 
 namespace Microsoft.Band.Admin
 {
-  internal static class LogFileTypeExtensions
-  {
-    public static string ToCloudUploadPameterValue(this LogFileTypes type)
+    internal static class LogFileTypeExtensions
     {
-      switch (type)
-      {
-        case LogFileTypes.Sensor:
-          return "BandBinary";
-        case LogFileTypes.CrashDump:
-          return "CrashDump";
-        case LogFileTypes.KAppLogs:
-          return "AppDump";
-        case LogFileTypes.Telemetry:
-          return "Telemetry";
-        default:
-          throw new ArgumentOutOfRangeException(nameof (type));
-      }
+        public static string ToCloudUploadPameterValue(this LogFileTypes type)
+        {
+            switch (type)
+            {
+                case LogFileTypes.Sensor:
+                    return "BandBinary";
+                case LogFileTypes.CrashDump:
+                    return "CrashDump";
+                case LogFileTypes.KAppLogs:
+                    return "AppDump";
+                case LogFileTypes.Telemetry:
+                    return "Telemetry";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type));
+            }
+        }
     }
-  }
 }
