@@ -9,109 +9,109 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.Band
 {
-  internal class BandTypeConstants
-  {
-    internal static readonly BandTypeConstants Cargo = new(BandType.Cargo);
-    internal static readonly BandTypeConstants Envoy = new(BandType.Envoy);
-
-    protected BandTypeConstants(BandType bandType) => BandType = bandType;
-
-    public BandType BandType { get; private set; }
-
-    [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
-    public ushort MeTileWidth => 310;
-
-    public ushort MeTileHeight
+    internal class BandTypeConstants
     {
-      get
-      {
-        switch (BandType)
+        internal static readonly BandTypeConstants Cargo = new(BandType.Cargo);
+        internal static readonly BandTypeConstants Envoy = new(BandType.Envoy);
+
+        protected BandTypeConstants(BandType bandType) => BandType = bandType;
+
+        public BandType BandType { get; private set; }
+
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
+        public ushort MeTileWidth => 310;
+
+        public ushort MeTileHeight
         {
-          case BandType.Cargo:
-            return 102;
-          case BandType.Envoy:
-            return 128;
-          default:
-            throw new InvalidOperationException();
+            get
+            {
+                switch (BandType)
+                {
+                    case BandType.Cargo:
+                        return 102;
+                    case BandType.Envoy:
+                        return 128;
+                    default:
+                        throw new InvalidOperationException();
+                }
+            }
         }
-      }
-    }
 
-    public ushort TileIconPreferredSize
-    {
-      get
-      {
-        switch (BandType)
+        public ushort TileIconPreferredSize
         {
-          case BandType.Cargo:
-            return 46;
-          case BandType.Envoy:
-            return 48;
-          default:
-            throw new InvalidOperationException();
+            get
+            {
+                switch (BandType)
+                {
+                    case BandType.Cargo:
+                        return 46;
+                    case BandType.Envoy:
+                        return 48;
+                    default:
+                        throw new InvalidOperationException();
+                }
+            }
         }
-      }
-    }
 
-    public ushort BadgeIconPreferredSize
-    {
-      get
-      {
-        switch (BandType)
+        public ushort BadgeIconPreferredSize
         {
-          case BandType.Cargo:
-            return 24;
-          case BandType.Envoy:
-            return 24;
-          default:
-            throw new InvalidOperationException();
+            get
+            {
+                switch (BandType)
+                {
+                    case BandType.Cargo:
+                        return 24;
+                    case BandType.Envoy:
+                        return 24;
+                    default:
+                        throw new InvalidOperationException();
+                }
+            }
         }
-      }
-    }
 
-    public ushort NotificiationIconPreferredSize
-    {
-      get
-      {
-        switch (BandType)
+        public ushort NotificiationIconPreferredSize
         {
-          case BandType.Cargo:
-            return 36;
-          case BandType.Envoy:
-            return 36;
-          default:
-            throw new InvalidOperationException();
+            get
+            {
+                switch (BandType)
+                {
+                    case BandType.Cargo:
+                        return 36;
+                    case BandType.Envoy:
+                        return 36;
+                    default:
+                        throw new InvalidOperationException();
+                }
+            }
         }
-      }
-    }
 
-    public int MaxIconsPerTile
-    {
-      get
-      {
-        switch (BandType)
+        public int MaxIconsPerTile
         {
-          case BandType.Cargo:
-            return 10;
-          case BandType.Envoy:
-            return 15;
-          default:
-            throw new InvalidOperationException();
+            get
+            {
+                switch (BandType)
+                {
+                    case BandType.Cargo:
+                        return 10;
+                    case BandType.Envoy:
+                        return 15;
+                    default:
+                        throw new InvalidOperationException();
+                }
+            }
         }
-      }
-    }
 
-    internal T GetBandSpecificValue<T>(T cargo, T envoy)
-    {
-      switch (BandType)
-      {
-        case BandType.Cargo:
-          return cargo;
-        case BandType.Envoy:
-          return envoy;
-        default:
-          throw new InvalidOperationException();
-      }
+        internal T GetBandSpecificValue<T>(T cargo, T envoy)
+        {
+            switch (BandType)
+            {
+                case BandType.Cargo:
+                    return cargo;
+                case BandType.Envoy:
+                    return envoy;
+                default:
+                    throw new InvalidOperationException();
+            }
+        }
     }
-  }
 }

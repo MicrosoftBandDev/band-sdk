@@ -1,0 +1,43 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: Microsoft.Band.Admin.Locale
+// Assembly: Microsoft.Band.Admin, Version=1.3.31002.2, Culture=neutral, PublicKeyToken=null
+// MVID: 366705DD-0763-47F9-B6A9-5EDF88598091
+// Assembly location: D:\Documents\REProj\MicrosoftBand\HealthApp.WindowsPhone_1.3.31002.2_ARM\Microsoft.Band.Admin.dll
+
+namespace Microsoft.Band.Admin
+{
+  public enum Locale
+  {
+    Undefined,
+    UnitedStates,
+    GreatBritian,
+    Canada,
+    France,
+    Germany,
+    Italy,
+    Mexico,
+    Spain,
+    Australia,
+    NewZealand,
+    Denmark,
+    Finland,
+    Norway,
+    Netherlands,
+    Portugal,
+    Sweden,
+    Poland,
+    China,
+    Taiwan,
+    Japan,
+    Korea,
+    Austria,
+    Belgium,
+    HongKong,
+    Ireland,
+    Singapore,
+    Switzerland,
+    SouthAfrica,
+    SaudiArabia,
+    UnitedArabEmirates,
+  }
+}
