@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Band", "Microsoft
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{F164F679-B7CD-4953-86EB-B6A68EA3C32E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Band.Admin", "Admin\Microsoft.Band.Admin\Microsoft.Band.Admin.csproj", "{2B8CFAAE-9DD7-4FCD-9157-82EFFDC64307}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Band.Admin", "Admin\Microsoft.Band.Admin\Microsoft.Band.Admin.csproj", "{2B8CFAAE-9DD7-4FCD-9157-82EFFDC64307}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Band.Uno", "Microsoft.Band.Uno\Microsoft.Band.Uno.csproj", "{0B9C552D-5806-48D1-BFDD-DEF74577F614}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{2B8CFAAE-9DD7-4FCD-9157-82EFFDC64307}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B8CFAAE-9DD7-4FCD-9157-82EFFDC64307}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B8CFAAE-9DD7-4FCD-9157-82EFFDC64307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B9C552D-5806-48D1-BFDD-DEF74577F614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9C552D-5806-48D1-BFDD-DEF74577F614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9C552D-5806-48D1-BFDD-DEF74577F614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9C552D-5806-48D1-BFDD-DEF74577F614}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
