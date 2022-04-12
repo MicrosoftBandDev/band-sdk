@@ -61,6 +61,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(false)]
 [assembly: InternalsVisibleTo("Microsoft.Band.Desktop")]
+[assembly: InternalsVisibleTo("Microsoft.Band.Maui")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Store")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Store_UAP")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Phone")]
@@ -68,6 +69,7 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("Microsoft.Band.Windows")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin.Desktop")]
+[assembly: InternalsVisibleTo("Microsoft.Band.Admin.Maui")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin.Store")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin.Phone")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin.Windows")]
@@ -84,5 +86,3 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("Microsoft.Health.App.Core.UnitTest")]
 [assembly: AssemblyFileVersion("1.3.20517.1")]
 [assembly: AssemblyVersion("1.3.20517.1")]
-
-[assembly: InternalsVisibleTo("Microsoft.Band.Maui")]

@@ -4,7 +4,7 @@
 // MVID: 91750BE8-70C6-4542-841C-664EE611AF0B
 // Assembly location: C:\Users\jjask\AppData\Local\Temp\Xiwoxyt\b1d4237fe8\lib\netcore451\Microsoft.Band.Store.dll
 
-namespace Microsoft.Band.Windows
+namespace Microsoft.Band
 {
     internal static class StoreResources
     {

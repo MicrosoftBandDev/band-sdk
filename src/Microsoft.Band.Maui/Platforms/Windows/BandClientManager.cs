@@ -41,7 +41,7 @@ namespace Microsoft.Band
             try
             {
                 LoggerProviderStub loggerProvider = new();
-                deviceTransport = await BluetoothTransport.CreateAsync(bandInfo, loggerProvider, 3).ConfigureAwait(false);
+                deviceTransport = await BluetoothTransport.CreateAsync(bandInfo, loggerProvider, MaximumBluetoothConnectAttempts).ConfigureAwait(false);
                 pushServiceTransport = new PushServiceTransport(bluetoothDeviceInfo, loggerProvider);
                 client = new BandStoreClient(bluetoothDeviceInfo, deviceTransport, pushServiceTransport, loggerProvider, StoreApplicationPlatformProvider.Current);
                 client.InitializeCachedProperties();

@@ -65,7 +65,7 @@ namespace Microsoft.Band.Windows
                 }
                 catch (AggregateException ex)
                 {
-                    HandleAggregateIOException(ex);
+                    HandleAggregateIOException(ex); 
                 }
                 finally
                 {

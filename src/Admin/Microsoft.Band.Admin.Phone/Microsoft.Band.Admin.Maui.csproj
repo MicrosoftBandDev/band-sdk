@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net6.0-ios;net6.0-android;net6.0-maccatalyst;net6.0-windows10.0.19041</TargetFrameworks>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<FileAlignment>512</FileAlignment>
+
+		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.18362.0</SupportedOSPlatformVersion>
+		<TargetPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.19041.0</TargetPlatformVersion>
+		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
+
+		<ProjectGuid>{E2907E89-9A8E-4031-B9A1-A5FB8C911887}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<AssemblyName>Microsoft.Band.Admin.Maui</AssemblyName>
+		<RootNamespace>Microsoft.Band.Maui</RootNamespace>
+		<ApplicationVersion>1.4.0.0</ApplicationVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Microsoft.Band.Admin\Microsoft.Band.Admin.csproj" />
+		<ProjectReference Include="..\..\Microsoft.Band.Maui\Microsoft.Band.Maui.csproj" />
+	</ItemGroup>
+
+	<!-- Windows -->
+	<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
+		<PackageReference Include="Microsoft-WindowsAPICodePack-Core" Version="1.1.4" />
+	</ItemGroup>
+
+</Project>

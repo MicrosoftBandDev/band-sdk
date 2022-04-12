@@ -1,33 +1,14 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Microsoft.Band.Store.BluetoothTransportBase
-// Assembly: Microsoft.Band.Store, Version=1.3.20628.2, Culture=neutral, PublicKeyToken=608d7da3159f502b
-// MVID: 91750BE8-70C6-4542-841C-664EE611AF0B
-// Assembly location: C:\Users\jjask\AppData\Local\Temp\Xiwoxyt\b1d4237fe8\lib\netcore451\Microsoft.Band.Store.dll
-
+﻿using Microsoft.Band.Windows;
 using System;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using Windows.Devices.Bluetooth.Rfcomm;
 using Windows.Networking.Sockets;
 
-namespace Microsoft.Band.Windows
+namespace Microsoft.Band
 {
-    internal abstract class BluetoothTransportBase : IDisposable
+    partial class BluetoothTransportBase
     {
         protected RfcommDeviceService rfcommService;
-        private bool isConnected;
-        private ICargoStream cargoStream;
-        private CargoStreamReader cargoReader;
-        private bool disposed;
-        protected ILoggerProvider loggerProvider;
-
-        public event EventHandler<TransportDisconnectedEventArgs> Disconnected;
-
-        protected BluetoothTransportBase(ILoggerProvider loggerProvider)
-        {
-            this.loggerProvider = loggerProvider;
-            isConnected = false;
-        }
 
         protected BluetoothTransportBase(RfcommDeviceService service, ILoggerProvider loggerProvider)
           : this(loggerProvider)
@@ -35,35 +16,6 @@ namespace Microsoft.Band.Windows
             rfcommService = service;
         }
 
-        public ICargoStream CargoStream
-        {
-            get
-            {
-                CheckIfDisposed();
-                return cargoStream;
-            }
-        }
-
-        public CargoStreamReader CargoReader
-        {
-            get
-            {
-                CheckIfDisposed();
-                return cargoReader;
-            }
-        }
-
-        public BandConnectionType ConnectionType => BandConnectionType.Bluetooth;
-
-        protected void RaiseDisconnectedEvent(TransportDisconnectedEventArgs args)
-        {
-            EventHandler<TransportDisconnectedEventArgs> disconnected = Disconnected;
-            if (disconnected == null)
-                return;
-            disconnected(this, args);
-        }
-
-        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public void Connect(RfcommDeviceService service, ushort maxConnectAttempts = 1)
         {
             if (service == null)
@@ -110,52 +62,6 @@ namespace Microsoft.Band.Windows
                 loggerProvider.Log(ProviderLogLevel.Error, $"Socket.ConnectAsync() failed: Attempts: {num}, Elapsed: {stopwatch1.Elapsed}, ConnectionServiceName: {service.ConnectionServiceName}");
                 throw new BandIOException(BandResources.ConnectionAttemptFailed, innerException);
             }
-        }
-
-        public virtual void Disconnect()
-        {
-            if (IsConnected)
-            {
-                isConnected = false;
-                CargoStreamReader cargoReader = this.cargoReader;
-                if (cargoReader != null)
-                {
-                    cargoReader.Dispose();
-                    this.cargoReader = null;
-                }
-                cargoStream = null;
-            }
-            RaiseDisconnectedEvent(new TransportDisconnectedEventArgs(TransportDisconnectedReason.DisconnectCall));
-        }
-
-        public bool IsConnected => isConnected;
-
-        protected void CheckIfDisconnected()
-        {
-            if (!IsConnected)
-                throw new InvalidOperationException("Transport not connected");
-        }
-
-        protected void CheckIfDisposed()
-        {
-            if (disposed)
-                throw new ObjectDisposedException(nameof(BluetoothTransportBase));
-        }
-
-        public void Dispose() => Dispose(true);
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposing || disposed)
-                return;
-            Disconnect();
-            ICargoStream cargoStream = this.cargoStream;
-            if (cargoStream != null)
-            {
-                cargoStream.Dispose();
-                this.cargoStream = null;
-            }
-            disposed = true;
         }
     }
 }

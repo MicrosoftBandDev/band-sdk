@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin.Desktop")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin.Store")]
+[assembly: InternalsVisibleTo("Microsoft.Band.Admin.Maui")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin.Phone")]
 [assembly: InternalsVisibleTo("Microsoft.Band.Admin.Windows")]
 [assembly: InternalsVisibleTo("Microsoft.Health.App.Background")]

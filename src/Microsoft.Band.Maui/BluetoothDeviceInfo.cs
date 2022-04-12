@@ -6,9 +6,13 @@
 
 using System;
 using System.Security;
+#if WINDOWS
 using Windows.Devices.Enumeration;
+#else
+using DeviceInformation = Plugin.BLE.Abstractions.DeviceBase;
+#endif
 
-namespace Microsoft.Band.Windows
+namespace Microsoft.Band
 {
     internal sealed class BluetoothDeviceInfo : IBandInfo
     {

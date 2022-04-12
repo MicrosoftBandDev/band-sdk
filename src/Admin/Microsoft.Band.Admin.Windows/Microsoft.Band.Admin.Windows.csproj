@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{73C22777-50EA-42ED-BAC8-62BB6BFEA266}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">ArmThumb2</Platform>
+    <OutputType>Library</OutputType>
+    <LangVersion>Preview</LangVersion>
+    <AssemblyName>Microsoft.Band.Admin.Phone</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhoneApp</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'ArmThumb2' ">
+    <PlatformTarget>ArmThumb2</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="Microsoft.Band">
+      <HintPath>D:\Documents\REProj\MicrosoftBand\HealthApp.WindowsPhone_1.3.31002.2_ARM\Microsoft.Band.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Band.Admin">
+      <HintPath>D:\Documents\REProj\MicrosoftBand\HealthApp.WindowsPhone_1.3.31002.2_ARM\Microsoft.Band.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Band.Store">
+      <HintPath>D:\Documents\REProj\MicrosoftBand\HealthApp.WindowsPhone_1.3.31002.2_ARM\Microsoft.Band.Store.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions" />
+    <Reference Include="System.Diagnostics.Debug" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Collections" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:\Documents\REProj\MicrosoftBand\HealthApp.WindowsPhone_1.3.31002.2_ARM\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading" />
+    <Reference Include="Google.Protobuf">
+      <HintPath>D:\Documents\REProj\MicrosoftBand\HealthApp.WindowsPhone_1.3.31002.2_ARM\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Windows" />
+    <Reference Include="System.Runtime.Serialization.Primitives" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Primitives" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Text.RegularExpressions" />
+    <Reference Include="Microsoft.Band.Admin.Store">
+      <HintPath>D:\Documents\REProj\MicrosoftBand\HealthApp.WindowsPhone_1.3.31002.2_ARM\Microsoft.Band.Admin.Store.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Globalization" />
+    <Reference Include="System.Runtime.InteropServices" />
+    <Reference Include="System.Runtime.WindowsRuntime" />
+    <Reference Include="Microsoft.Band.Phone">
+      <HintPath>D:\Documents\REProj\MicrosoftBand\HealthApp.WindowsPhone_1.3.31002.2_ARM\Microsoft.Band.Phone.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Microsoft\Band\Admin\AdminBandTileExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\AdminVibrationTypeExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\ApplicationSettingsExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\BandAdminClientManagerBase.cs" />
+    <Compile Include="Microsoft\Band\Admin\BatteryGaugeAlertFlags.cs" />
+    <Compile Include="Microsoft\Band\Admin\BTNotification.cs" />
+    <Compile Include="Microsoft\Band\Admin\ButtonEvent.cs" />
+    <Compile Include="Microsoft\Band\Admin\CargoClient.cs" />
+    <Compile Include="Microsoft\Band\Admin\CargoLocaleSettingsExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\ChangeDeviceSystemSettingsMask.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudApplicationSettings.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudApplicationSettingsExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudDataResource.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudDeviceSettings.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudDeviceSettingsExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudDeviceSettingsFirmwareBytes.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudLocaleSettings.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudLocaleSettingsExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudProfile.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudProfileDeviceLink.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudProfileFirmwareBytes.cs" />
+    <Compile Include="Microsoft\Band\Admin\CloudProvider.cs" />
+    <Compile Include="Microsoft\Band\Admin\CompletionType.cs" />
+    <Compile Include="Microsoft\Band\Admin\Config_PCBPermanent.cs" />
+    <Compile Include="Microsoft\Band\Admin\CortanaContext.cs" />
+    <Compile Include="Microsoft\Band\Admin\CortanaNotificationData.cs" />
+    <Compile Include="Microsoft\Band\Admin\DayClassificationData.cs" />
+    <Compile Include="Microsoft\Band\Admin\DeviceCommandType.cs" />
+    <Compile Include="Microsoft\Band\Admin\DeviceFileSyncTimeInfo.cs" />
+    <Compile Include="Microsoft\Band\Admin\DeviceLinkIds.cs" />
+    <Compile Include="Microsoft\Band\Admin\DeviceSettingsExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\EphemerisCloudVersion.cs" />
+    <Compile Include="Microsoft\Band\Admin\FileIndex.cs" />
+    <Compile Include="Microsoft\Band\Admin\FileUploadStatus.cs" />
+    <Compile Include="Microsoft\Band\Admin\FirmwareAppExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\FirmwareUpdateInfo.cs" />
+    <Compile Include="Microsoft\Band\Admin\FitnessPlanWorkout.cs" />
+    <Compile Include="Microsoft\Band\Admin\FitnessProfile.cs" />
+    <Compile Include="Microsoft\Band\Admin\Gesture.cs" />
+    <Compile Include="Microsoft\Band\Admin\HttpHeader.cs" />
+    <Compile Include="Microsoft\Band\Admin\KdkSyncProgress.cs" />
+    <Compile Include="Microsoft\Band\Admin\KeyboardCmdSample.cs" />
+    <Compile Include="Microsoft\Band\Admin\KeyboardMessageType.cs" />
+    <Compile Include="Microsoft\Band\Admin\LoggerMetadata.cs" />
+    <Compile Include="Microsoft\Band\Admin\LoggerSubscriptionsList.cs" />
+    <Compile Include="Microsoft\Band\Admin\LogSyncResult.cs" />
+    <Compile Include="Microsoft\Band\Admin\LogSyncResultExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\NotificationFlagsExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\Phone\BandAdminClientManager.cs" />
+    <Compile Include="Microsoft\Band\Admin\Phone\PhoneProvider.cs" />
+    <Compile Include="Microsoft\Band\Admin\Phone\SR.cs" />
+    <Compile Include="Microsoft\Band\Admin\Phone\StorageProvider.cs" />
+    <Compile Include="Microsoft\Band\Admin\Phone\WebTileManagerFactory.cs" />
+    <Compile Include="Microsoft\Band\Admin\Phone\WebTiles\ImageProvider.cs" />
+    <Compile Include="Microsoft\Band\Admin\Phone\WindowsRuntimeResourceManager.cs" />
+    <Compile Include="Microsoft\Band\Admin\PushServiceType.cs" />
+    <Compile Include="Microsoft\Band\Admin\Recovery.cs" />
+    <Compile Include="Microsoft\Band\Admin\Severity.cs" />
+    <Compile Include="Microsoft\Band\Admin\SleepClassificationData.cs" />
+    <Compile Include="Microsoft\Band\Admin\TileBarcode.cs" />
+    <Compile Include="Microsoft\Band\Admin\TileDataExtensions.cs" />
+    <Compile Include="Microsoft\Band\Admin\TileElementType.cs" />
+    <Compile Include="Microsoft\Band\Admin\TileIconbox.cs" />
+    <Compile Include="Microsoft\Band\Admin\TilePageElement.cs" />
+    <Compile Include="Microsoft\Band\Admin\TilePageElementFactory.cs" />
+    <Compile Include="Microsoft\Band\Admin\TileTextbox.cs" />
+    <Compile Include="Microsoft\Band\Admin\TileWrappableTextbox.cs" />
+    <Compile Include="Microsoft\Band\Admin\TimeZoneDataCloudVersion.cs" />
+    <Compile Include="Microsoft\Band\Admin\UploadMetaData.cs" />
+    <Compile Include="Microsoft\Band\Admin\UserProfile.cs" />
+    <Compile Include="Microsoft\Band\Admin\UserProfileHeader.cs" />
+    <Compile Include="Microsoft\Band\Admin\VoicePushType.cs" />
+    <Compile Include="Microsoft\Band\Admin\WebTileManager.cs" />
+    <Compile Include="Microsoft\Band\Admin\WebTiles\WebTile.cs" />
+    <Compile Include="Microsoft\Band\Admin\WebTiles\WebTileCacheInfo.cs" />
+    <Compile Include="Microsoft\Band\Admin\WebTiles\WebTileResource.cs" />
+    <Compile Include="Microsoft\Band\Admin\WebTiles\WebTileResourceCacheInfo.cs" />
+    <Compile Include="Microsoft\Band\Admin\WebTiles\WebTileSyncInfo.cs" />
+    <Compile Include="Microsoft\Band\Admin\WindowsDateTime.cs" />
+    <Compile Include="Microsoft\Band\Admin\XmlNamespaceHelper.cs" />
+    <Compile Include="Microsoft\Band\Admin\XmlNamespaceHelperBase.cs" />
+    <Compile Include="Microsoft\Band\Admin\ZipUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
