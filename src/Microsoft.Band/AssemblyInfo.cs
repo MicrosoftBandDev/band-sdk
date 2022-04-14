@@ -86,3 +86,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.3.20517.1")]
 
 [assembly: InternalsVisibleTo("Microsoft.Band.Maui")]
+[assembly: InternalsVisibleTo("Microsoft.Band.Uno")]
