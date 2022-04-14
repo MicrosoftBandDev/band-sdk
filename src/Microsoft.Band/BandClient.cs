@@ -1196,6 +1196,11 @@ namespace Microsoft.Band
         protected int ProcessSensorSubscriptionPayload(ICargoReader reader)
         {
             RemoteSubscriptionSampleHeader sampleHeader = RemoteSubscriptionSampleHeader.DeserializeFromBand(reader);
+            return ProcessSensorSubscriptionPayload(reader, sampleHeader);
+        }
+
+        protected int ProcessSensorSubscriptionPayload(ICargoReader reader, RemoteSubscriptionSampleHeader sampleHeader)
+        {
             switch (sampleHeader.SubscriptionType)
             {
                 case SubscriptionType.Accelerometer32MS:

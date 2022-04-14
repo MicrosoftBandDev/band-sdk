@@ -2823,19 +2823,6 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         return base.SubscribedSensorTypes.Contains((byte)subscriptionType);
     }
 
-    protected override void StartOrAwakeStreamingSubscriptionTasks()
-    {
-        if (base.StreamingTask == null)
-        {
-            base.StreamingTaskCancel = new CancellationTokenSource();
-            Logger.Log(LogLevel.Info, "Starting the streaming task...");
-            base.StreamingTask = Task.Run(delegate
-            {
-                StreamBandData(null, base.StreamingTaskCancel.Token);
-            });
-        }
-    }
-
     protected override void StopStreamingSubscriptionTasks()
     {
         if (base.StreamingTask != null)
@@ -4344,9 +4331,11 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
                 LogEntryUpdatedEventArgs.DeserializeFromBand(reader);
             }
             break;
+
         default:
-            reader.ReadExactAndDiscard(sampleHeader.SampleSize);
-            break;
+                //reader.ReadExactAndDiscard(sampleHeader.SampleSize);
+                ProcessSensorSubscriptionPayload(reader, sampleHeader);
+                break;
         }
     }
 
