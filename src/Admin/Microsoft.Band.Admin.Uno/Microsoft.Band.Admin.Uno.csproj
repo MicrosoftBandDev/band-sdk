@@ -8,6 +8,7 @@
         <TargetFrameworks>uap10.0.18362;netstandard2.0;net6.0-ios;net6.0-maccatalyst;net6.0-android</TargetFrameworks>
         <!-- Ensures the .xr.xml files are generated in a proper layout folder -->
         <GenerateLibraryLayout>true</GenerateLibraryLayout>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
         <LangVersion>latest</LangVersion>
         <AssemblyName>Microsoft.Band.Admin.Uno</AssemblyName>

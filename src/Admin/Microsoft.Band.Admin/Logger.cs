@@ -13,7 +13,7 @@ namespace Microsoft.Band.Admin
 {
     public class Logger
     {
-        private static TraceListenerBase traceListenerInternal;
+        private static TraceListenerBase traceListenerInternal = new();
 
         private Logger()
         {
@@ -29,9 +29,11 @@ namespace Microsoft.Band.Admin
             }
             else
             {
+#if !DEBUG
                 if (level == LogLevel.Verbose)
                     return;
-                int length = args.Length;
+#endif
+                
             }
         }
 

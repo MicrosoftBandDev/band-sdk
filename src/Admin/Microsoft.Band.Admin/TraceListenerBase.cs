@@ -6,13 +6,20 @@
 
 using System;
 using System.Collections.Generic;
+#if DEBUG
+using SysLogger = System.Diagnostics.Debug;
+#else
+using SysLogger = System.Console;
+#endif
 
 namespace Microsoft.Band.Admin
 {
-    public abstract class TraceListenerBase
+    public class TraceListenerBase
     {
         public virtual void Log(LogLevel level, string message, params object[] args)
         {
+            SysLogger.WriteLine($"[{level}]" + Environment.NewLine +
+                FormatAndIndent(message, args));
         }
 
         public virtual void LogException(
@@ -21,6 +28,8 @@ namespace Microsoft.Band.Admin
           string message,
           params object[] args)
         {
+            SysLogger.WriteLine($"[{level}]  Exception thrown:" + Environment.NewLine +
+                FormatAndIndent(e.ToString()));
         }
 
         public virtual void PerfStart(string eventName)
@@ -48,6 +57,15 @@ namespace Microsoft.Band.Admin
           IDictionary<string, double> metrics)
         {
             return (ICancellableTransaction)null;
+        }
+
+        private static string FormatAndIndent(string message, params object[] args)
+        {
+            if (args != null)
+                message = string.Format(message, args);
+            string output = "\t" + message;
+
+            return output.Replace(Environment.NewLine, Environment.NewLine + "\t");
         }
     }
 }
