@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
+<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
     <!--
     Adding project references to this project requires some manual adjustments.
     Please see https://github.com/unoplatform/uno/issues/3909 for more details.
@@ -8,26 +8,24 @@
         <TargetFrameworks>uap10.0.18362;netstandard2.0;net6.0-ios;net6.0-maccatalyst;net6.0-android</TargetFrameworks>
         <!-- Ensures the .xr.xml files are generated in a proper layout folder -->
         <GenerateLibraryLayout>true</GenerateLibraryLayout>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
         <LangVersion>latest</LangVersion>
-        <AssemblyName>Microsoft.Band.Uno</AssemblyName>
-        <RootNamespace>Microsoft.Band</RootNamespace>
+        <AssemblyName>Microsoft.Band.Admin.Uno</AssemblyName>
+        <RootNamespace>Microsoft.Band.Admin</RootNamespace>
         <ApplicationVersion>1.4.0.0</ApplicationVersion>
     </PropertyGroup>
-
+    
     <ItemGroup>
-        <ProjectReference Include="..\Microsoft.Band\Microsoft.Band.csproj" />
-
-		<PackageReference Include="Uno.UI" Version="4.1.9" />
-        <PackageReference Include="SixLabors.ImageSharp" Version="2.1.0" />
-        <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta13" />
+        <ProjectReference Include="..\Microsoft.Band.Admin\Microsoft.Band.Admin.csproj" />
+        <ProjectReference Include="..\..\Microsoft.Band.Uno\Microsoft.Band.Uno.csproj" />
+        
+        <PackageReference Include="Uno.UI" Version="4.1.9" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
-
+    
     <ItemGroup>
         <UpToDateCheckInput Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
         <Page Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
-        <PackageReference Include="SixLabors.ImageSharp" Version="2.1.0" />
         <Compile Update="**\*.xaml.cs">
             <DependentUpon>%(Filename)</DependentUpon>
         </Compile>
@@ -37,4 +35,5 @@
     <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or $(TargetFramework.StartsWith('uap')) ">
         <PackageReference Include="IndexRange" Version="1.0.1" />
     </ItemGroup>
+    
 </Project>

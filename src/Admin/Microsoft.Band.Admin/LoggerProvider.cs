@@ -13,7 +13,7 @@ namespace Microsoft.Band.Admin
 {
     internal class LoggerProvider : ILoggerProvider
     {
-        public void Log(ProviderLogLevel level, string message, object[] args, [CallerMemberName] string callerName = null) => Logger.Log(level.ToLogLevel(), message, args);
+        public void Log(ProviderLogLevel level, string message, object[] args = null, [CallerMemberName] string callerName = null) => Logger.Log(level.ToLogLevel(), message, args);
 
         public void LogException(ProviderLogLevel level, Exception e, [CallerMemberName] string callerName = null) => Logger.LogException(level.ToLogLevel(), e);
 
@@ -23,7 +23,7 @@ namespace Microsoft.Band.Admin
           ProviderLogLevel level,
           Exception e,
           string message,
-          object[] args,
+          object[] args = null,
           [CallerMemberName] string callerName = null)
         {
             Logger.LogException(level.ToLogLevel(), e, message, args);
