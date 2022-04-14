@@ -12,7 +12,7 @@ namespace Microsoft.Band
 {
     public static class BandIconExtensions
     {
-        public static BandIcon BandIconFromMauiImage(this ImageSource source)
+        public static BandIcon ToBandIcon(this ImageSource source)
         {
             SLImage agnosticImage = null;
             if (source is BitmapImage bitmap)
