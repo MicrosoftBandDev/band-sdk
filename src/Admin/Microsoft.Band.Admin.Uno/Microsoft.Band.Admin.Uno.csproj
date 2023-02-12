@@ -20,7 +20,7 @@
         <ProjectReference Include="..\Microsoft.Band.Admin\Microsoft.Band.Admin.csproj" />
         <ProjectReference Include="..\..\Microsoft.Band.Uno\Microsoft.Band.Uno.csproj" />
         
-        <PackageReference Include="Uno.UI" Version="4.1.9" />
+        <PackageReference Include="Uno.UI" Version="4.7.37" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
     

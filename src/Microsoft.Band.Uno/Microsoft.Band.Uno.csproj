@@ -19,7 +19,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Microsoft.Band\Microsoft.Band.csproj" />
 
-		<PackageReference Include="Uno.UI" Version="4.1.9" />
+		<PackageReference Include="Uno.UI" Version="4.7.37" />
         <PackageReference Include="SixLabors.ImageSharp" Version="2.1.0" />
         <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta13" />
     </ItemGroup>
