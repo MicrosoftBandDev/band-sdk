@@ -166,7 +166,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
             throw new ArgumentException("deviceInfo");
         }
         CargoClient cargoClient = null;
-        IDeviceTransport deviceTransport = BluetoothTransport.Create(deviceInfo, new LoggerProvider(), 2);
+        IDeviceTransport deviceTransport = BluetoothTransport.Create(deviceInfo, new LoggerProvider(), MaximumBluetoothRetryConnectRestricted);
         try
         {
             cargoClient = new CargoClient(deviceTransport, StoreApplicationPlatformProvider.Current);
@@ -1145,7 +1145,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         VerifyLocalEphemerisFile(cancellationToken, progress, forceUpdate);
         progress.AddStepsCompleted(1);
         cancellationToken.ThrowIfCancellationRequested();
-        string relativePath = Path.Combine(new string[2] { "Ephemeris", "EphemerisUpdate.bin" });
+        string relativePath = Path.Combine(new string[2] { EphemerisFolder, EphemerisFileName });
         using (Stream ephemerisData = storageProvider.OpenFileForRead(relativePath))
         {
             UpdateDeviceEphemerisData(ephemerisData, (int)storageProvider.GetFileSize(relativePath));
@@ -1161,21 +1161,21 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         {
             return false;
         }
-        double num = (gpsEphemerisCoverageDatesFromDevice.EndDate.Value - gpsEphemerisCoverageDatesFromDevice.StartDate.Value).TotalSeconds * 0.5;
+        double num = (gpsEphemerisCoverageDatesFromDevice.EndDate.Value - gpsEphemerisCoverageDatesFromDevice.StartDate.Value).TotalSeconds * UsableEphemerisFileEffectiveRangeThreshold;
         return (DateTime.UtcNow - gpsEphemerisCoverageDatesFromDevice.StartDate.Value).TotalSeconds <= num;
     }
 
     private void VerifyLocalEphemerisFile(CancellationToken cancellationToken, ProgressTrackerPrimitiveBase progress, bool forceUpdate)
     {
-        string text = string.Format("{0}.temp", new object[1] { "EphemerisVersion.json" });
-        string text2 = string.Format("{0}.temp", new object[1] { "EphemerisUpdate.bin" });
-        string relativePath = Path.Combine(new string[2] { "Ephemeris", "EphemerisVersion.json" });
-        string relativePath2 = Path.Combine(new string[2] { "Ephemeris", "EphemerisUpdate.bin" });
-        string text3 = Path.Combine(new string[2] { "Ephemeris", text });
-        string text4 = Path.Combine(new string[2] { "Ephemeris", text2 });
+        string text = string.Format("{0}.temp", new object[1] { EphemerisVersionFileName });
+        string text2 = string.Format("{0}.temp", new object[1] { EphemerisFileName });
+        string relativePath = Path.Combine(new string[2] { EphemerisFolder, EphemerisVersionFileName });
+        string relativePath2 = Path.Combine(new string[2] { EphemerisFolder, EphemerisFileName });
+        string text3 = Path.Combine(new string[2] { EphemerisFolder, text });
+        string text4 = Path.Combine(new string[2] { EphemerisFolder, text2 });
         EphemerisCloudVersion ephemerisCloudVersion = null;
         bool flag = false;
-        storageProvider.CreateFolder("Ephemeris");
+        storageProvider.CreateFolder(EphemerisFolder);
         if (!forceUpdate && storageProvider.FileExists(relativePath))
         {
             try
@@ -1186,8 +1186,8 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
             catch
             {
             }
-            flag = storageProvider.FileExists(Path.Combine(new string[2] { "Ephemeris", "EphemerisUpdate.bin" }));
-            if (flag && ephemerisCloudVersion != null && ephemerisCloudVersion.LastFileUpdatedTime.HasValue && ephemerisCloudVersion.LastFileUpdatedTime >= DateTime.UtcNow.AddHours(-12.0))
+            flag = storageProvider.FileExists(Path.Combine(new string[2] { EphemerisFolder, EphemerisFileName }));
+            if (flag && ephemerisCloudVersion != null && ephemerisCloudVersion.LastFileUpdatedTime.HasValue && ephemerisCloudVersion.LastFileUpdatedTime >= DateTime.UtcNow.AddHours(-MaxEphemerisFileAgeInHours))
             {
                 return;
             }
@@ -1234,8 +1234,8 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         storageProvider.DeleteFile(relativePath2);
         try
         {
-            storageProvider.RenameFile(text4, "Ephemeris", "EphemerisUpdate.bin");
-            storageProvider.RenameFile(text3, "Ephemeris", "EphemerisVersion.json");
+            storageProvider.RenameFile(text4, EphemerisFolder, EphemerisFileName);
+            storageProvider.RenameFile(text3, EphemerisFolder, EphemerisVersionFileName);
         }
         catch (Exception innerException3)
         {
@@ -1308,7 +1308,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
             progress.TimeZoneProgress.AddStepsTotal(3);
         }
         TimeZoneDataCloudVersion timeZoneDataCloudVersion = null;
-        string relativePath = Path.Combine(new string[2] { "TimeZoneData", "TimeZoneData.json" });
+        string relativePath = Path.Combine(new string[2] { TimeZoneDataFolder, TimeZoneDataVersionFile });
         if (!forceUpdate && GetTimeZonesDataVersionFromDevice() == 0)
         {
             forceUpdate = true;
@@ -1379,9 +1379,9 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
             stopwatch.Reset();
             stopwatch.Start();
             Stream stream = null;
-            string relativePath2 = Path.Combine(new string[2] { "TimeZoneData", "TimeZoneUpdate.bin" });
-            string text = Path.Combine(new string[2] { "TimeZoneData", "TimeZoneUpdateTemp.bin" });
-            storageProvider.CreateFolder("TimeZoneData");
+            string relativePath2 = Path.Combine(new string[2] { TimeZoneDataFolder, TimeZoneUpdateFile });
+            string text = Path.Combine(new string[2] { TimeZoneDataFolder, TimeZoneUpdateTempFile });
+            storageProvider.CreateFolder(TimeZoneDataFolder);
             if (storageProvider.FileExists(text))
             {
                 storageProvider.DeleteFile(text);
@@ -1408,7 +1408,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
                 Logger.LogException(LogLevel.Error, ex4);
                 throw ex4;
             }
-            storageProvider.RenameFile(text, "TimeZoneData", "TimeZoneUpdate.bin");
+            storageProvider.RenameFile(text, TimeZoneDataFolder, TimeZoneUpdateFile);
             stopwatch.Stop();
             Logger.Log(LogLevel.Info, "Time to get Time Zone Data: {0}", stopwatch.Elapsed);
             progress?.TimeZoneProgress.AddStepsCompleted(1);
@@ -1466,7 +1466,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         progress.AddStepsTotal(2);
         bool flag = true;
         string text = fileIndex.ToString();
-        if (storageProvider.DirectoryExists(text) && storageProvider.GetFiles(text).Length >= 20)
+        if (storageProvider.DirectoryExists(text) && storageProvider.GetFiles(text).Length >= MAX_ALLOWED_NUMBER_OF_DATA_FILES_IN_FOLDER)
         {
             flag = false;
         }
@@ -1511,7 +1511,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
                 Logger.LogException(LogLevel.Warning, ex);
                 throw ex;
             }
-            zero = TimeSpan.FromHours(168.0);
+            zero = TimeSpan.FromHours(NUM_HOURS_BETWEEN_DEVICE_INSTRUMENTATION_FILE_DOWNLOADS);
             DateTime? lastDeviceFileDownloadAttemptTime = localDeviceFileSyncTimeInfo.LastDeviceFileDownloadAttemptTime;
             if (lastDeviceFileDownloadAttemptTime.HasValue)
             {
@@ -1569,7 +1569,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
             throw ex;
         }
         }
-        string text2 = Path.Combine(new string[2] { text, "DeviceFileSyncTimeInfo.json" });
+        string text2 = Path.Combine(new string[2] { text, DEVICE_FILE_SYNC_INFO_LOCAL_FILE });
         DeviceFileSyncTimeInfo localDeviceFileSyncTimeInfo = null;
         if (checkVersionFileBeforeDownload)
         {
@@ -1588,7 +1588,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         {
             Logger.Log(LogLevel.Info, "Device file download starting: File Index: {0}, Size: {1}", fileIndex, num3);
             storageProvider.CreateFolder(text);
-            string format = string.Format("{{0}}-{{1:{0}}}.bin", new object[1] { "yyyyMMddHHmmssfff" });
+            string format = string.Format("{{0}}-{{1:{0}}}.bin", new object[1] { TIMESTAMP_FORMAT_STRING_YEAR_TO_MILLISECOND });
             string relativePath = Path.Combine(new string[2]
             {
                 text,
@@ -1637,7 +1637,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         string[] files = storageProvider.GetFiles(text);
         foreach (string text2 in files)
         {
-            if (!text2.Equals("DeviceFileSyncTimeInfo.json"))
+            if (!text2.Equals(DEVICE_FILE_SYNC_INFO_LOCAL_FILE))
             {
                 string text3 = text + "\\" + text2;
                 if (UploadFileToCloud(text3, index, cancellationToken))
@@ -3118,9 +3118,9 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
     internal void ClearCache()
     {
         CheckIfDisposed();
-        storageProvider.DeleteFolder("Ephemeris");
-        storageProvider.DeleteFolder("TimeZoneData");
-        storageProvider.DeleteFolder("FirmwareUpdate");
+        storageProvider.DeleteFolder(EphemerisFolder);
+        storageProvider.DeleteFolder(TimeZoneDataFolder);
+        storageProvider.DeleteFolder(FirmwareUpdateFolder);
     }
 
     public void StartCortana()
@@ -3381,7 +3381,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         int num2 = 0;
         int num3 = 0;
         UploadMetaData uploadMetadata = GetUploadMetadata();
-        uploadMetadata.DeviceMetadataHint = "band";
+        uploadMetadata.DeviceMetadataHint = DeviceMetadataHint_Band;
         int num4 = num + 1;
         Stopwatch stopwatch = new Stopwatch();
         Stopwatch uploadWatch = new Stopwatch();
@@ -3417,7 +3417,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
                 break;
             }
             Logger.Log(LogLevel.Info, "Downloading log chunk range: ID's {0} - {1}, Chunks: {2}, Bytes: {3}", rangeMetadata.StartingSeqNumber, rangeMetadata.EndingSeqNumber, num8, rangeMetadata.ByteCount);
-            string uploadId = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff");
+            string uploadId = DateTime.UtcNow.ToString(TIMESTAMP_FORMAT_STRING_YEAR_TO_MILLISECOND);
             uploadMetadata.StartSequenceId = (int)rangeMetadata.StartingSeqNumber;
             uploadMetadata.EndSequenceId = (int)rangeMetadata.EndingSeqNumber;
             MemoryPipeStream transferPipe = new MemoryPipeStream((int)rangeMetadata.ByteCount, progress, loggerProvider);
@@ -3823,9 +3823,9 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
 
     private void DownloadFirmwareUpdateInternal(FirmwareUpdateInfo updateInfo, CancellationToken cancellationToken, FirmwareUpdateOverallProgress progressTracker)
     {
-        string firmwareUpdateVersionFileRelativePath = Path.Combine(new string[2] { "FirmwareUpdate", "FirmwareUpdate.json" });
-        string relativePath = Path.Combine(new string[2] { "FirmwareUpdate", "FirmwareUpdate.bin" });
-        string text = Path.Combine(new string[2] { "FirmwareUpdate", "FirmwareUpdateTemp.bin" });
+        string firmwareUpdateVersionFileRelativePath = Path.Combine(new string[2] { FirmwareUpdateFolder, FirmwareUpdateVersionFile });
+        string relativePath = Path.Combine(new string[2] { FirmwareUpdateFolder, FirmwareUpdateFile });
+        string text = Path.Combine(new string[2] { FirmwareUpdateFolder, FirmwareUpdateTempFile });
         FirmwareUpdateInfo firmwareUpdateVersionFromLocalFile = GetFirmwareUpdateVersionFromLocalFile(firmwareUpdateVersionFileRelativePath);
         if (firmwareUpdateVersionFromLocalFile != null && firmwareUpdateVersionFromLocalFile.FirmwareVersion.Equals(updateInfo.FirmwareVersion) && storageProvider.FileExists(relativePath))
         {
@@ -3844,7 +3844,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         {
             storageProvider.DeleteFile(text);
         }
-        storageProvider.CreateFolder("FirmwareUpdate");
+        storageProvider.CreateFolder(FirmwareUpdateFolder);
         Stream stream = null;
         try
         {
@@ -3901,7 +3901,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
             Logger.LogException(LogLevel.Error, ex3);
             throw ex3;
         }
-        storageProvider.RenameFile(text, "FirmwareUpdate", "FirmwareUpdate.bin");
+        storageProvider.RenameFile(text, FirmwareUpdateFolder, FirmwareUpdateFile);
         SaveFirmwareUpdateVersionFileLocally(firmwareUpdateVersionFileRelativePath, updateInfo);
         Logger.Log(LogLevel.Info, "Firmware update file downloaded successfully");
         progressTracker.DownloadFirmwareProgress.Complete();
@@ -3953,7 +3953,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         bool result = false;
         Logger.Log(LogLevel.Info, "Verified that the firmware update is valid for the device");
         cancellationToken.ThrowIfCancellationRequested();
-        string text = Path.Combine(new string[2] { "FirmwareUpdate", "FirmwareUpdate.bin" });
+        string text = Path.Combine(new string[2] { FirmwareUpdateFolder, FirmwareUpdateFile });
         if (storageProvider.FileExists(text))
         {
             int.Parse(updateInfo.SizeInBytes);
@@ -4344,7 +4344,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         using Stream fileStream = storageProvider.OpenFileForRead(relativeFilePath, -1);
         string uploadId = string.Format("{0}-{1}", new object[2]
         {
-            storageProvider.GetFileCreationTimeUtc(relativeFilePath).ToString("yyyyMMddHHmmssfff"),
+            storageProvider.GetFileCreationTimeUtc(relativeFilePath).ToString(TIMESTAMP_FORMAT_STRING_YEAR_TO_MILLISECOND),
             (int)fileIndex
         });
         return UploadFileToCloud(fileStream, fileIndex, uploadId, cancellationToken);
@@ -4392,7 +4392,7 @@ internal sealed class CargoClient : BandClient, ICargoClient, IBandClient, IDisp
         }
         if (fileType == LogFileTypes.Sensor)
         {
-            uploadMetaData.DeviceMetadataHint = "band";
+            uploadMetaData.DeviceMetadataHint = DeviceMetadataHint_Band;
         }
         uploadMetaData.CompressionAlgorithm = compressionAlgorithm;
         PopulateUploadMetadata(uploadMetaData);
